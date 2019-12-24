@@ -1,29 +1,50 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+  <v-app>
+    <classic-challenge
+        :operators="operators"
+        :difficulty="difficulty"
+        :challengeTypes="challengeTypes"
+    />
+  </v-app>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+<script>
+  import ClassicChallenge from "./components/ClassicChallenge";
+  import {Operator} from "@/engine/math_questions/expression/models";
+  import {Difficulty, ChallengeType} from "@/engine/models/math_question";
 
-@Component({
-  components: {
-    HelloWorld,
-  },
-})
-export default class App extends Vue {}
+  export default {
+    name: "App",
+    components: {
+      ClassicChallenge
+    },
+    data() {
+      return {
+        operators: [
+          Operator.Addition,
+          Operator.Subtraction,
+          Operator.Mutliplication
+        ],
+        difficulty: Difficulty.Normal,
+        challengeTypes: [ChallengeType.Expression]
+      };
+    }
+  };
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
 </style>
+
