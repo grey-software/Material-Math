@@ -143,4 +143,9 @@
   .check-button {
     grid-column: 1 / -1;
   }
+
+  .v-btn {
+    margin-bottom: 4px;
+    margin-right: 4px;
+  }
 </style>

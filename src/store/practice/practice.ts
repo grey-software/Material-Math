@@ -1,9 +1,9 @@
-import {ActionTree, GetterTree, Module, MutationTree} from 'vuex'
-import {RootState} from '../index'
-import {ChallengeModel, ChallengeType, Difficulty} from '@/engine/models/math_question'
-import {generateExpressionChallenge} from '@/engine/math_questions/expression'
-import {Operator} from '@/engine/math_questions/expression/models'
-import math from 'mathjs'
+import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
+import { RootState } from '../index'
+import { ChallengeModel, ChallengeType, Difficulty } from '@/engine/models/math_question'
+import { generateExpressionChallenge } from '@/engine/math_questions/expression'
+import { Operator } from '@/engine/math_questions/expression/models'
+import { evaluate } from 'mathjs'
 
 export interface PracticeOptions {
   difficulty: Difficulty
@@ -73,7 +73,7 @@ const mutations: MutationTree<PracticeState> = {
 }
 
 const newQuestion = (difficulty: Difficulty, operators: Operator[]) => {
-  return generateExpressionChallenge({difficulty, operators})
+  return generateExpressionChallenge({ difficulty, operators })
 }
 
 const actions: ActionTree<PracticeState, any> = {
@@ -82,15 +82,17 @@ const actions: ActionTree<PracticeState, any> = {
   },
   newQuestion(context) {
     context.commit(
-        PracticeMutations.SET_QUESTION,
-        newQuestion(context.state.difficulty, context.state.operators),
+      PracticeMutations.SET_QUESTION,
+      newQuestion(context.state.difficulty, context.state.operators),
     )
   },
   setAnswer(context, answer: string) {
     context.commit(PracticeMutations.SET_ANSWER, answer)
   },
   checkAnswer(context) {
-    if (math.evaluate(`${context.state.answer} == ${context.state.question.infix}`)) {
+    console.log(context.state.answer)
+    console.log(context.state.question.infix)
+    if (evaluate(`${context.state.answer} == ${context.state.question.infix}`)) {
       context.dispatch(PracticeActions.ON_CORRECT)
     } else {
       context.dispatch(PracticeActions.ON_INCORRECT)
