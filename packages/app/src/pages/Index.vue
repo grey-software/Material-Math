@@ -9,14 +9,14 @@
 </template>
 
 <script lang="ts">
-import ClassicChallenge from '../components/ClassicChallenge.vue'
-import { Operator } from '../engine/math_questions/expression/models'
-import { Difficulty, ChallengeType } from '../engine/models/math_question'
+import ClassicChallenge from "../components/ClassicChallenge.vue";
+import { Operator } from "../engine/math_questions/expression/models";
+import { Difficulty, ChallengeType } from "../engine/models/math_question";
 
 export default {
-  name: 'PageIndex',
+  name: "PageIndex",
   components: { ClassicChallenge },
-  data () {
+  data() {
     return {
       operators: [
         Operator.Addition,
@@ -25,7 +25,7 @@ export default {
       ],
       difficulty: Difficulty.Normal,
       challengeTypes: [ChallengeType.Expression]
-    }
+    };
   }
-}
+};
 </script>

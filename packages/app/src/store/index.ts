@@ -1,6 +1,6 @@
 import { store } from 'quasar/wrappers'
 import Vuex from 'vuex'
-import { PracticeModule } from '../store/practice/practice'
+import { PracticeModule } from './practice/practice'
 
 /*
  * If not building with SSR mode, you can
