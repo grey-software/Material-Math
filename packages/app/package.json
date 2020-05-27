@@ -9,6 +9,7 @@
   "private": true,
   "scripts": {
     "start": "quasar dev",
+    "build": "quasar build",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
