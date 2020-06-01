@@ -1,31 +1,25 @@
-<template>
-  <q-page class="row items-center justify-evenly">
-    <classic-challenge
-      :operators="operators"
-      :difficulty="difficulty"
-      :challengeTypes="challengeTypes"
-    />
-  </q-page>
+<template xmlns="http://www.w3.org/1999/html">
+    <div class="absolute-center">
+      <q-btn @click="startPracticeSession" color="secondary" icon-right="send" rounded label="Get Started!" />
+    </div>
 </template>
 
-<script lang="ts">
-import ClassicChallenge from "../components/ClassicChallenge.vue";
-import { Operator } from "../engine/math_questions/expression/models";
-import { Difficulty, ChallengeType } from "../engine/models/math_question";
+<script>
+    export default {
+        name: "Index.vue",
+        data: function (){
+          return {
 
-export default {
-  name: "PageIndex",
-  components: { ClassicChallenge },
-  data() {
-    return {
-      operators: [
-        Operator.Addition,
-        Operator.Subtraction,
-        Operator.Mutliplication
-      ],
-      difficulty: Difficulty.Normal,
-      challengeTypes: [ChallengeType.Expression]
-    };
-  }
-};
+          };
+        },
+        methods: {
+            startPracticeSession($event) {
+                this.$router.push({path: '/configure-practice-sessions'});
+            }
+        }
+    }
 </script>
+
+<style scoped>
+
+</style>

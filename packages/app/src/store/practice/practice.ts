@@ -69,6 +69,12 @@ const mutations: MutationTree<PracticeState> = {
   },
   setShowingFeedback (state: PracticeState, isShowingFeedback: boolean) {
     state.showingFeedback = isShowingFeedback
+  },
+  setOperatorEnabled (state: PracticeState, operator: Operator){
+      state.operators.push(operator);
+  },
+  setOperatorDisabled (state: PracticeState, operator: Operator){
+      state.operators = state.operators.filter(op => op !== operator)  
   }
 }
 
@@ -122,7 +128,7 @@ export const PracticeModule: Module<PracticeState, RootState> = {
   state: {
     question: {} as ChallengeModel,
     difficulty: Difficulty.Normal,
-    operators: [],
+    operators: [Operator.Addition, Operator.Subtraction],
     challengeTypes: [],
     answer: '',
     streak: 0,

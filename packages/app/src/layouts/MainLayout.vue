@@ -29,11 +29,11 @@
           <q-toolbar-title
             shrink
             class="text-weight-bold"
+            @click="goHome"
           >
             Material Math
           </q-toolbar-title>
         </q-btn>
-
         <q-space />
 
         <q-space />
@@ -63,6 +63,11 @@ import MaterialMathIcon from '../components/MaterialMathIcon'
 
 export default {
   name: 'MyLayout',
+  methods: {
+    goHome() {
+      this.$router.push("/");
+    }
+  },
   components: {
     MaterialMathIcon
   }

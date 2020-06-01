@@ -3,7 +3,7 @@ import { Difficulty } from '../../models/math_question'
 export enum Operator {
   Addition = 'Addition',
   Subtraction = 'Subtraction',
-  Mutliplication = 'Mutliplication',
+  Multiplication = 'Multiplication',
 }
 
 export interface Expr {
