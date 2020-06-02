@@ -71,7 +71,7 @@ const mutations: MutationTree<PracticeState> = {
     state.showingFeedback = isShowingFeedback
   },
   setOperatorEnabled (state: PracticeState, operator: Operator){
-      state.operators.push(operator);
+      state.operators.push(operator)
   },
   setOperatorDisabled (state: PracticeState, operator: Operator){
       state.operators = state.operators.filter(op => op !== operator)  

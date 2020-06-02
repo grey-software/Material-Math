@@ -242,7 +242,7 @@ export const getMultiplicationExprTokens = (expr: Expr): ExprToken[] => {
   const tokens: ExprToken[] = []
   tokens.push({
     type: TokenType.Operator,
-    value: Operator.Mutliplication
+    value: Operator.Multiplication
   })
   if (isBounded(expr) && expr.bound === 0) {
     return tokens.concat(_getZeroBoundTokens(expr))

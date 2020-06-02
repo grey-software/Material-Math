@@ -19,7 +19,7 @@ const getInfixTemplate = (op: Operator, left: string, right: string): string => 
     case Operator.Subtraction: {
       return `(${left}-${right})`
     }
-    case Operator.Mutliplication: {
+    case Operator.Multiplication: {
       return `(${left}*${right})`
     }
   }
@@ -38,7 +38,7 @@ const getLatexTemplate = (
     case Operator.Subtraction: {
       return `(${left}-${parenthesizeNegative(right)})`
     }
-    case Operator.Mutliplication: {
+    case Operator.Multiplication: {
       return `(${left}\\times${parenthesizeNegative(right)})`
     }
   }

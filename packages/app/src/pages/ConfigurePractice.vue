@@ -2,9 +2,12 @@
   <div>
     <div class="body-style">
       <div style="text-align: center;">
-        <h2>Pick Categories</h2>
+        <h2>Configure You Practice Session</h2>
       </div>
-      <div class="horizontal-grid">
+      <div style="margin-left: 15px">
+        <p>Which concepts would you like to practice?</p>
+      </div>
+      <div class="wrap">
           <span
             v-for="concept in concepts"
             :key="concept.operator"
@@ -71,9 +74,5 @@
     padding-top: 30px;
     padding-left: 10em;
     padding-right: 10em;
-  }
-  .horizontal-grid {
-    position: relative;
-    display: table-row;
   }
 </style>

@@ -2,47 +2,50 @@
   <q-chip :selected.sync="enabled" color="primary" text-color="white" icon="add">
         {{operator}}
   </q-chip>
-
 </template>
 
 <script lang="ts">
 import { Operator } from "../engine/math_questions/expression/models";
 import { mapMutations, mapState } from 'vuex';
-    
-    export default {
-        // TODO: Fix bug in type contract for operator
-        props: ["operator", "imgSrc"],
-        data: function () {
-          return {
-            clickAttached: false,
-            enabled: false
-          };
-        },
-        beforeMount () {
-          console.log(this.operators)
-          console.log(this.operator)
-          this.enabled = this.operators.includes(this.operator)
-        },
-        watch: {
-          enabled(enable) {
-            if (enable){
-              this.setOperatorEnabled(enable);
-            }else {
-              this.setOperatorDisabled(enable);
-            }
-          }
-        },
-        computed: {
-          ...mapState([
-      "operators",
-    ])
-        },
-          methods: {
-    ...mapMutations([
-      'setOperatorEnabled', 'setOperatorDisabled'
-    ])
-  },
-    }
+
+export default {
+    props: {
+      "operator": {
+        type: String,
+        required: true
+      },
+      "imgSrc": String
+      },
+    data: function () {
+      return {
+        clickAttached: false,
+        enabled: false
+      };
+    },
+    beforeMount () {
+      console.log(this.operators)
+      this.enabled = this.operators.includes(this.operator)
+    },
+    watch: {
+      enabled(enable) {
+        if (enable){
+          this.setOperatorEnabled(this.operator);
+        }else {
+          this.setOperatorDisabled(this.operator);
+        }
+      }
+    },
+    computed: {
+      ...mapState([
+        "operators",
+      ])
+    },
+      methods: {
+      ...mapMutations([
+        'setOperatorEnabled', 'setOperatorDisabled'
+      ])
+    },
+  }
 </script>
 
 <style scoped>
