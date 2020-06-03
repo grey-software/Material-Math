@@ -2,7 +2,7 @@
   <div>
     <div class="body-style">
       <div style="text-align: center;">
-        <h2>Configure You Practice Session</h2>
+        <h2>Configure Your Practice Session</h2>
       </div>
       <div style="margin-left: 15px">
         <p>Which concepts would you like to practice?</p>
