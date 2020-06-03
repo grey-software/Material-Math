@@ -35,17 +35,11 @@ export default Vue.extend({
     difficulty: String
   },
   mounted() {
-    this.initializePractice({
-      operators: this.operators,
-      difficulty: this.difficulty,
-      challengeTypes: this.challengeTypes
-    } as PracticeOptions);
     this.newQuestion();
   },
   methods: {
     ...mapActions({
       newQuestion: PracticeActions.NEW_QUESTION,
-      initializePractice: PracticeActions.INIT
     }),
     myProperty(): boolean {
       // <- Here

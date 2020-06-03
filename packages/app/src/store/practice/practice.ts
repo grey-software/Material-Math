@@ -15,6 +15,7 @@ export enum PracticeGetters {
   QUESTION_LATEX = 'questionLatex',
   ANSWER = 'answer',
   STREAK = 'streak',
+  OPERATORS = 'operators'
 }
 
 export enum PracticeActions {
@@ -49,7 +50,8 @@ export interface PracticeState {
 const getters: GetterTree<PracticeState, any> = {
   questionLatex: (state) => state.question.latex,
   answer: (state) => state.answer,
-  streak: (state) => state.streak
+  streak: (state) => state.streak,
+  operators: (state) => state.operators
 }
 
 const mutations: MutationTree<PracticeState> = {

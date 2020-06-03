@@ -6,7 +6,9 @@
 
 <script lang="ts">
 import { Operator } from "../engine/math_questions/expression/models";
-import { mapMutations, mapState } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
+import { PracticeGetters } from '../store/practice/practice'
+
 
 export default {
     props: {
@@ -22,7 +24,7 @@ export default {
         enabled: false
       };
     },
-    beforeMount () {
+    mounted () {
       console.log(this.operators)
       this.enabled = this.operators.includes(this.operator)
     },
@@ -36,9 +38,7 @@ export default {
       }
     },
     computed: {
-      ...mapState([
-        "operators",
-      ])
+       ...mapGetters({ operators: PracticeGetters.OPERATORS })
     },
       methods: {
       ...mapMutations([
