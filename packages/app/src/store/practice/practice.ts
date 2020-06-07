@@ -15,7 +15,8 @@ export enum PracticeGetters {
   QUESTION_LATEX = 'questionLatex',
   ANSWER = 'answer',
   STREAK = 'streak',
-  OPERATORS = 'operators'
+  OPERATORS = 'operators',
+  DIFFICULTY = 'difficulty'
 }
 
 export enum PracticeActions {
@@ -25,6 +26,7 @@ export enum PracticeActions {
   CHECK_ANSWER = 'checkAnswer',
   ON_CORRECT = 'onCorrect',
   ON_INCORRECT = 'onIncorrect',
+  SET_DIFFICULTY = 'setDifficulty'
 }
 
 enum PracticeMutations {
@@ -33,6 +35,7 @@ enum PracticeMutations {
   SET_ANSWER = 'setAnswer',
   SET_STREAK = 'setStreak',
   SET_SHOWING_FEEDBACK = 'setShowingFeedback',
+  SET_DIFFICULTY = 'setDifficulty'
 }
 
 export interface PracticeState {
@@ -51,7 +54,8 @@ const getters: GetterTree<PracticeState, any> = {
   questionLatex: (state) => state.question.latex,
   answer: (state) => state.answer,
   streak: (state) => state.streak,
-  operators: (state) => state.operators
+  operators: (state) => state.operators,
+  difficulty: (state) => state.difficulty
 }
 
 const mutations: MutationTree<PracticeState> = {
@@ -77,6 +81,9 @@ const mutations: MutationTree<PracticeState> = {
   },
   setOperatorDisabled (state: PracticeState, operator: Operator){
       state.operators = state.operators.filter(op => op !== operator)  
+  },
+  setDifficulty (state: PracticeState, difficulty: Difficulty){
+      state.difficulty = difficulty;
   }
 }
 
@@ -123,6 +130,9 @@ const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
     setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 350)
+  },
+  setDifficulty (context, difficulty){
+    context.commit(PracticeMutations.SET_DIFFICULTY, difficulty)
   }
 }
 

@@ -4,7 +4,7 @@
       <div style="text-align: center;">
         <h2>Configure Your Practice Session</h2>
       </div>
-      <div style="margin-left: 15px">
+      <div style="subheading-margin">
         <p>Which concepts would you like to practice?</p>
       </div>
       <div class="wrap">
@@ -18,6 +18,10 @@
           ></concept-picker-item>
             </span>
       </div>
+      <div style="subheading-margin">
+        <p>Set Difficulty</p>
+      </div>
+      <select-difficulty />
       <div style="margin-top: 30px">
         <q-btn
           rounded
@@ -34,6 +38,7 @@
 
 <script>
   import ConceptPickerItem from "../components/ConceptPickerItem.vue";
+  import SelectDifficulty from "../components/SelectDifficulty.vue"
   import { Operator } from "../engine/math_questions/expression/models";
 
 
@@ -63,7 +68,8 @@
             }
         },
         components: {
-          ConceptPickerItem: ConceptPickerItem
+          ConceptPickerItem: ConceptPickerItem,
+          SelectDifficulty: SelectDifficulty
         },
 
     }
@@ -74,5 +80,8 @@
     padding-top: 30px;
     padding-left: 10em;
     padding-right: 10em;
+  }
+  .subheading-margin{
+    margin-left: 15px;
   }
 </style>
