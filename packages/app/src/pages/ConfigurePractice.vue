@@ -18,10 +18,24 @@
           ></concept-picker-item>
             </span>
       </div>
-      <div style="subheading-margin">
+      <div>
         <p>Set Difficulty</p>
       </div>
       <select-difficulty />
+      <div style="margin-top:10px;">
+      <p>Choose Mode</p>
+      </div>
+      <div class="container centered-container" justify-around style="margin-top: 20px;">
+        <div style="max-width:140px;" class="container column-container centered-container">
+        <q-btn round size="40px" color="primary" icon="alarm" />
+        <p style="text-align:center;">How long would you like to play for?</p>
+        </div>
+        <h3>OR</h3>
+        <div style="max-width:140px;" class="container column-container centered-container">
+        <q-btn round size="40px" color="primary" icon="help_outline" />
+        <p style="text-align:center;">How many question would you like to play?</p>
+        </div>
+      </div>
       <div style="margin-top: 30px">
         <q-btn
           rounded
@@ -76,12 +90,23 @@
 </script>
 
 <style scoped>
-  .body-style{
+  .body-style {
     padding-top: 30px;
     padding-left: 10em;
     padding-right: 10em;
   }
-  .subheading-margin{
-    margin-left: 15px;
+  .container {
+    display: flex;
+  }
+  .centered-container {
+    justify-content: space-around;
+    align-items: center;
+  }
+  .column-container {
+    flex-direction: column;
+  }
+  h3 {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
   }
 </style>
