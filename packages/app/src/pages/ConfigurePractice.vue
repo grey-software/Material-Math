@@ -4,6 +4,7 @@
       <div style="text-align: center;">
         <h2>Configure Your Practice Session</h2>
       </div>
+      <!-- Select Concepts  -->
       <div style="subheading-margin">
         <p>Which concepts would you like to practice?</p>
       </div>
@@ -18,14 +19,16 @@
           ></concept-picker-item>
             </span>
       </div>
-      <div>
-        <p>Set Difficulty</p>
-      </div>
-      <select-difficulty />
+      <!-- Select Mode -->
       <div style="margin-top:10px;">
       <p>Choose Mode</p>
       </div>
       <mode-selector />
+      <!-- Select Difficulty -->
+      <div style="margin-top: 10px;">
+        <p>Set Difficulty</p>
+      </div>
+      <select-difficulty />
       <div style="margin-top: 30px">
         <q-btn
           rounded
