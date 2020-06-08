@@ -17,7 +17,7 @@
             <p>How long would you like to practice for?</p>
             <q-btn-dropdown rounded label="Select Time">
                 <q-list>
-                    <q-item v-for="time in timingOptions" :key="time" clickable v-close-popup @click="onItemClick">
+                    <q-item v-for="time in timingOptions" :key="time" clickable v-close-popup>
                     <q-item-section>
                         <q-item-label>{{time}} minutes</q-item-label>
                     </q-item-section>
@@ -29,7 +29,7 @@
           <p>How many questions would you like to practice</p>
           <q-btn-dropdown rounded label="Select Questions">
                 <q-list>
-                    <q-item v-for="question in questionOptions" :key="question" clickable v-close-popup @click="onItemClick">
+                    <q-item v-for="question in questionOptions" :key="question" clickable v-close-popup>
                     <q-item-section>
                         <q-item-label>{{question}} questions</q-item-label>
                     </q-item-section>
