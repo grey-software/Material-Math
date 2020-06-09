@@ -13,6 +13,11 @@ export enum Difficulty {
   Advanced = 'advanced',
 }
 
+export enum PracticeMode {
+  QUESTIONS = 'questions',
+  TIME = 'time'
+}
+
 export interface ChallengeModel {
   type: ChallengeType;
   difficulty: Difficulty;
