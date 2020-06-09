@@ -34,16 +34,16 @@
 </template>
 
 <script lang='ts'>
-import { Difficulty } from "../engine/math_questions/expression/models";
+import { Difficulty } from "../engine/models/math_question";
 import { mapGetters, mapActions } from 'vuex'
 import { PracticeGetters, PracticeActions } from '../store/practice/practice';
 
     export default {
         data: function() {
             return {
-                isEasy: false,
-                isMedium: false,
-                isHard: false,
+                // isEasy: false,
+                // isMedium: false,
+                // isHard: false,
             };
         },
         mounted(){
@@ -55,20 +55,20 @@ import { PracticeGetters, PracticeActions } from '../store/practice/practice';
                 this.isEasy = true;
         },
         computed: {
-            ...mapGetters({ difficulty : PracticeGetters.DIFFICULTY })
+            ...mapGetters({ difficulty : PracticeGetters.DIFFICULTY }),
+            isEasy() {
+                return this.difficulty === Difficulty.Basic;
+            },
+            isMedium() {
+                return this.difficulty === Difficulty.Normal;
+            },
+            isHard() {
+                return this.difficulty === Difficulty.Advanced;
+            }
         },
         methods: {
             ...mapActions({setDifficulty: PracticeActions.SET_DIFFICULTY}),
             setDifficultyandColor(difficulty){
-                this.isEasy = false;
-                this.isMedium = false;
-                this.isHard = false;
-                if(difficulty === 'advanced') 
-                    this.isHard = true;
-                else if (difficulty === 'normal')
-                    this.isMedium = true;
-                else
-                    this.isEasy = true;
                 this.setDifficulty(difficulty);
             }
         }
