@@ -39,21 +39,6 @@ import { mapGetters, mapActions } from 'vuex'
 import { PracticeGetters, PracticeActions } from '../store/practice/practice';
 
     export default {
-        data: function() {
-            return {
-                // isEasy: false,
-                // isMedium: false,
-                // isHard: false,
-            };
-        },
-        mounted(){
-            if(this.difficulty === 'advanced') 
-                this.isHard = true;
-            else if (this.difficulty === 'normal')
-                this.isMedium = true;
-            else
-                this.isEasy = true;
-        },
         computed: {
             ...mapGetters({ difficulty : PracticeGetters.DIFFICULTY }),
             isEasy() {

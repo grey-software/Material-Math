@@ -60,10 +60,10 @@ import { PracticeActions, PracticeGetters } from "../store/practice/practice";
                 this.setPracticeMode(PracticeMode.QUESTIONS);
 
             },
-            setQuestionCount(question){
-                this.setPracticeQuestionCount(question);
+            setQuestionCount(questionCount: number){
+                this.setPracticeQuestionCount(questionCount);
             },
-            setTime(time){
+            setTime(time: number){
                 this.setPracticeTime(time * 60);
             },
             ...mapMutations({
@@ -71,20 +71,6 @@ import { PracticeActions, PracticeGetters } from "../store/practice/practice";
                 setPracticeMode: PracticeActions.SET_PRACTICE_MODE,
                 setPracticeTime: PracticeActions.SET_PRACTICE_TIME
             })
-        },
-        watch: {
-            timed(istimed) {
-                this.setPracticeMode(PracticeMode.TIME);
-            },
-            questioned(isQuestions) {
-                this.setPracticeMode(PracticeMode.QUESTIONS);
-            }
-        },
-        mounted() {
-            if(this.practiceMode == PracticeMode.TIME)
-                this.istimed = true
-            else
-                this.isQuestions = true
         },
         computed: {
             isQuestionsMode(){

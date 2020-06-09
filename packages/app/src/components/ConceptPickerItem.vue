@@ -16,8 +16,7 @@ export default {
         type: String,
         required: true
       },
-      "imgSrc": String
-      },
+    },
     data: function () {
       return {
         clickAttached: false,
@@ -25,16 +24,15 @@ export default {
       };
     },
     mounted () {
-      console.log(this.operators)
       this.enabled = this.operators.includes(this.operator)
     },
     watch: {
       enabled(enable) {
-        if (enable){
+        if(! this.operators.includes(this.operator) && enable){
           this.setOperatorEnabled(this.operator);
-        }else {
+        }else if (! enable) {
           this.setOperatorDisabled(this.operator);
-        }
+        } 
       }
     },
     computed: {

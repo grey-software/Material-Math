@@ -57,15 +57,12 @@
             concepts: {
               "Addition": {
                 operator: Operator.Addition,
-                imgSrc: "statics/icons/concepts/add.png"
               },
               "Subtraction": {
                 operator: Operator.Subtraction,
-                imgSrc: "statics/icons/concepts/add.png"
               },
               "Multiplication": {
                 operator: Operator.Multiplication,
-                imgSrc: "statics/icons/concepts/add.png"
               }
             }
           }
