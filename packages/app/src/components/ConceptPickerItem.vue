@@ -1,5 +1,5 @@
 <template>
-  <q-chip :selected.sync="enabled" color="primary" text-color="white" icon="add">
+  <q-chip :selected.sync="enabled" :color="enabled ? 'primary' : 'grey'" text-color="white" icon="add">
         {{operator}}
   </q-chip>
 </template>

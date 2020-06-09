@@ -20,16 +20,16 @@
             </span>
       </div>
       <!-- Select Mode -->
-      <div style="margin-top:10px;">
+      <div style="margin-top:50px;">
       <p>Choose Mode</p>
       </div>
       <mode-selector />
       <!-- Select Difficulty -->
-      <div style="margin-top: 10px;">
+      <div style="margin-top: 50px;">
         <p>Set Difficulty</p>
       </div>
       <select-difficulty />
-      <div style="margin-top: 30px">
+      <div style="margin-top: 40px">
         <q-btn
           rounded
           color="primary"
