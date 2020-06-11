@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "target": "esnext",
+    "outDir": "build/module",
+    "module": "esnext",
+    "skipLibCheck": true
+  },
+  "exclude": ["./node_modules/**"]
+}
