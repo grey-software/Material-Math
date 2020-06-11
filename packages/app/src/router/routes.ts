@@ -4,10 +4,10 @@ const routes: RouteConfig[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [ { path: '', component: () => import('pages/Index.vue') },
+    children: [ 
+                { path: '', component: () => import('pages/ConfigurePractice.vue') },
                 { path: 'practice', component: () => import('pages/PracticeSession.vue') },
-                { path: 'configure-practice-sessions', component: () => import('pages/ConfigurePractice.vue') }
-                ]
+              ]
   }
 ];
 
