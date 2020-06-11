@@ -798,9 +798,15 @@
   integrity sha512-27BfE8zASRLYfSBNMk5/+KIjr2CBBrH0i5lhsO04fca4TGirIIMay73v3zNkzqmsaeIa/Mi5kejWDcxPLAmkvA==
 
 "@types/mathjs@^6.0.2":
+<<<<<<< HEAD:packages/vue/yarn.lock
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/@types/mathjs/-/mathjs-6.0.5.tgz#c3ddcb6e283461e12a93943a5aca0588d1071c18"
+  integrity sha512-TqC+u57/XMwMoJB9KnvCj7sBoOBwLLS+O4kmBxy0cjkToPbKZt0jm0eYR2dbMKqvr/39ZdnoJ2qnK37qD0bp1A==
+=======
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/@types/mathjs/-/mathjs-6.0.4.tgz#0adf7335b27a5385e0dd4f766e0c53931c5c2375"
   integrity sha512-hIxf6lfCuUbsI/iz5cevHQjKvSS+XIGPwUyYZ4GjUPrUCh9egUhLlK0d7V31jtSt1WGt6dlclnlYMNOov9JZAA==
+>>>>>>> master:yarn.lock
   dependencies:
     decimal.js "^10.0.0"
 
@@ -1288,9 +1294,15 @@ alphanum-sort@^1.0.0:
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
 animejs@^3.1.0:
+<<<<<<< HEAD:packages/vue/yarn.lock
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.2.0.tgz#2daea7365983249022cc454fa726acdb4a84345d"
+  integrity sha512-zhtGl5cS0G2f5DfciMO8uwWpnx06nfFnHlXYYXHBazHep1Lyd6kEtBQP+9hpYKE0dBZjIigHp9VpMO95ZfXQJQ==
+=======
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.1.0.tgz#748a90fc1d4bef3efed64508af9a6a82babf5c47"
   integrity sha512-BjnCroPPQPEAngT0M89pz9TBcOGgOFLnVoq3+jV2upl4rn60k57/AXvESTnuILsNgOEjGuhMEOMp7IlQzk40kA==
+>>>>>>> master:yarn.lock
 
 ansi-colors@^3.0.0:
   version "3.2.4"
@@ -4822,9 +4834,15 @@ math-expression-evaluator@^1.2.17:
   integrity sha512-L0j0tFVZBQQLeEjmWOvDLoRciIY8gQGWahvkztXUal8jH8R5Rlqo9GCvgqvXcy9LQhEWdQCVvzqAbxgYNt4blQ==
 
 mathjs@^6.2.5:
+<<<<<<< HEAD:packages/vue/yarn.lock
+  version "6.6.4"
+  resolved "https://registry.yarnpkg.com/mathjs/-/mathjs-6.6.4.tgz#f3217dc17eec9e7ebb7a3b2966c06a6061197ae7"
+  integrity sha512-fvmP89ujJbDAC8ths7FZh7PWdA71dfA5WJVAzJbQhSDCHK1aBk8WRf1XcTw51ERs+sKx9nYBGsRshqmb/oe8Ag==
+=======
   version "6.6.1"
   resolved "https://registry.yarnpkg.com/mathjs/-/mathjs-6.6.1.tgz#46675c9e97b8cb8cf9a66402b1360a6996abf103"
   integrity sha512-RCFCYkf1IV3u0DAeqj2Rqqwyi302kFxHoYbfp/Bxm6kUg0ALYH7YT0bYzsO8qgCLv9RS3bWMZnAgUbLgiDjLcw==
+>>>>>>> master:yarn.lock
   dependencies:
     complex.js "^2.0.11"
     decimal.js "^10.2.0"
