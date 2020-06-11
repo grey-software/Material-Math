@@ -80,7 +80,7 @@
         filled
         v-model="selectedQuestionCount"
         :options="questionOptions"
-        label="Choose Question "
+        label="Choose Question"
         style="width: 250px"
       />
       <!-- <q-btn-dropdown rounded label="Select Questions">
@@ -104,20 +104,21 @@ import { PracticeActions, PracticeGetters } from "../store/practice/practice";
 export default {
   data() {
     return {
-      selectedQuestionCount: 0,
+      selectedQuestionCount: 10,
       selectedTime: 1,
       timeOptions: [
-            { label: "1 minute", value: 1 }, 
-            { label: "3 minutes", value: 3 }, 
-            { label: "5 minutes", value: 5 }, 
-            { label: "8 minutes", value: 8 }, 
-            { label: "10 minutes", value: 10 }],
+          { label: "1 minute", value: 1 }, 
+          { label: "3 minutes", value: 3 }, 
+          { label: "5 minutes", value: 5 }, 
+          { label: "8 minutes", value: 8 }, 
+          { label: "10 minutes", value: 10 }
+          ],
       questionOptions: [
-            { label: "10 minute", value: 10 }, 
-            { label: "20 minutes", value: 20 }, 
-            { label: "25 minutes", value: 25 }, 
-            { label: "50 minutes", value: 50 }, 
-            { label: "100 minutes", value: 100 }
+          { label: "10 minute", value: 10 }, 
+          { label: "20 minutes", value: 20 }, 
+          { label: "25 minutes", value: 25 }, 
+          { label: "50 minutes", value: 50 }, 
+          { label: "100 minutes", value: 100 }
         ]
     };
   },
@@ -127,10 +128,10 @@ export default {
   },
   methods: {
     setTimedMode() {
-      this.setPracticeMode.dispatch(PracticeMode.TIME);
+      this.setPracticeMode(PracticeMode.TIME);
     },
     setQuestionsMode() {
-      this.setPracticeMode.dispatch(PracticeMode.QUESTIONS);
+      this.setPracticeMode(PracticeMode.QUESTIONS);
     },
     ...mapActions({
       setPracticeQuestionCount: PracticeActions.SET_PRACTICE_QUESTION_COUNT,
@@ -153,10 +154,16 @@ export default {
   },
   watch: {
     selectedQuestionCount(newValue) {
-      this.setPracticeQuestionCount(newValue.value);
+      if (typeof newValue.value !== 'undefined')
+        this.setPracticeQuestionCount(newValue.value);
+      else
+        this.setPracticeQuestionCount(newValue)
     },
     selectedTime(newValue) {
-      this.setPracticeTime(newValue.value * 60);
+      if (typeof newValue.value !== 'undefined')
+        this.setPracticeTime(newValue.value * 60);
+      else
+        this.setPracticeTime(newValue * 60);
     }
   }
 };
