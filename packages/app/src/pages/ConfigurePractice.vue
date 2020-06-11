@@ -9,21 +9,23 @@
         <p>Which concepts would you like to practice?</p>
       </div>
       <div class="wrap">
-          <span
-            v-for="concept in concepts"
-            :key="concept.operator"
-          >
+        <span
+          v-for="concept in concepts"
+          :key="concept.operator"
+        >
           <concept-picker-item
             :operator="concept.operator"
             :img-src="concept.imgSrc"
           ></concept-picker-item>
-            </span>
+        </span>
       </div>
       <!-- Select Mode -->
       <div style="margin-top:50px;">
-      <p>Choose Mode</p>
+        <p>Question Count: {{practiceQuestionCount}} Time: {{practiceTime}} </p>
+        <p>Choose Mode</p>
       </div>
       <mode-selector />
+
       <!-- Select Difficulty -->
       <div style="margin-top: 50px;">
         <p>Set Difficulty</p>
@@ -44,47 +46,53 @@
 </template>
 
 <script>
-  import ConceptPickerItem from "../components/ConceptPickerItem.vue";
-  import SelectDifficulty from "../components/SelectDifficulty.vue";
-  import ModeSelector from "../components/ModeSelector.vue"
-  import { Operator } from "../engine/math_questions/expression/models";
+import ConceptPickerItem from "../components/ConceptPickerItem.vue";
+import SelectDifficulty from "../components/SelectDifficulty.vue";
+import ModeSelector from "../components/ModeSelector.vue"
+import { Operator } from "../engine/math_questions/expression/models";
+import { mapGetters } from 'vuex';
 
 
-    export default {
-        name: "ConfigurePractice",
-        data: function () {
-          return {
-            concepts: {
-              "Addition": {
-                operator: Operator.Addition,
-              },
-              "Subtraction": {
-                operator: Operator.Subtraction,
-              },
-              "Multiplication": {
-                operator: Operator.Multiplication,
-              }
-            }
-          }
+export default {
+  name: "ConfigurePractice",
+  data: function () {
+    return {
+      concepts: {
+        "Addition": {
+          operator: Operator.Addition,
         },
-        methods: {
-            getToPracticeSession($event){
-                this.$router.push("/practice");
-            }
+        "Subtraction": {
+          operator: Operator.Subtraction,
         },
-        components: {
-          ConceptPickerItem: ConceptPickerItem,
-          SelectDifficulty: SelectDifficulty,
-          ModeSelector: ModeSelector
-        },
-
+        "Multiplication": {
+          operator: Operator.Multiplication,
+        }
+      }
     }
+  },
+  methods: {
+    getToPracticeSession ($event) {
+      this.$router.push("/practice");
+    }
+  },
+  components: {
+    ConceptPickerItem: ConceptPickerItem,
+    SelectDifficulty: SelectDifficulty,
+    ModeSelector: ModeSelector
+  },
+  computed: {
+    ...mapGetters([
+      'practiceTime', 'practiceQuestionCount',
+    ])
+  },
+
+}
 </script>
 
 <style scoped>
-  .body-style {
-    padding-top: 30px;
-    padding-left: 10em;
-    padding-right: 10em;
-  }
+.body-style {
+  padding-top: 30px;
+  padding-left: 10em;
+  padding-right: 10em;
+}
 </style>

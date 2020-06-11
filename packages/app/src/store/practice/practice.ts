@@ -168,7 +168,7 @@ const actions: ActionTree<PracticeState, any> = {
   },
   setPracticeTime (context, time: number){
     context.commit(PracticeMutations.SET_PRACTICE_TIME, time)
-  }
+  },
 }
 
 export const PracticeModule: Module<PracticeState, RootState> = {
