@@ -8,7 +8,7 @@
   "author": "software.grey@protonmail.com",
   "private": true,
   "scripts": {
-    "start": "quasar dev",
+    "dev": "quasar dev",
     "build": "quasar build",
     "test": "echo \"No test specified\" && exit 0"
   },
