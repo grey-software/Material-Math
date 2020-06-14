@@ -43,7 +43,7 @@ const getExprTokens = (expr: Expr | BoundedExpr): ExprToken[] => {
     case Operator.Subtraction: {
       return getSubtractionExprTokens(expr)
     }
-    case Operator.Mutliplication: {
+    case Operator.Multiplication: {
       return getMultiplicationExprTokens(expr)
     }
   }
