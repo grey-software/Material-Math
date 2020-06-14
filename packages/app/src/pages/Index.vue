@@ -21,7 +21,7 @@ export default {
       operators: [
         Operator.Addition,
         Operator.Subtraction,
-        Operator.Mutliplication
+        Operator.Multiplication
       ],
       difficulty: Difficulty.Normal,
       challengeTypes: [ChallengeType.Expression]
