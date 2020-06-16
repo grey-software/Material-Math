@@ -11,6 +11,7 @@
 import { Operator } from "../engine/math_questions/expression/models";
 import { mapMutations, mapGetters } from "vuex";
 import { PracticeGetters } from "../store/practice/practice";
+
 export default {
   props: {
     operator: {

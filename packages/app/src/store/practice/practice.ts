@@ -16,6 +16,7 @@ export enum PracticeGetters {
   ANSWER = 'answer',
   STREAK = 'streak',
   OPERATORS = 'operators',
+  DIFFICULTY = 'difficulty'
 }
 
 export enum PracticeActions {
@@ -50,7 +51,9 @@ export interface PracticeState {
 const getters: GetterTree<PracticeState, any> = {
   questionLatex: (state) => state.question.latex,
   answer: (state) => state.answer,
-  streak: (state) => state.streak
+  streak: (state) => state.streak,
+  operators: (state) => state.operators,
+  difficulty: (state) => state.difficulty
 }
 
 const mutations: MutationTree<PracticeState> = {
@@ -129,7 +132,7 @@ export const PracticeModule: Module<PracticeState, RootState> = {
   state: {
     question: {} as ChallengeModel,
     difficulty: Difficulty.Normal,
-    operators: [],
+    operators: [Operator.Addition, Operator.Subtraction],
     challengeTypes: [],
     answer: '',
     streak: 0,

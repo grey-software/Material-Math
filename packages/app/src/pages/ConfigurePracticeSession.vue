@@ -8,18 +8,21 @@
       <p>Which concepts would you like to practice?</p>
     </div>
     <div class="wrap">
-      <h2
+      <span
           v-for="concept in concepts"
           :key="concept.operator"
-        > {{ concept.operator }} </h2>
-      <!-- <concept-picker-item v-for="concept in concepts" :key="concept" :operator="concept" /> -->
+        >
+          <concept-picker-item
+            :operator="concept.operator"
+          ></concept-picker-item>
+        </span>
     </div>
     <!-- Select Mode -->
     <div style="subheading-margin">
       <p>Choose Mode</p>
     </div>
     <!-- Select Difficulty -->
-    <div style="ubheading-margin">
+    <div style="subheading-margin">
       <p>Set Difficulty</p>
     </div>
     <div style="margin-top: 40px">
@@ -37,6 +40,7 @@
 
 <script>
 import ConceptPickerItem from "../components/ConceptPickerItem.vue";
+import { Operator } from "../engine/math_questions/expression/models";
 
 export default {
   data: function() {
