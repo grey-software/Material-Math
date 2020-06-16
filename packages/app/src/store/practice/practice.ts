@@ -15,6 +15,7 @@ export enum PracticeGetters {
   QUESTION_LATEX = 'questionLatex',
   ANSWER = 'answer',
   STREAK = 'streak',
+  OPERATORS = 'operators',
 }
 
 export enum PracticeActions {
@@ -53,23 +54,29 @@ const getters: GetterTree<PracticeState, any> = {
 }
 
 const mutations: MutationTree<PracticeState> = {
-  setQuestion (state: PracticeState, question: ChallengeModel) {
+  setQuestion(state: PracticeState, question: ChallengeModel) {
     state.question = Object.assign({}, question)
   },
-  setAnswer (state: PracticeState, answer: string) {
+  setAnswer(state: PracticeState, answer: string) {
     state.answer = answer
   },
-  setStreak (state: PracticeState, streak: number) {
+  setStreak(state: PracticeState, streak: number) {
     state.streak = streak
   },
-  setPracticeOptions (state: PracticeState, options: PracticeOptions) {
+  setPracticeOptions(state: PracticeState, options: PracticeOptions) {
     state.operators = options.operators
     state.challengeTypes = options.challengeTypes
     state.difficulty = options.difficulty
   },
-  setShowingFeedback (state: PracticeState, isShowingFeedback: boolean) {
+  setShowingFeedback(state: PracticeState, isShowingFeedback: boolean) {
     state.showingFeedback = isShowingFeedback
-  }
+  },
+  setOperatorEnabled(state: PracticeState, operator: Operator) {
+    state.operators.push(operator)
+  },
+  setOperatorDisabled(state: PracticeState, operator: Operator) {
+    state.operators = state.operators.filter(op => op !== operator)
+  },
 }
 
 const newQuestion = (difficulty: Difficulty, operators: Operator[]) => {
@@ -77,19 +84,19 @@ const newQuestion = (difficulty: Difficulty, operators: Operator[]) => {
 }
 
 const actions: ActionTree<PracticeState, any> = {
-  init (context, options: PracticeActions) {
+  init(context, options: PracticeActions) {
     context.commit(PracticeMutations.SET_PRACTICE_OPTIONS, options)
   },
-  newQuestion (context) {
+  newQuestion(context) {
     context.commit(
       PracticeMutations.SET_QUESTION,
       newQuestion(context.state.difficulty, context.state.operators)
     )
   },
-  setAnswer (context, answer: string) {
+  setAnswer(context, answer: string) {
     context.commit(PracticeMutations.SET_ANSWER, answer)
   },
-  checkAnswer (context) {
+  checkAnswer(context) {
     console.log(context.state.answer)
     console.log(context.state.question.infix)
     if (evaluate(`${context.state.answer} == ${context.state.question.infix}`)) {
@@ -103,14 +110,14 @@ const actions: ActionTree<PracticeState, any> = {
  On a correct or incorrect answer, we clear the answer, increment/reset the streak, and set the state of the
  practice session to be in 'Showing Feedback' mode which includes animations or encouragement prompts
  */
-  onCorrect (context) {
+  onCorrect(context) {
     context.commit(PracticeMutations.SET_STREAK, context.state.streak + 1)
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.dispatch(PracticeActions.NEW_QUESTION)
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
     setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 350)
   },
-  onIncorrect (context) {
+  onIncorrect(context) {
     context.commit(PracticeMutations.SET_STREAK, 0)
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)

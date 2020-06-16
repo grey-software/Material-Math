@@ -7,6 +7,13 @@
     <div style="subheading-margin">
       <p>Which concepts would you like to practice?</p>
     </div>
+    <div class="wrap">
+      <h2
+          v-for="concept in concepts"
+          :key="concept.operator"
+        > {{ concept.operator }} </h2>
+      <!-- <concept-picker-item v-for="concept in concepts" :key="concept" :operator="concept" /> -->
+    </div>
     <!-- Select Mode -->
     <div style="subheading-margin">
       <p>Choose Mode</p>
@@ -29,11 +36,31 @@
 </template>
 
 <script>
+import ConceptPickerItem from "../components/ConceptPickerItem.vue";
+
 export default {
+  data: function() {
+    return {
+      concepts: {
+        "Addition": {
+          operator: Operator.Addition,
+        },
+        "Subtraction": {
+          operator: Operator.Subtraction,
+        },
+        "Multiplication": {
+          operator: Operator.Multiplication,
+        }
+      }
+    }
+  },
   methods: {
     getToPracticeSession($event) {
       this.$router.push("/");
     }
+  },
+  components: {
+    ConceptPickerItem: ConceptPickerItem
   }
 };
 </script>
