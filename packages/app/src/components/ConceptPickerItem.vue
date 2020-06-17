@@ -49,27 +49,4 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  border-color: darkgrey;
-  border-radius: 16px;
-  width: 72px;
-  height: 72x;
-  margin-left: 20px;
-  margin-top: 20px;
-  box-shadow: 2px 2px 4px grey;
-}
-.not-clicked:hover {
-  background: #d3d3d3;
-}
-.clicked {
-  background: #21ba45;
-}
-.clicked:hover {
-  background: #22cf4b;
-}
-.img-style {
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-}
 </style>
