@@ -26,14 +26,16 @@ export default {
     };
   },
   mounted() {
-    this.enabled = this.operators.includes(this.operator);
+    const app: any = this
+    app.enabled = app.operators.includes(app.operator);
   },
   watch: {
-    enabled(enable) {
-      if (!this.operators.includes(this.operator) && enable) {
-        this.setOperatorEnabled(this.operator);
+    enabled(enable: boolean) {
+      const app: any = this
+      if (!app.operators.includes(app.operator) && enable) {
+        app.setOperatorEnabled(app.operator);
       } else if (!enable) {
-        this.setOperatorDisabled(this.operator);
+        app.setOperatorDisabled(app.operator);
       }
     }
   },
