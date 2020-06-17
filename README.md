@@ -3,8 +3,10 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ec96054f-9705-4ecb-bdce-f12b42b3e7fc/deploy-status)](https://app.netlify.com/sites/material-math/deploys)
 
-Material Math allows you to practice math problems in a fun, beautiful, material experience!
+Material Math brings unlimited mental math practice in a fun, beautiful interface to the web!
 
-### This project is under active development
+### The spiritual successor to Boltz
 
-You can get insight into our dev roadmap by checking out our [User Journey](./UserJourney.md) and our [MVP Features](./MvpFeatures.md) 
+Material Math is the spiritual successor to Boltz, a mental math app for Android. Grey software is building off of Boltz's great work, and bringing Boltz's principles of unlimited fun math practice, interleaved concepts, and spaced repition to the web! 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ceACiAdXSDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
