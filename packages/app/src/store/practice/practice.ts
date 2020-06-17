@@ -1,6 +1,6 @@
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { RootState } from '../index'
-import { ChallengeModel, ChallengeType, Difficulty } from '../../engine/models/math_question'
+import { ChallengeModel, ChallengeType, Difficulty, PracticeMode } from '../../engine/models/math_question'
 import { generateExpressionChallenge } from '../../engine/math_questions/expression'
 import { Operator } from '../../engine/math_questions/expression/models'
 import { evaluate } from 'mathjs'
@@ -16,7 +16,10 @@ export enum PracticeGetters {
   ANSWER = 'answer',
   STREAK = 'streak',
   OPERATORS = 'operators',
-  DIFFICULTY = 'difficulty'
+  DIFFICULTY = 'difficulty',
+  PRACTICE_MODE = 'practiceMode',
+  PRACTICE_QUESTION_COUNT = 'practiceQuestionCount',
+  PRACTICE_TIME = 'practiceTime'
 }
 
 export enum PracticeActions {
@@ -26,6 +29,9 @@ export enum PracticeActions {
   CHECK_ANSWER = 'checkAnswer',
   ON_CORRECT = 'onCorrect',
   ON_INCORRECT = 'onIncorrect',
+  SET_PRACTICE_MODE = 'setPracticeMode',
+  SET_PRACTICE_QUESTION_COUNT = 'setPracticeQuestionCount',
+  SET_PRACTICE_TIME = 'setPracticeTime'
 }
 
 enum PracticeMutations {
@@ -34,6 +40,9 @@ enum PracticeMutations {
   SET_ANSWER = 'setAnswer',
   SET_STREAK = 'setStreak',
   SET_SHOWING_FEEDBACK = 'setShowingFeedback',
+  SET_PRACTICE_MODE = 'setPracticeMode',
+  SET_PRACTICE_QUESTION_COUNT = 'setPracticeQuestionCount',
+  SET_PRACTICE_TIME = 'setPracticeTime'
 }
 
 export interface PracticeState {
@@ -46,6 +55,13 @@ export interface PracticeState {
 
   // We show feedback when the user enters a correct or incorrect answer
   showingFeedback: boolean;
+
+  // We show feedback when the user enters a correct or incorrect answer
+  practiceMode: PracticeMode;
+  practiceQuestionCount: number;
+
+  // Practice session's time in seconds
+  practiceTime: number;
 }
 
 const getters: GetterTree<PracticeState, any> = {
@@ -53,7 +69,10 @@ const getters: GetterTree<PracticeState, any> = {
   answer: (state) => state.answer,
   streak: (state) => state.streak,
   operators: (state) => state.operators,
-  difficulty: (state) => state.difficulty
+  difficulty: (state) => state.difficulty,
+  practiceMode: (state) => state.practiceMode,
+  practiceQuestionCount: (state) => state.practiceQuestionCount,
+  practiceTime: (state) => state.practiceTime
 }
 
 const mutations: MutationTree<PracticeState> = {
@@ -80,6 +99,15 @@ const mutations: MutationTree<PracticeState> = {
   setOperatorDisabled(state: PracticeState, operator: Operator) {
     state.operators = state.operators.filter(op => op !== operator)
   },
+  setPracticeMode(state: PracticeState, mode: PracticeMode) {
+    state.practiceMode = mode;
+  },
+  setPracticeQuestionCount(state: PracticeState, questionCount: number) {
+    state.practiceQuestionCount = questionCount;
+  },
+  setPracticeTime(state: PracticeState, time: number) {
+    state.practiceTime = time;
+  }
 }
 
 const newQuestion = (difficulty: Difficulty, operators: Operator[]) => {
@@ -125,7 +153,16 @@ const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
     setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 350)
-  }
+  },
+  setPracticeMode(context, mode: PracticeMode) {
+    context.commit(PracticeMutations.SET_PRACTICE_MODE, mode)
+  },
+  setPracticeQuestionCount(context, questionCount: number) {
+    context.commit(PracticeMutations.SET_PRACTICE_QUESTION_COUNT, questionCount)
+  },
+  setPracticeTime(context, time: number) {
+    context.commit(PracticeMutations.SET_PRACTICE_TIME, time)
+  },
 }
 
 export const PracticeModule: Module<PracticeState, RootState> = {
@@ -136,7 +173,10 @@ export const PracticeModule: Module<PracticeState, RootState> = {
     challengeTypes: [],
     answer: '',
     streak: 0,
-    showingFeedback: false
+    showingFeedback: false,
+    practiceMode: PracticeMode.TIME,
+    practiceQuestionCount: 10,
+    practiceTime: 60
   },
   getters,
   actions,
