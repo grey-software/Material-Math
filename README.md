@@ -9,4 +9,4 @@ Material Math brings unlimited mental math practice in a fun, beautiful interfac
 
 Material Math is the spiritual successor to Boltz, a mental math app for Android. Grey software is building off of Boltz's great work, and bringing Boltz's principles of unlimited fun math practice, interleaved concepts, and spaced repition to the web! 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ceACiAdXSDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Boltz Promo Video](https://img.youtube.com/vi/ceACiAdXSDc/0.jpg)](https://www.youtube.com/watch?v=ceACiAdXSDc)
