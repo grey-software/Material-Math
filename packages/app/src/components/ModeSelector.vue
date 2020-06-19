@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="container centered-container" justify-around style="margin-top: 20px;">
-      <div style="max-width:140px;" class="container column-container centered-container">
+    <div class="row items-center justify-around" style="margin-top: 20px;">
+      <div style="max-width:140px;" class="column justify-center items-center">
         <q-btn
           v-if="isTimedMode"
           @click="setTimedMode"
@@ -11,10 +11,10 @@
           icon="alarm"
         />
         <q-btn v-else @click="setTimedMode" round size="40px" icon="alarm" />
-        <p style="text-align:center;">How long would you like to play for?</p>
+        <p class="text-center">How long would you like to play for?</p>
       </div>
       <h3>OR</h3>
-      <div style="max-width:140px;" class="container column-container centered-container">
+      <div style="max-width:140px;" class="column justify-center items-center">
         <q-btn
           v-if="isQuestionsMode"
           @click="setQuestionsMode"
@@ -24,27 +24,27 @@
           icon="help_outline"
         />
         <q-btn v-else @click="setQuestionsMode" round size="40px" icon="help_outline" />
-        <p style="text-align:center;">How many question would you like to play?</p>
+        <p class="text-center">How many question would you like to play?</p>
       </div>
     </div>
-    <div class="conatiner" v-if="isTimedMode">
+    <div class="column" v-if="isTimedMode">
       <p>How long would you like to practice for?</p>
       <q-select
         filled
         v-model="selectedTime"
         :options="timeOptions"
         label="Choose Time"
-        style="width: 250px"
+        class="select-width"
       />
     </div>
-    <div class="conatiner" v-if="isQuestionsMode">
+    <div class="column" v-if="isQuestionsMode">
       <p>How many questions would you like to practice</p>
       <q-select
         filled
         v-model="selectedQuestionCount"
         :options="questionOptions"
         label="Choose Question"
-        style="width: 250px"
+        class="select-width"
       />
     </div>
   </div>
@@ -127,18 +127,11 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-}
-.centered-container {
-  justify-content: space-around;
-  align-items: center;
-}
-.column-container {
-  flex-direction: column;
-}
 h3 {
   margin-block-start: 0px;
   margin-block-end: 0px;
+}
+.select-width {
+  width: 250px;
 }
 </style>
