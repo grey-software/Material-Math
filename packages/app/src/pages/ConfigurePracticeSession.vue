@@ -21,6 +21,7 @@
     <div style="subheading-margin">
       <p>Choose Mode</p>
     </div>
+    <mode-selector />
     <!-- Select Difficulty -->
     <div style="subheading-margin">
       <p>Set Difficulty</p>
@@ -40,6 +41,7 @@
 
 <script>
 import ConceptPickerItem from "../components/ConceptPickerItem.vue";
+import ModeSelector from "../components/ModeSelector.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 
 export default {
@@ -64,8 +66,9 @@ export default {
     }
   },
   components: {
-    ConceptPickerItem: ConceptPickerItem
-  }
+    ConceptPickerItem: ConceptPickerItem,
+    ModeSelector: ModeSelector
+  },
 };
 </script>
 
