@@ -26,16 +26,15 @@
     <div style="subheading-margin">
       <p>Set Difficulty</p>
     </div>
-    <div style="margin-top: 40px">
+    <router-link style="q-mt-lg" to="/practice">
       <q-btn
         rounded
         color="primary"
         icon-right="right"
         label="Continue"
         class="full-width"
-        @click="getToPracticeSession"
       />
-    </div>
+    </router-link>
   </q-page>
 </template>
 
@@ -58,11 +57,6 @@ export default {
           operator: Operator.Multiplication,
         }
       }
-    }
-  },
-  methods: {
-    getToPracticeSession($event) {
-      this.$router.push("/");
     }
   },
   components: {

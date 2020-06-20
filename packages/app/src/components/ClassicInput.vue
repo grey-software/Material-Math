@@ -131,7 +131,14 @@ export default Vue.extend({
     ...mapGetters({
       answer: PracticeGetters.ANSWER
     })
-  }
+  },
+  watch: {
+    answer(newValue) {
+      if (newValue == null) {
+        this.setAnswer("");
+      }
+    }
+  },
 });
 </script>
 

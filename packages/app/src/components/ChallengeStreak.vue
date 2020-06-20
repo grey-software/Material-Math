@@ -1,5 +1,8 @@
 <template>
-  <span class="streak">Streak: {{streak}}</span>
+<div class="row items-center">
+  <q-icon name="mdi-fire" class="q-mr-xs icon-challenge-header"></q-icon>
+  <span class="text-challenge-header">{{streak}}</span>
+  </div>
 </template>
 
 <script lang="ts">
@@ -15,9 +18,4 @@ export default {
 </script>
 
 <style scoped>
-.streak {
-  font-family: "Montserrat", sans-serif;
-  font-size: 2em;
-  margin: 16px;
-}
 </style>

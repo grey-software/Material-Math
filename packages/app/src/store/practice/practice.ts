@@ -19,7 +19,8 @@ export enum PracticeGetters {
   DIFFICULTY = 'difficulty',
   PRACTICE_MODE = 'practiceMode',
   PRACTICE_QUESTION_COUNT = 'practiceQuestionCount',
-  PRACTICE_TIME = 'practiceTime'
+  PRACTICE_TIME = 'practiceTime',
+  PRACTICE_CORRECT_QUESTION_COUNT = 'practiceCorrectQuestionCount'
 }
 
 export enum PracticeActions {
@@ -42,7 +43,8 @@ enum PracticeMutations {
   SET_SHOWING_FEEDBACK = 'setShowingFeedback',
   SET_PRACTICE_MODE = 'setPracticeMode',
   SET_PRACTICE_QUESTION_COUNT = 'setPracticeQuestionCount',
-  SET_PRACTICE_TIME = 'setPracticeTime'
+  SET_PRACTICE_TIME = 'setPracticeTime',
+  SET_PRACTICE_CORRECT_QUESTION_COUNT = 'setPracticeCorrectQuestionCount'
 }
 
 export interface PracticeState {
@@ -62,6 +64,9 @@ export interface PracticeState {
 
   // Practice session's time in seconds
   practiceTime: number;
+
+  // Keeps track of number of correct questions
+  practiceCorrectQuestionCount: number;
 }
 
 const getters: GetterTree<PracticeState, any> = {
@@ -72,7 +77,8 @@ const getters: GetterTree<PracticeState, any> = {
   difficulty: (state) => state.difficulty,
   practiceMode: (state) => state.practiceMode,
   practiceQuestionCount: (state) => state.practiceQuestionCount,
-  practiceTime: (state) => state.practiceTime
+  practiceTime: (state) => state.practiceTime,
+  practiceCorrectQuestionCount: (state) => state.practiceCorrectQuestionCount
 }
 
 const mutations: MutationTree<PracticeState> = {
@@ -107,6 +113,9 @@ const mutations: MutationTree<PracticeState> = {
   },
   setPracticeTime(state: PracticeState, time: number) {
     state.practiceTime = time;
+  },
+  setPracticeCorrectQuestionCount(state: PracticeState, count: number){
+    state.practiceCorrectQuestionCount += 1;
   }
 }
 
@@ -142,6 +151,7 @@ const actions: ActionTree<PracticeState, any> = {
  practice session to be in 'Showing Feedback' mode which includes animations or encouragement prompts
  */
   onCorrect(context) {
+    context.commit(PracticeMutations.SET_PRACTICE_CORRECT_QUESTION_COUNT, context.state.practiceCorrectQuestionCount + 1)
     context.commit(PracticeMutations.SET_STREAK, context.state.streak + 1)
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.dispatch(PracticeActions.NEW_QUESTION)
@@ -176,7 +186,8 @@ export const PracticeModule: Module<PracticeState, RootState> = {
     showingFeedback: false,
     practiceMode: PracticeMode.TIME,
     practiceQuestionCount: 10,
-    practiceTime: 60
+    practiceTime: 60,
+    practiceCorrectQuestionCount: 0
   },
   getters,
   actions,

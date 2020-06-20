@@ -3,54 +3,6 @@
     view="hHh lpR fFf"
     class="bg-grey-1"
   >
-    <q-header
-      elevated
-      class="bg-white text-grey-8 q-py-xs"
-      height-hint="58"
-    >
-      <q-toolbar>
-        <!-- <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
-          icon="menu"
-        /> -->
-
-        <q-btn
-          flat
-          no-caps
-          no-wrap
-          class="q-ml-xs"
-          v-if="$q.screen.gt.xs"
-        >
-          <material-math-icon />
-          <q-toolbar-title
-            shrink
-            class="text-weight-bold"
-          >
-            Material Math
-          </q-toolbar-title>
-        </q-btn>
-
-        <q-space />
-
-        <q-space />
-
-        <div class="q-gutter-sm row items-center no-wrap">
-          <q-btn
-            round
-            flat
-          >
-            <q-avatar size="36px">
-              <img src="../assets/logo.svg">
-            </q-avatar>
-            <q-tooltip>Profile</q-tooltip>
-          </q-btn>
-        </div>
-      </q-toolbar>
-    </q-header>
 
     <q-page-container>
       <router-view />

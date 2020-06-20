@@ -1,10 +1,8 @@
 <template>
   <div class="container">
-    <challenge-streak />
-    <classic-question
-      class="question"
-      :question="question"
-    />
+    <!-- <challenge-streak /> -->
+    <challenge-header />
+    <classic-question class="question" v-if="question" :question="question" />
     <classic-input />
   </div>
 </template>
@@ -13,6 +11,7 @@
 import ClassicInput from "./ClassicInput.vue";
 import ClassicQuestion from "./ClassicQuestion.vue";
 import ChallengeStreak from "./ChallengeStreak.vue";
+import ChallengeHeader from "./ChallengeHeader.vue";
 import {
   PracticeActions,
   PracticeGetters,
@@ -27,7 +26,8 @@ export default Vue.extend({
   components: {
     ClassicInput,
     ClassicQuestion,
-    ChallengeStreak
+    ChallengeStreak,
+    ChallengeHeader
   },
   props: {
     challengeTypes: Array as () => Array<ChallengeType>,
@@ -68,5 +68,12 @@ export default Vue.extend({
 
 .question {
   margin: -42px 16px 16px 16px;
+}
+
+@media (max-width: 599px) {
+  .container {
+    width: 100%;
+    height: 100vh;
+  }
 }
 </style>
