@@ -114,13 +114,11 @@ export default {
       const app: any = this;
       if (typeof newValue.value !== "undefined")
         app.setPracticeQuestionCount(newValue.value);
-      else app.setPracticeQuestionCount(newValue);
     },
     selectedTime(newValue: any) {
       const app: any = this;
       if (typeof newValue.value !== "undefined")
         app.setPracticeTime(newValue.value * 60);
-      else app.setPracticeTime(newValue * 60);
     }
   }
 };
