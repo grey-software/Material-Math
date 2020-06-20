@@ -68,11 +68,11 @@ export default {
         { label: "10 minutes", value: 10 }
       ],
       questionOptions: [
-        { label: "10 minute", value: 10 },
-        { label: "20 minutes", value: 20 },
-        { label: "25 minutes", value: 25 },
-        { label: "50 minutes", value: 50 },
-        { label: "100 minutes", value: 100 }
+        { label: "10 questions", value: 10 },
+        { label: "20 questions", value: 20 },
+        { label: "25 questions", value: 25 },
+        { label: "50 questions", value: 50 },
+        { label: "100 questions", value: 100 }
       ]
     };
   },
