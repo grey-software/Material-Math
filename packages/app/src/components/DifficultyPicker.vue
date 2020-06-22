@@ -1,9 +1,6 @@
 <template>
   <div class="flex justify-around">
-    <div
-      class="flex column items-center container-width"
-      @click="setDifficultyandColor('basic')"
-    >
+    <div class="flex column items-center container-width" @click="setDifficultyandColor('basic')">
       <div class="flex justify-center items-center">
         <div class="easy-vertical-div" :class="{'selected-color': isEasy}" />
         <div class="horizontal-div" :class="{'selected-color': isEasy}" />
@@ -11,10 +8,7 @@
       </div>
       <h6>Easy</h6>
     </div>
-    <div
-      class="flex column items-center container-width"
-      @click="setDifficultyandColor('normal')"
-    >
+    <div class="flex column items-center container-width" @click="setDifficultyandColor('normal')">
       <div class="flex justify-center items-center">
         <div class="medium-vertical-div" :class="{'selected-color': isMedium}" />
         <div class="easy-vertical-div" :class="{'selected-color': isMedium}" />
@@ -51,13 +45,16 @@ export default {
   computed: {
     ...mapGetters({ difficulty: PracticeGetters.DIFFICULTY }),
     isEasy() {
-      return this.difficulty === Difficulty.Basic;
+      const app: any = this;
+      return app.difficulty === Difficulty.Basic;
     },
     isMedium() {
-      return this.difficulty === Difficulty.Normal;
+      const app: any = this;
+      return app.difficulty === Difficulty.Normal;
     },
     isHard() {
-      return this.difficulty === Difficulty.Advanced;
+      const app: any = this;
+      return app.difficulty === Difficulty.Advanced;
     }
   },
   methods: {
@@ -105,7 +102,7 @@ h6 {
   margin-top: 5px;
 }
 .container-width {
-    min-width: 160px;
+  min-width: 160px;
 }
 .selected-color {
   background-color: #1976d2;
