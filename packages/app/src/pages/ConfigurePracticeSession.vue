@@ -26,6 +26,8 @@
     <div style="subheading-margin">
       <p>Set Difficulty</p>
     </div>
+    <difficulty-picker />
+    <!-- Continue Button -->
     <div style="margin-top: 40px">
       <q-btn
         rounded
@@ -42,6 +44,7 @@
 <script>
 import ConceptPickerItem from "../components/ConceptPickerItem.vue";
 import ModeSelector from "../components/ModeSelector.vue";
+import DifficultyPicker from "../components/DifficultyPicker.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 
 export default {
@@ -67,7 +70,8 @@ export default {
   },
   components: {
     ConceptPickerItem: ConceptPickerItem,
-    ModeSelector: ModeSelector
+    ModeSelector: ModeSelector,
+    DifficultyPicker: DifficultyPicker
   },
 };
 </script>
@@ -75,7 +79,7 @@ export default {
 <style scoped>
 .body-style {
   padding-top: 30px;
-  padding-left: 10em;
-  padding-right: 10em;
+  padding-left: 5em;
+  padding-right: 5em;
 }
 </style>
