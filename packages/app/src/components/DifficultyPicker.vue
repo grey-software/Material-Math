@@ -1,35 +1,35 @@
 <template>
   <div class="flex justify-around">
-    <div class="flex column items-center container-width" @click="setDifficultyandColor('basic')">
+    <div class="flex column items-center container-width" @click="setDifficulty('basic')">
       <div class="flex justify-center items-center">
-        <div class="easy-vertical-div" :class="{'selected-color': isEasy}" />
-        <div class="horizontal-div" :class="{'selected-color': isEasy}" />
-        <div class="easy-vertical-div" :class="{'selected-color': isEasy}" />
+        <div class="easy-vertical-bar" :class="{'selected-color': isEasy}" />
+        <div class="horizontal-bar" :class="{'selected-color': isEasy}" />
+        <div class="easy-vertical-bar" :class="{'selected-color': isEasy}" />
       </div>
       <h6>Easy</h6>
     </div>
-    <div class="flex column items-center container-width" @click="setDifficultyandColor('normal')">
+    <div class="flex column items-center container-width" @click="setDifficulty('normal')">
       <div class="flex justify-center items-center">
-        <div class="medium-vertical-div" :class="{'selected-color': isMedium}" />
-        <div class="easy-vertical-div" :class="{'selected-color': isMedium}" />
-        <div class="horizontal-div" :class="{'selected-color': isMedium}" />
-        <div class="easy-vertical-div" :class="{'selected-color': isMedium}" />
-        <div class="medium-vertical-div" :class="{'selected-color': isMedium}" />
+        <div class="medium-vertical-bar" :class="{'selected-color': isMedium}" />
+        <div class="easy-vertical-bar" :class="{'selected-color': isMedium}" />
+        <div class="horizontal-bar" :class="{'selected-color': isMedium}" />
+        <div class="easy-vertical-bar" :class="{'selected-color': isMedium}" />
+        <div class="medium-vertical-bar" :class="{'selected-color': isMedium}" />
       </div>
       <h6>Medium</h6>
     </div>
     <div
       class="flex column items-center container-width"
-      @click="setDifficultyandColor('advanced')"
+      @click="setDifficulty('advanced')"
     >
       <div class="flex justify-center items-center">
-        <div class="hard-vertical-div" :class="{'selected-color': isHard}" />
-        <div class="medium-vertical-div" :class="{'selected-color': isHard}" />
-        <div class="easy-vertical-div" :class="{'selected-color': isHard}" />
-        <div class="horizontal-div" :class="{'selected-color': isHard}" />
-        <div class="easy-vertical-div" :class="{'selected-color': isHard}" />
-        <div class="medium-vertical-div" :class="{'selected-color': isHard}" />
-        <div class="hard-vertical-div" :class="{'selected-color': isHard}" />
+        <div class="hard-vertical-bar" :class="{'selected-color': isHard}" />
+        <div class="medium-vertical-bar" :class="{'selected-color': isHard}" />
+        <div class="easy-vertical-bar" :class="{'selected-color': isHard}" />
+        <div class="horizontal-bar" :class="{'selected-color': isHard}" />
+        <div class="easy-vertical-bar" :class="{'selected-color': isHard}" />
+        <div class="medium-vertical-bar" :class="{'selected-color': isHard}" />
+        <div class="hard-vertical-bar" :class="{'selected-color': isHard}" />
       </div>
       <h6>Hard</h6>
     </div>
@@ -58,16 +58,13 @@ export default {
     }
   },
   methods: {
-    setDifficultyandColor(difficulty: Difficulty) {
-      this.setDifficulty(difficulty);
-    },
     ...mapActions({ setDifficulty: PracticeActions.SET_DIFFICULTY })
   }
 };
 </script>
 
 <style scoped>
-.horizontal-div {
+.horizontal-bar {
   min-width: 80px;
   min-height: 10px;
   max-width: 80px;
@@ -75,14 +72,14 @@ export default {
   background-color: grey;
   margin: 5px;
 }
-.easy-vertical-div {
+.easy-vertical-bar {
   min-width: 10px;
   min-height: 60px;
   max-width: 10px;
   max-height: 60px;
   background-color: grey;
 }
-.medium-vertical-div {
+.medium-vertical-bar {
   min-width: 10px;
   min-height: 40px;
   max-width: 10px;
@@ -90,7 +87,7 @@ export default {
   background-color: grey;
   margin: 3px;
 }
-.hard-vertical-div {
+.hard-vertical-bar {
   min-width: 10px;
   min-height: 20px;
   max-width: 10px;
