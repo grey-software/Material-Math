@@ -7,19 +7,11 @@
     <div style="subheading-margin">
       <h6>What would you like to practice?</h6>
     </div>
-    <div class="justify-center">
-      
-    </div>
+    <div class="justify-center"></div>
     <div class="justify-around row wrap">
-      <span
-          v-for="concept in concepts"
-          :key="concept.operator"
-        >
-          <concept-picker-button
-            :operator="concept.operator"
-            :icon="concept.icon"
-          ></concept-picker-button>
-        </span>
+      <span v-for="concept in concepts" :key="concept.operator">
+        <concept-picker-button :operator="concept.operator" :icon="concept.icon"></concept-picker-button>
+      </span>
     </div>
     <!-- Select Mode -->
     <div style="subheading-margin">
@@ -30,6 +22,8 @@
     <div style="subheading-margin">
       <p>Set Difficulty</p>
     </div>
+    <difficulty-picker />
+    <!-- Continue Button -->
     <div style="margin-top: 40px">
       <q-btn
         rounded
@@ -46,26 +40,27 @@
 <script>
 import ConceptPickerButton from "../components/ConceptPickerButton.vue";
 import ModeSelector from "../components/ModeSelector.vue";
+import DifficultyPicker from "../components/DifficultyPicker.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 
 export default {
   data: function() {
     return {
       concepts: {
-        "Addition": {
+        Addition: {
           operator: Operator.Addition,
           icon: "add"
         },
-        "Subtraction": {
+        Subtraction: {
           operator: Operator.Subtraction,
           icon: "remove"
         },
-        "Multiplication": {
+        Multiplication: {
           operator: Operator.Multiplication,
           icon: "close"
         }
       }
-    }
+    };
   },
   methods: {
     getToPracticeSession($event) {
@@ -74,8 +69,9 @@ export default {
   },
   components: {
     ConceptPickerButton: ConceptPickerButton,
-    ModeSelector: ModeSelector
-  },
+    ModeSelector: ModeSelector,
+    DifficultyPicker: DifficultyPicker
+  }
 };
 </script>
 
