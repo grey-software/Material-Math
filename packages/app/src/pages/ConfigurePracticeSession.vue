@@ -5,16 +5,20 @@
     </div>
     <!-- Select Concepts  -->
     <div style="subheading-margin">
-      <p>Which concepts would you like to practice?</p>
+      <h6>What would you like to practice?</h6>
     </div>
-    <div class="wrap">
+    <div class="justify-center">
+      
+    </div>
+    <div class="justify-around row wrap">
       <span
           v-for="concept in concepts"
           :key="concept.operator"
         >
-          <concept-picker-item
+          <concept-picker-button
             :operator="concept.operator"
-          ></concept-picker-item>
+            :icon="concept.icon"
+          ></concept-picker-button>
         </span>
     </div>
     <!-- Select Mode -->
@@ -40,7 +44,7 @@
 </template>
 
 <script>
-import ConceptPickerItem from "../components/ConceptPickerItem.vue";
+import ConceptPickerButton from "../components/ConceptPickerButton.vue";
 import ModeSelector from "../components/ModeSelector.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 
@@ -50,12 +54,15 @@ export default {
       concepts: {
         "Addition": {
           operator: Operator.Addition,
+          icon: "add"
         },
         "Subtraction": {
           operator: Operator.Subtraction,
+          icon: "remove"
         },
         "Multiplication": {
           operator: Operator.Multiplication,
+          icon: "close"
         }
       }
     }
@@ -66,7 +73,7 @@ export default {
     }
   },
   components: {
-    ConceptPickerItem: ConceptPickerItem,
+    ConceptPickerButton: ConceptPickerButton,
     ModeSelector: ModeSelector
   },
 };
@@ -75,7 +82,14 @@ export default {
 <style scoped>
 .body-style {
   padding-top: 30px;
-  padding-left: 10em;
-  padding-right: 10em;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+h6 {
+  font-family: Varela Round;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
 }
 </style>
