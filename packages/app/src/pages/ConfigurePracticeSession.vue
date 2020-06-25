@@ -1,5 +1,5 @@
 <template>
-  <q-page class="body-style">
+  <q-page class="container">
     <div style="text-align: center;">
       <h2>Configure Your Practice Session</h2>
     </div>
@@ -76,13 +76,13 @@ export default {
 </script>
 
 <style scoped>
-.body-style {
+.container {
   padding-top: 30px;
   padding-left: 3em;
   padding-right: 3em;
 }
 h6 {
-  font-family: Varela Round;
+  font-family: sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="justify-center btn-size">
+  <div class="justify-center btn-concept-picker">
     <div class="column items-center">
       <q-btn
         @click="enabled = ! enabled"
@@ -7,7 +7,7 @@
         text-color="white"
         :icon="icon"
         size="25px"
-        class="rect"
+        class="rounded-rect"
       ></q-btn>
       <h4>{{ operator }}</h4>
     </div>
@@ -67,10 +67,10 @@ h4 {
   font-size: 12px;
   line-height: 18px;
 }
-.rect {
+.rounded-rect {
   border-radius: 10px;
 }
-.btn-size {
+.btn-concept-picker {
   width: 100px;
   height: 114.2px;
 }
