@@ -2,8 +2,15 @@
   <div class="container">
     <!-- <challenge-streak /> -->
     <challenge-header />
-    <classic-question class="question" v-if="question" :question="question" />
-    <classic-input />
+    <div>
+
+      <classic-question
+        id="question"
+        v-if="question"
+        :question="question"
+      />
+      <classic-input id="input" />
+    </div>
   </div>
 </template>
 
@@ -54,8 +61,14 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters({
-      question: PracticeGetters.QUESTION_LATEX
+      question: PracticeGetters.QUESTION_LATEX,
+      practiceSessionActive: PracticeGetters.PRACTICE_SESSION_ACTIVE
     })
+  },
+  watch: {
+    practiceSessionActive(newValue) {
+      if (newValue == false) this.$router.push("/");
+    }
   }
 });
 </script>
@@ -66,14 +79,22 @@ export default Vue.extend({
   max-height: 85%;
 }
 
-.question {
+#question {
   margin: -42px 16px 16px 16px;
+  max-height: 20vh;
+}
+
+#input {
+  flex: 2;
 }
 
 @media (max-width: 599px) {
   .container {
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 </style>

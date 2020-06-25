@@ -83,10 +83,12 @@ export default {
   },
   methods: {
     setTimedMode() {
-      this.setPracticeMode(PracticeMode.TIME);
+      const app: any = this;
+      app.setPracticeMode(PracticeMode.TIME);
     },
     setQuestionsMode() {
-      this.setPracticeMode(PracticeMode.QUESTIONS);
+      const app: any = this;
+      app.setPracticeMode(PracticeMode.QUESTIONS);
     },
     ...mapActions({
       setPracticeQuestionCount: PracticeActions.SET_PRACTICE_QUESTION_COUNT,

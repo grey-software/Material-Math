@@ -22,6 +22,7 @@ export enum PracticeGetters {
   PRACTICE_TIME = 'practiceTime',
   PRACTICE_TIME_LEFT = 'practiceTimeLeft',
   PRACTICE_CORRECT_QUESTION_COUNT = 'practiceCorrectQuestionCount',
+  PRACTICE_SESSION_ACTIVE = 'practiceSessionActive'
 }
 
 export enum PracticeActions {
@@ -36,7 +37,8 @@ export enum PracticeActions {
   SET_PRACTICE_TIME = 'setPracticeTime',
   SET_PRACTICE_TIMER_ID = 'setPracticeTimeId',
   FINISH_PRACTICE_SESSION = 'finishPracticeSession',
-  PRACTICE_TIME_TICK = 'practiceTimeTick'
+  PRACTICE_TIME_TICK = 'practiceTimeTick',
+  SKIP_QUESTION = 'skipQuestion'
 }
 
 enum PracticeMutations {
@@ -52,6 +54,7 @@ enum PracticeMutations {
   SET_PRACTICE_TIMER_ID = 'setPracticeTimerId',
   SET_PRACTICE_CORRECT_QUESTION_COUNT = 'setPracticeCorrectQuestionCount',
   RESET_PRACTICE_SESSION = 'resetPracticeSession',
+  SET_PRACTICE_SESSION_ACTIVE = 'setPracticeSessionActive'
 }
 
 export interface PracticeState {
@@ -81,6 +84,8 @@ export interface PracticeState {
   with the clearInterval() method to cancel the timer
   */
   practiceTimerId: number;
+
+  practiceSessionActive: boolean;
 }
 
 const getters: GetterTree<PracticeState, any> = {
@@ -93,7 +98,8 @@ const getters: GetterTree<PracticeState, any> = {
   practiceQuestionCount: (state) => state.practiceQuestionCount,
   practiceTime: (state) => state.practiceTime,
   practiceTimeLeft: (state) => state.practiceTimeLeft,
-  practiceCorrectQuestionCount: (state) => state.practiceCorrectQuestionCount
+  practiceCorrectQuestionCount: (state) => state.practiceCorrectQuestionCount,
+  practiceSessionActive: (state) => state.practiceSessionActive,
 }
 
 const mutations: MutationTree<PracticeState> = {
@@ -144,7 +150,11 @@ const mutations: MutationTree<PracticeState> = {
     state.practiceCorrectQuestionCount = 0;
     state.practiceTimerId = 0;
     state.practiceTimeLeft = 0;
-  }
+    state.practiceSessionActive = false;
+  },
+  setPracticeSessionActive(state: PracticeState, value: boolean) {
+    state.practiceSessionActive = value;
+  },
 }
 
 const newQuestion = (difficulty: Difficulty, operators: Operator[]) => {
@@ -153,6 +163,7 @@ const newQuestion = (difficulty: Difficulty, operators: Operator[]) => {
 
 const actions: ActionTree<PracticeState, any> = {
   init(context, options: PracticeActions) {
+    context.commit(PracticeMutations.SET_PRACTICE_SESSION_ACTIVE, true)
     context.commit(PracticeMutations.SET_PRACTICE_OPTIONS, options)
     if (context.state.practiceMode === PracticeMode.TIME) {
       const practiceTimerId = setInterval(() => context.dispatch(PracticeActions.PRACTICE_TIME_TICK), 1000)
@@ -196,6 +207,9 @@ const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.dispatch(PracticeActions.NEW_QUESTION)
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
+    if(context.state.practiceCorrectQuestionCount == context.state.practiceQuestionCount){
+      context.commit(PracticeMutations.RESET_PRACTICE_SESSION)
+    }
     setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 350)
   },
   onIncorrect(context) {
@@ -216,6 +230,9 @@ const actions: ActionTree<PracticeState, any> = {
   finishPracticeSession(context) {
     clearInterval(context.state.practiceTimerId)
     context.commit(PracticeMutations.RESET_PRACTICE_SESSION)
+  },
+  skipQuestion(context) {
+    context.dispatch(PracticeActions.NEW_QUESTION)
   }
 }
 
@@ -229,11 +246,12 @@ export const PracticeModule: Module<PracticeState, RootState> = {
     streak: 0,
     showingFeedback: false,
     practiceMode: PracticeMode.TIME,
-    practiceQuestionCount: 10,
+    practiceQuestionCount: 1,
     practiceTime: 10,
     practiceTimeLeft: 0,
     practiceCorrectQuestionCount: 0,
-    practiceTimerId: 0
+    practiceTimerId: 0,
+    practiceSessionActive: false
   },
   getters,
   actions,
