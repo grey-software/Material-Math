@@ -38,7 +38,8 @@ export enum PracticeActions {
   SET_PRACTICE_TIMER_ID = 'setPracticeTimeId',
   FINISH_PRACTICE_SESSION = 'finishPracticeSession',
   PRACTICE_TIME_TICK = 'practiceTimeTick',
-  SKIP_QUESTION = 'skipQuestion'
+  SKIP_QUESTION = 'skipQuestion',
+  SET_DIFFICULTY = 'setDifficulty'
 }
 
 enum PracticeMutations {
@@ -54,7 +55,8 @@ enum PracticeMutations {
   SET_PRACTICE_TIMER_ID = 'setPracticeTimerId',
   SET_PRACTICE_CORRECT_QUESTION_COUNT = 'setPracticeCorrectQuestionCount',
   RESET_PRACTICE_SESSION = 'resetPracticeSession',
-  SET_PRACTICE_SESSION_ACTIVE = 'setPracticeSessionActive'
+  SET_PRACTICE_SESSION_ACTIVE = 'setPracticeSessionActive',
+  SET_DIFFICULTY = 'setDifficulty'
 }
 
 export interface PracticeState {
@@ -155,6 +157,9 @@ const mutations: MutationTree<PracticeState> = {
   setPracticeSessionActive(state: PracticeState, value: boolean) {
     state.practiceSessionActive = value;
   },
+  setDifficulty(state: PracticeState, difficulty: Difficulty) {
+    state.difficulty = difficulty;
+  }
 }
 
 const newQuestion = (difficulty: Difficulty, operators: Operator[]) => {
@@ -233,6 +238,9 @@ const actions: ActionTree<PracticeState, any> = {
   },
   skipQuestion(context) {
     context.dispatch(PracticeActions.NEW_QUESTION)
+  },
+  setDifficulty(context, difficulty) {
+    context.commit(PracticeMutations.SET_DIFFICULTY, difficulty)
   }
 }
 
