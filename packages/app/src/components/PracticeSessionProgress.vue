@@ -6,7 +6,9 @@
     </span>
     <span class="text-challenge-header row items-center" v-else>
       <q-icon name="mdi-format-list-checkbox" class="icon-challenge-header q-mr-xs" />
-      <span id="practice-questions-progress">{{practiceCorrectQuestionCount}} / {{ practiceQuestionCount }} </span>
+      <span
+        id="practice-questions-progress"
+      >{{practiceCorrectQuestionCount}} / {{ practiceQuestionCount }}</span>
     </span>
   </div>
 </template>
@@ -23,15 +25,16 @@ export default {
       practiceTime: PracticeGetters.PRACTICE_TIME,
       practiceTimeLeft: PracticeGetters.PRACTICE_TIME_LEFT,
       practiceCorrectQuestionCount:
-        PracticeGetters.PRACTICE_CORRECT_QUESTION_COUNT,
+        PracticeGetters.PRACTICE_CORRECT_QUESTION_COUNT
     }),
     getFormattedTime() {
-      const app: any = this
-      const mins = parseInt(app.practiceTimeLeft / 60);
-      const secs = parseInt(app.practiceTimeLeft % 60);
-      return mins + ':' + secs;
+      const app: any = this;
+      const mins = Math.floor(parseInt(app.practiceTimeLeft) / 60);
+      const secs = Math.floor(parseInt(app.practiceTimeLeft) % 60);
+      if (secs < 10) return mins + ":0" + secs;
+      return mins + ":" + secs;
     }
-  },
+  }
 };
 </script>
 

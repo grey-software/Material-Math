@@ -13,22 +13,31 @@ import ClassicChallenge from "../components/ClassicChallenge.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 import { Difficulty, ChallengeType } from "../engine/models/math_question";
 import { mapGetters } from "vuex";
-import { PracticeGetters } from '../store/practice/practice';
-import { mapState } from 'vuex';
+import { PracticeGetters, PracticeActions } from '../store/practice/practice';
+import { mapState, mapActions } from 'vuex';
 
 export default {
-  name: "PageIndex",
+  name: "practice",
   components: { ClassicChallenge },
   data() {
     return {
       challengeTypes: [ChallengeType.Expression]
     };
   },
+  methods: {
+    ...mapActions({
+      finishPracticeSession: PracticeActions.FINISH_PRACTICE_SESSION
+    })
+  },
   computed: {
     ...mapGetters({
       operators: PracticeGetters.OPERATORS,
       difficulty: PracticeGetters.DIFFICULTY
     })
-  }
+  },
+  beforeDestroy () {
+    const app: any = this
+    app.finishPracticeSession();
+  },
 };
 </script>

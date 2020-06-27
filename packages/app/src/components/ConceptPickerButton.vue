@@ -18,6 +18,7 @@
 import { Operator } from "../engine/math_questions/expression/models";
 import { mapMutations, mapGetters } from "vuex";
 import { PracticeGetters } from "../store/practice/practice";
+import { forEach } from "typescript-collections/dist/lib/arrays";
 
 export default {
   props: {
@@ -48,6 +49,10 @@ export default {
       } else if (!enable) {
         app.setOperatorDisabled(app.operator);
       }
+    },
+    operators(newOperators: Operator[]) {
+      const app: any = this;
+      app.enabled = newOperators.includes(app.operator);
     }
   },
   computed: {

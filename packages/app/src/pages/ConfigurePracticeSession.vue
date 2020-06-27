@@ -1,87 +1,63 @@
 <template>
-  <q-page class="container">
-    <div style="text-align: center;">
-      <h2>Configure Your Practice Session</h2>
+  <q-page>
+    <div class="config-header">
     </div>
-    <!-- Select Concepts  -->
-    <div style="subheading-margin">
-      <h6>What would you like to practice?</h6>
+    <span class="config-header-label">Hello there!</span>
+    <div class="config-customize-practice row justify-center">
+      <customize-practice-card />
     </div>
-    <div class="justify-center"></div>
-    <div class="justify-around row wrap">
-      <span v-for="concept in concepts" :key="concept.operator">
-        <concept-picker-button :operator="concept.operator" :icon="concept.icon"></concept-picker-button>
-      </span>
-    </div>
-    <!-- Select Mode -->
-    <div style="subheading-margin">
-      <p>Choose Mode</p>
-    </div>
-    <mode-selector />
-    <!-- Select Difficulty -->
-    <div style="subheading-margin">
-      <p>Set Difficulty</p>
-    </div>
-    <difficulty-picker />
-    <!-- Continue Button -->
-    <div style="margin-top: 40px">
+    <concept-picker />
+    <div class="row justify-center">
       <router-link style="q-mt-lg" to="/practice">
-      <q-btn
-        rounded
-        color="primary"
-        icon-right="right"
-        label="Continue"
-        class="full-width"
-      />
-    </router-link>
+        <action-button label="Play"/>
+      </router-link>
     </div>
   </q-page>
 </template>
 
-<script>
-import ConceptPickerButton from "../components/ConceptPickerButton.vue";
+<script lang="ts">
+import ConceptPicker from "../components/ConceptPicker.vue";
 import ModeSelector from "../components/ModeSelector.vue";
+import CustomizePracticeCard from "../components/CustomizePracticeCard.vue";
+import ActionButton from "../components/ActionButton.vue";
 import DifficultyPicker from "../components/DifficultyPicker.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 
 export default {
-  data: function() {
-    return {
-      concepts: {
-        Addition: {
-          operator: Operator.Addition,
-          icon: "add"
-        },
-        Subtraction: {
-          operator: Operator.Subtraction,
-          icon: "remove"
-        },
-        Multiplication: {
-          operator: Operator.Multiplication,
-          icon: "close"
-        }
-      }
-    };
-  },
   components: {
-    ConceptPickerButton: ConceptPickerButton,
-    ModeSelector: ModeSelector,
-    DifficultyPicker: DifficultyPicker
+    ConceptPicker,
+    ModeSelector,
+    DifficultyPicker,
+    ActionButton, 
+    CustomizePracticeCard
   }
 };
 </script>
 
-<style scoped>
-.container {
-  padding-top: 30px;
-  padding-left: 3em;
-  padding-right: 3em;
+<style>
+.config-header {
+  width: 140%;
+  height: 384px;
+  background: linear-gradient(0deg, #2f80ed, #2f80ed), #2f80ed;
+  border-radius: 192px;
+  margin-top: -192px;
+  position: absolute;
+  margin-left: -20%;
 }
-h6 {
-  font-family: sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 32px;
+
+.config-header-label {
+  color: white;
+  font-size: 32px;
+  left: 36px;
+  font-family: "Montserrat", sans-serif;
+  top: 24px;
+  z-index: 1;
+  position: relative;
+}
+
+.config-customize-practice {
+  margin-top: 42px;
+  z-index: 1;
+
 }
 </style>

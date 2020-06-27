@@ -56,7 +56,9 @@ enum PracticeMutations {
   SET_PRACTICE_CORRECT_QUESTION_COUNT = 'setPracticeCorrectQuestionCount',
   RESET_PRACTICE_SESSION = 'resetPracticeSession',
   SET_PRACTICE_SESSION_ACTIVE = 'setPracticeSessionActive',
-  SET_DIFFICULTY = 'setDifficulty'
+  SET_DIFFICULTY = 'setDifficulty',
+  SET_OPERATOR_ENABLED = 'setOperatorEnabled',
+  SET_OPERATOR_DISABLED = 'setOperatorDisabled'
 }
 
 export interface PracticeState {
@@ -233,6 +235,7 @@ const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.SET_PRACTICE_TIME, time)
   },
   finishPracticeSession(context) {
+    console.log(context.state.practiceTimerId)
     clearInterval(context.state.practiceTimerId)
     context.commit(PracticeMutations.RESET_PRACTICE_SESSION)
   },
@@ -241,6 +244,19 @@ const actions: ActionTree<PracticeState, any> = {
   },
   setDifficulty(context, difficulty) {
     context.commit(PracticeMutations.SET_DIFFICULTY, difficulty)
+  },
+  selectAll(context) {
+    for (let operator of Object.values(Operator)) {
+      if( !context.state.operators.includes(operator) )
+        context.commit(PracticeMutations.SET_OPERATOR_ENABLED, operator)
+    }
+  },
+  reset(context) {
+    for (let operator of Object.values(Operator)) {
+      context.commit(PracticeMutations.SET_OPERATOR_DISABLED, operator)
+    }
+    context.commit(PracticeMutations.SET_OPERATOR_ENABLED, Operator.Addition)
+    context.commit(PracticeMutations.SET_OPERATOR_ENABLED, Operator.Subtraction)
   }
 }
 
