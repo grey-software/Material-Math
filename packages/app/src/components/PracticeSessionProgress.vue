@@ -26,13 +26,9 @@ export default {
         PracticeGetters.PRACTICE_CORRECT_QUESTION_COUNT,
     }),
     getFormattedTime() {
-      const app: any = this;
-      var mins, secs;
-      mins = parseInt(app.practiceTimeLeft / 60);
-      secs = parseInt(app.practiceTimeLeft % 60);
-      console.log(mins + ':' + secs);
-      console.log(mins);
-      console.log(sec);
+      const app: any = this
+      const mins = parseInt(app.practiceTimeLeft / 60);
+      const secs = parseInt(app.practiceTimeLeft % 60);
       return mins + ':' + secs;
     }
   },
