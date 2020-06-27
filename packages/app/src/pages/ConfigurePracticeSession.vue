@@ -38,6 +38,7 @@
         class="full-width"
       />
     </router-link>
+    </div>
   </q-page>
 </template>
 
