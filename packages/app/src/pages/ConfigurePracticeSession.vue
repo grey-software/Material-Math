@@ -3,8 +3,11 @@
     <div class="config-header">
     </div>
     <span class="config-header-label">Hello there!</span>
+    <router-link to="/config">
+      <q-btn class="btn-style" style="position:absolute; z-index: 3; margin-left: 30%" size="20px" round text-color="black" icon="mdi-pencil" />
+    </router-link>
     <div class="config-customize-practice row justify-center">
-      <customize-practice-card />
+      <customize-practice-card /> 
     </div>
     <concept-picker />
     <div class="row justify-center">
@@ -58,6 +61,5 @@ export default {
 .config-customize-practice {
   margin-top: 42px;
   z-index: 1;
-
 }
 </style>

@@ -7,6 +7,7 @@ const routes: RouteConfig[] = [
     children: [
       { path: 'practice', component: () => import('pages/Index.vue') },
       { path: '', component: () => import('pages/ConfigurePracticeSession.vue') },
+      { path: 'config', component: () => import('pages/ConfigureModeDifficulty.vue') }
     ]
   }
 ];

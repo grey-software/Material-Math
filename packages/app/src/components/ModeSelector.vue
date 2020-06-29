@@ -1,19 +1,19 @@
 <template>
-  <div>
-    <div class="row items-center justify-around" style="margin-top: 20px;">
+  <div style="height:75vh" class="column justify-center items-center">
+    <h1>Choose your mode</h1>
+    <div class="row items-center justify-around" style="margin-top: 20px;width:100%">
       <div style="max-width:140px;" class="column justify-center items-center">
         <q-btn
+          class="selected-btn"
           v-if="isTimedMode"
           @click="setTimedMode"
           round
           size="40px"
-          color="primary"
           icon="alarm"
         />
-        <q-btn v-else @click="setTimedMode" round size="40px" icon="alarm" />
-        <p class="text-center">How long would you like to play for?</p>
+        <q-btn v-else class="unselected-btn" @click="setTimedMode" round size="40px" icon="alarm" />
+        <h3 class="text-center" :class="{'unselected-h3': ! isTimedMode}">Timed Practice</h3>
       </div>
-      <h3>OR</h3>
       <div style="max-width:140px;" class="column justify-center items-center">
         <q-btn
           v-if="isQuestionsMode"
@@ -23,29 +23,9 @@
           color="primary"
           icon="help_outline"
         />
-        <q-btn v-else @click="setQuestionsMode" round size="40px" icon="help_outline" />
-        <p class="text-center">How many question would you like to play?</p>
+        <q-btn v-else class="unselected-btn" @click="setQuestionsMode" round size="40px" icon="help_outline" />
+        <h3 class="text-center" :class="{'unselected-h3': ! isQuestionsMode}">Maths Worksheet</h3>
       </div>
-    </div>
-    <div class="column" v-if="isTimedMode">
-      <p>How long would you like to practice for?</p>
-      <q-select
-        filled
-        v-model="selectedTime"
-        :options="timeOptions"
-        label="Choose Time"
-        class="select-width"
-      />
-    </div>
-    <div class="column" v-if="isQuestionsMode">
-      <p>How many questions would you like to practice</p>
-      <q-select
-        filled
-        v-model="selectedQuestionCount"
-        :options="questionOptions"
-        label="Choose Question"
-        class="select-width"
-      />
     </div>
   </div>
 </template>
@@ -56,31 +36,6 @@ import { PracticeMode } from "../engine/models/math_question";
 import { PracticeActions, PracticeGetters } from "../store/practice/practice";
 
 export default {
-  data() {
-    return {
-      selectedQuestionCount: 10,
-      selectedTime: 1,
-      timeOptions: [
-        { label: "1 minute", value: 1 },
-        { label: "3 minutes", value: 3 },
-        { label: "5 minutes", value: 5 },
-        { label: "8 minutes", value: 8 },
-        { label: "10 minutes", value: 10 }
-      ],
-      questionOptions: [
-        { label: "10 questions", value: 10 },
-        { label: "20 questions", value: 20 },
-        { label: "25 questions", value: 25 },
-        { label: "50 questions", value: 50 },
-        { label: "100 questions", value: 100 }
-      ]
-    };
-  },
-  mounted() {
-    const app: any = this;
-    app.selectedTime = Math.round(app.practiceTime / 60);
-    app.selectedQuestionCount = app.practiceQuestionCount;
-  },
   methods: {
     setTimedMode() {
       const app: any = this;
@@ -91,9 +46,7 @@ export default {
       app.setPracticeMode(PracticeMode.QUESTIONS);
     },
     ...mapActions({
-      setPracticeQuestionCount: PracticeActions.SET_PRACTICE_QUESTION_COUNT,
-      setPracticeMode: PracticeActions.SET_PRACTICE_MODE,
-      setPracticeTime: PracticeActions.SET_PRACTICE_TIME
+      setPracticeMode: PracticeActions.SET_PRACTICE_MODE
     })
   },
   computed: {
@@ -106,30 +59,41 @@ export default {
       return app.practiceMode === PracticeMode.TIME;
     },
     ...mapGetters({
-      practiceMode: PracticeGetters.PRACTICE_MODE,
-      practiceQuestionCount: PracticeGetters.PRACTICE_QUESTION_COUNT,
-      practiceTime: PracticeGetters.PRACTICE_TIME
+      practiceMode: PracticeGetters.PRACTICE_MODE
     })
-  },
-  watch: {
-    selectedQuestionCount(newValue: any) {
-      const app: any = this;
-      if (typeof newValue.value !== "undefined")
-        app.setPracticeQuestionCount(newValue.value);
-    },
-    selectedTime(newValue: any) {
-      const app: any = this;
-      if (typeof newValue.value !== "undefined")
-        app.setPracticeTime(newValue.value * 60);
-    }
   }
 };
 </script>
 
 <style scoped>
+h1 {
+  font-family: Varela Round;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 133% */
+  text-align: center;
+}
 h3 {
-  margin-block-start: 0px;
-  margin-block-end: 0px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  /* or 129% */
+  text-align: center;
+}
+.selected-btn {
+  background-color: #114489;
+  color: #FFFFFF;
+}
+.unselected-btn {
+  background: #E5E5E5;
+  color: #C4C4C4;
+}
+.unselected-h3 {
+  color: #C4C4C4;
 }
 .select-width {
   width: 250px;
