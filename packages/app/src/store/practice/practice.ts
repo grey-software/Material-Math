@@ -214,7 +214,7 @@ const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.dispatch(PracticeActions.NEW_QUESTION)
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
-    if(context.state.practiceCorrectQuestionCount == context.state.practiceQuestionCount){
+    if(context.state.practiceCorrectQuestionCount == context.state.practiceQuestionCount && context.state.practiceMode == PracticeMode.QUESTIONS){
       context.commit(PracticeMutations.RESET_PRACTICE_SESSION)
     }
     setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 350)
