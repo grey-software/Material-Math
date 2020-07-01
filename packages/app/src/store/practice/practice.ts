@@ -33,6 +33,8 @@ export enum PracticeActions {
   SET_PRACTICE_QUESTION_COUNT = 'setPracticeQuestionCount',
   SET_PRACTICE_TIME = 'setPracticeTime',
   SET_DIFFICULTY = 'setDifficulty',
+  SELECT_ALL_CONCEPTS = 'selectAllConcepts',
+  RESET_CONCPETS = 'resetConcepts'
 }
 
 enum PracticeMutations {
@@ -45,6 +47,8 @@ enum PracticeMutations {
   SET_PRACTICE_QUESTION_COUNT = 'setPracticeQuestionCount',
   SET_PRACTICE_TIME = 'setPracticeTime',
   SET_DIFFICULTY = 'setDifficulty',
+  SET_OPERATOR_ENABLED = 'setOperatorEnabled',
+  SET_OPERATOR_DISABLED = 'setOperatorDisabled'
 }
 
 export interface PracticeState {
@@ -170,6 +174,19 @@ const actions: ActionTree<PracticeState, any> = {
   },
   setDifficulty(context, difficulty) {
     context.commit(PracticeMutations.SET_DIFFICULTY, difficulty)
+  },
+  selectAllConcepts(context) {
+    for (let operator of Object.values(Operator)) {
+      if (!context.state.operators.includes(operator))
+        context.commit(PracticeMutations.SET_OPERATOR_ENABLED, operator)
+    }
+  },
+  resetConcepts(context) {
+    for (let operator of Object.values(Operator)) {
+      context.commit(PracticeMutations.SET_OPERATOR_DISABLED, operator)
+    }
+    context.commit(PracticeMutations.SET_OPERATOR_ENABLED, Operator.Addition)
+    context.commit(PracticeMutations.SET_OPERATOR_ENABLED, Operator.Subtraction)
   },
 }
 

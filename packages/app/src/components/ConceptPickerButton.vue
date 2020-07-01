@@ -48,6 +48,10 @@ export default {
       } else if (!enable) {
         app.setOperatorDisabled(app.operator);
       }
+    },
+    operators(newOperators: Operator[]) {
+      const app: any = this;
+      app.enabled = newOperators.includes(app.operator);
     }
   },
   computed: {
