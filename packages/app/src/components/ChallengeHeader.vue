@@ -1,10 +1,10 @@
 <template>
   <div id="challenge-header" class="row items-center justify-between q-px-md">
     <router-link to="/">
-      <q-icon class="icon-challenge-header" name="mdi-arrow-left"></q-icon>
+      <q-icon class="icon-challenge-header" name="mdi-close"></q-icon>
     </router-link>
     <div class="row items-center">
-      <!-- <challenge-streak /> -->
+      <challenge-streak />
     </div>
   </div>
 </template>
@@ -34,5 +34,6 @@ export default {
 
 .icon-challenge-header {
   font-size: 24px;
+  color: white;
 }
 </style>
