@@ -16,81 +16,110 @@
     </div>
 
     <div class="input-container">
-      <q-btn
-        v-on:click="inputSymbol(symbol)"
-        v-for="symbol in [7, 8, 9]"
-        v-bind:key="symbol"
-        class="headline"
-        depressed
-        large
-        color="primary"
-      >{{symbol}}
-      </q-btn>
+      <div class="row justify-center">
+        <div
+          class="input-button-container headline col-3"
+          v-for="symbol in [7, 8, 9]"
+          v-bind:key="symbol"
+        >
+          <q-btn
+            @click="inputSymbol(symbol)"
+            depressed
+            large
+            color="primary"
+          >{{symbol}}
+          </q-btn>
+        </div>
 
-      <q-btn
-        v-on:click="backspace"
-        class="headline"
-        depressed
-        large
-        color="primary"
-      >
-        <q-icon
-          name="backspace"
-          dark
-        ></q-icon>
-      </q-btn>
-      <q-btn
-        v-on:click="inputSymbol(symbol)"
-        class="headline"
-        v-bind:key="symbol"
-        v-for="symbol in [4, 5, 6, '-']"
-        depressed
-        large
-        color="primary"
-      >{{symbol}}
-      </q-btn>
-      <q-btn
-        v-on:click="inputSymbol(symbol)"
-        class="headline"
-        v-for="symbol in [1, 2, 3, '.']"
-        depressed
-        v-bind:key="symbol"
-        large
-        color="primary"
-      >{{symbol}}
-      </q-btn>
-      <q-btn
-        v-on:click="inputSymbol(0)"
-        class="zero headline"
-        depressed
-        large
-        color="primary"
-      >0</q-btn>
-      <q-btn
-        v-on:click="inputSymbol(symbol)"
-        class="headline"
-        v-for="symbol in ['(', ')']"
-        depressed
-        v-bind:key="symbol"
-        large
-        color="primary"
-      >{{symbol}}
-      </q-btn>
-      <q-btn
-        v-on:click="checkAnswer"
-        class="check-button headline"
-        depressed
-        large
-        color="green"
-        dark
-        icon
-      >
-        <q-icon
-          name="check"
-          class="q-mr-sm"
-        ></q-icon>
-        Check
-      </q-btn>
+        <div class="input-button-container headline col-3">
+          <q-btn
+            @click="backspace"
+            depressed
+            large
+            color="primary"
+          >
+            <q-icon
+              name="backspace"
+              dark
+            ></q-icon>
+          </q-btn>
+        </div>
+      </div>
+      <div class="row justify-center">
+
+        <div
+          v-bind:key="symbol"
+          v-for="symbol in [4, 5, 6, '-']"
+          class="input-button-container headline col-3"
+        >
+          <q-btn
+            v-on:click="inputSymbol(symbol)"
+            depressed
+            large
+            color="primary"
+          >{{symbol}}
+          </q-btn>
+        </div>
+      </div>
+
+      <div class="row justify-center">
+        <div
+          v-bind:key="symbol"
+          v-for="symbol in [1, 2, 3, '.']"
+          class="input-button-container headline col-3"
+        >
+          <q-btn
+            v-on:click="inputSymbol(symbol)"
+            depressed
+            large
+            color="primary"
+          >{{symbol}}
+          </q-btn>
+        </div>
+      </div>
+      <div class="row justify-center">
+        <div class="input-button-container headline col-6">
+          <q-btn
+            v-on:click="inputSymbol(0)"
+            depressed
+            large
+            class="btn-zero"
+            color="primary"
+          >0</q-btn>
+        </div>
+        <div
+          v-bind:key="symbol"
+          v-for="symbol in ['(', ')']"
+          class="input-button-container headline col-3"
+        >
+          <q-btn
+            v-on:click="inputSymbol(symbol)"
+            depressed
+            large
+            color="primary"
+          >{{symbol}}
+          </q-btn>
+        </div>
+      </div>
+      <div class="row justify-around">
+        <div class="input-button-container headline col-12">
+          <q-btn
+            @click="checkAnswer"
+            class="action-button"
+            depressed
+            large
+            color="green"
+            dark
+            icon
+          >
+            <q-icon
+              name="check"
+              class="q-mr-sm"
+            ></q-icon>
+            Check
+          </q-btn>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -136,32 +165,40 @@ export default Vue.extend({
 </script>
 
 <style>
+.classic-input-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
 .answer-input {
   font-size: 2em;
   margin-bottom: 42px;
 }
 
 .input-container {
-  margin-top: -24px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-}
-
-.zero {
-  grid-column: 1 / 3;
-}
-
-.margin-10 {
-  margin: 10px;
-}
-
-.check-button {
-  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 35%;
 }
 
 .q-btn {
-  margin-bottom: 4px;
-  margin-right: 4px;
+  max-height: 48px;
+  width: 100%;
+  min-width: 72px;
+  max-width: 96px;
+}
+
+.btn-zero {
+  max-width: 100%;
+}
+
+.action-button {
+  max-width: 100%;
+  min-width: 148px;
+  height: 64px;
+}
+
+.input-button-container {
+  padding: 4px 4px;
 }
 </style>
