@@ -9,9 +9,7 @@
     </div>
     <div class="justify-center"></div>
     <div class="justify-around row wrap">
-      <span v-for="concept in concepts" :key="concept.operator">
-        <concept-picker-button :operator="concept.operator" :icon="concept.icon"></concept-picker-button>
-      </span>
+      <concept-picker />
     </div>
     <!-- Select Mode -->
     <div style="subheading-margin">
@@ -38,37 +36,19 @@
 </template>
 
 <script>
-import ConceptPickerButton from "../components/ConceptPickerButton.vue";
+import ConceptPicker from "../components/ConceptPicker.vue";
 import ModeSelector from "../components/ModeSelector.vue";
 import DifficultyPicker from "../components/DifficultyPicker.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 
 export default {
-  data: function() {
-    return {
-      concepts: {
-        Addition: {
-          operator: Operator.Addition,
-          icon: "add"
-        },
-        Subtraction: {
-          operator: Operator.Subtraction,
-          icon: "remove"
-        },
-        Multiplication: {
-          operator: Operator.Multiplication,
-          icon: "close"
-        }
-      }
-    };
-  },
   methods: {
     getToPracticeSession($event) {
       this.$router.push("/");
     }
   },
   components: {
-    ConceptPickerButton: ConceptPickerButton,
+    ConceptPicker: ConceptPicker,
     ModeSelector: ModeSelector,
     DifficultyPicker: DifficultyPicker
   }
