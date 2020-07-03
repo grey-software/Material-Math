@@ -6,7 +6,7 @@ const routes: RouteConfig[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') },
-      { path: 'configure-practice-session', component: () => import('pages/ConfigurePracticeSession.vue') },
+      { path: 'config', component: () => import('pages/ConfigurePracticeSession.vue') },
     ]
   }
 ];

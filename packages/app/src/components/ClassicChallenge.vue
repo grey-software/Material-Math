@@ -1,11 +1,10 @@
 <template>
   <div class="container">
-    <challenge-streak />
-    <classic-question
-      class="question"
-      :question="question"
-    />
-    <classic-input />
+    <challenge-header />
+    <div class="challenge-container flex column justify-between align-center">
+      <classic-question id="question" :question="question" />
+      <classic-input />
+    </div>
   </div>
 </template>
 
@@ -13,6 +12,7 @@
 import ClassicInput from "./ClassicInput.vue";
 import ClassicQuestion from "./ClassicQuestion.vue";
 import ChallengeStreak from "./ChallengeStreak.vue";
+import ChallengeHeader from "./ChallengeHeader.vue";
 import {
   PracticeActions,
   PracticeGetters,
@@ -27,7 +27,8 @@ export default Vue.extend({
   components: {
     ClassicInput,
     ClassicQuestion,
-    ChallengeStreak
+    ChallengeStreak,
+    ChallengeHeader
   },
   props: {
     challengeTypes: Array as () => Array<ChallengeType>,
@@ -62,11 +63,30 @@ export default Vue.extend({
 
 <style scoped>
 .container {
-  max-width: 600px;
+  width: 420px;
   max-height: 85%;
 }
 
-.question {
-  margin: -42px 16px 16px 16px;
+.challenge-container {
+  padding: 12px;
+}
+
+#question {
+ margin-bottom: 96px;
+ max-height: 72px;
+}
+
+#input {
+  flex: auto;
+}
+
+@media (max-width: 599px) {
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 </style>
