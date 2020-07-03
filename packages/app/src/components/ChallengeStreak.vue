@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .streak {
   font-family: "Montserrat", sans-serif;
   font-size: 2em;

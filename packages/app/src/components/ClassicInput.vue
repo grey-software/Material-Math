@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="q-mx-sm">
       <q-input
         v-model="answer"
         class="answer-input"
@@ -18,7 +18,7 @@
     <div class="input-container">
       <div class="row justify-center">
         <div
-          class="input-button-container headline col-3"
+          class="q-pa-xs headline col-3"
           v-for="symbol in [7, 8, 9]"
           v-bind:key="symbol"
         >
@@ -31,7 +31,7 @@
           </q-btn>
         </div>
 
-        <div class="input-button-container headline col-3">
+        <div class="q-pa-xs headline col-3">
           <q-btn
             @click="backspace"
             depressed
@@ -50,7 +50,7 @@
         <div
           v-bind:key="symbol"
           v-for="symbol in [4, 5, 6, '-']"
-          class="input-button-container headline col-3"
+          class="q-pa-xs headline col-3"
         >
           <q-btn
             v-on:click="inputSymbol(symbol)"
@@ -66,7 +66,7 @@
         <div
           v-bind:key="symbol"
           v-for="symbol in [1, 2, 3, '.']"
-          class="input-button-container headline col-3"
+          class="q-pa-xs headline col-3"
         >
           <q-btn
             v-on:click="inputSymbol(symbol)"
@@ -78,7 +78,7 @@
         </div>
       </div>
       <div class="row justify-center">
-        <div class="input-button-container headline col-6">
+        <div class="q-pa-xs headline col-6">
           <q-btn
             v-on:click="inputSymbol(0)"
             depressed
@@ -90,7 +90,7 @@
         <div
           v-bind:key="symbol"
           v-for="symbol in ['(', ')']"
-          class="input-button-container headline col-3"
+          class="q-pa-xs headline col-3"
         >
           <q-btn
             v-on:click="inputSymbol(symbol)"
@@ -101,8 +101,7 @@
           </q-btn>
         </div>
       </div>
-      <div class="row justify-around">
-        <div class="input-button-container headline col-12">
+      <div class="row justify-around q-pa-xs">
           <q-btn
             @click="checkAnswer"
             class="action-button"
@@ -110,7 +109,6 @@
             large
             color="green"
             dark
-            icon
           >
             <q-icon
               name="check"
@@ -118,7 +116,6 @@
             ></q-icon>
             Check
           </q-btn>
-        </div>
       </div>
     </div>
   </div>
@@ -178,14 +175,14 @@ export default Vue.extend({
 .input-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 35%;
 }
 
 .q-btn {
-  max-height: 48px;
+  max-height: 72px;
   width: 100%;
   min-width: 72px;
   max-width: 96px;
+  font-size: 2em;
 }
 
 .btn-zero {
@@ -196,9 +193,5 @@ export default Vue.extend({
   max-width: 100%;
   min-width: 148px;
   height: 64px;
-}
-
-.input-button-container {
-  padding: 4px 4px;
 }
 </style>

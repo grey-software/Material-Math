@@ -1,6 +1,6 @@
 <template>
   <div id="challenge-header" class="row items-center justify-between q-px-md">
-    <router-link to="/">
+    <router-link to="/config">
       <q-icon class="icon-challenge-header" name="mdi-close"></q-icon>
     </router-link>
     <div class="row items-center">
@@ -35,5 +35,9 @@ export default {
 .icon-challenge-header {
   font-size: 24px;
   color: white;
+}
+
+#challenge-header a {
+  text-decoration: none;
 }
 </style>
