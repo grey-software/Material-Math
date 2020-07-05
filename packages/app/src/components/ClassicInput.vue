@@ -6,6 +6,7 @@
         class="answer-input"
         single-line
         autofocus
+        :readonly="$q.platform.is.mobile"
         placeholder="Enter Answer Here"
         color="primary"
         clearable

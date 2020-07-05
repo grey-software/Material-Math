@@ -11,34 +11,49 @@
           :class="{'selected-difficulty-icon': isBasic}"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect x="12" y="12" width="32" height="8"  />
-          <rect x="12" y="12" width="32" height="8"  />
-          <rect width="8" height="32"  />
+          <rect x="12" y="12" width="32" height="8" />
+          <rect x="12" y="12" width="32" height="8" />
+          <rect width="8" height="32" />
           <rect x="48" width="8" height="32" />
         </svg>
 
         <h6 class="unselected-txt" :class="{'selected-txt': isBasic}">Basic</h6>
       </div>
       <div class="flex column items-center container-width" @click="setDifficulty('normal')">
-        <div class="flex justify-center items-center">
-          <div class="medium-vertical-bar unselected-color" :class="{'selected-color': isNormal}" />
-          <div class="easy-vertical-bar unselected-color" :class="{'selected-color': isNormal}" />
-          <div class="horizontal-bar unselected-color" :class="{'selected-color': isNormal}" />
-          <div class="easy-vertical-bar unselected-color" :class="{'selected-color': isNormal}" />
-          <div class="medium-vertical-bar unselected-color" :class="{'selected-color': isNormal}" />
-        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="75"
+          height="31"
+          class="difficulty-icon"
+          :class="{'selected-difficulty-icon': isNormal}"
+          viewBox="0 0 75 31"
+        >
+          <rect x="19.9082" y="10.4523" width="35.0853" height="9.95261" />
+          <rect x="9.38232" y="0.5" width="7.01706" height="29.8578"  />
+          <rect x="0.926758" y="5.47617" width="7.01706" height="19.9052"/>
+          <rect x="58.502" y="0.5" width="7.01706" height="29.8578"  />
+          <rect x="67.5884" y="5.47617" width="7.01706" height="19.9052" />
+        </svg>
         <h6 class="unselected-txt" :class="{'selected-txt': isNormal}">Normal</h6>
       </div>
       <div class="flex column items-center container-width" @click="setDifficulty('advanced')">
-        <div class="flex justify-center items-center">
-          <div class="hard-vertical-bar unselected-color" :class="{'selected-color': isAdvanced}" />
-          <div class="medium-vertical-bar unselected-color" :class="{'selected-color': isAdvanced}" />
-          <div class="easy-vertical-bar unselected-color" :class="{'selected-color': isAdvanced}" />
-          <div class="horizontal-bar unselected-color" :class="{'selected-color': isAdvanced}" />
-          <div class="easy-vertical-bar unselected-color" :class="{'selected-color': isAdvanced}" />
-          <div class="medium-vertical-bar unselected-color" :class="{'selected-color': isAdvanced}" />
-          <div class="hard-vertical-bar unselected-color" :class="{'selected-color': isAdvanced}" />
-        </div>
+        <svg
+          width="91"
+          height="31"
+          class="difficulty-icon"
+          :class="{'selected-difficulty-icon': isAdvanced}"
+          viewBox="0 0 91 31"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect x="27.2646" y="10.5" width="35" height="10" />
+          <rect x="17.4448" y="0.5" width="7" height="30"  />
+          <path d="M83.2646 10.5H90.2817V20.4526H83.2646V10.5Z"  />
+          <rect x="0.264648" y="10.5" width="7" height="10" />
+          <rect x="9.26465" y="5.5" width="7" height="20"  />
+          <rect x="65.2646" y="0.5" width="7" height="30"  />
+          <rect x="74.2646" y="5.5" width="7" height="20"  />
+        </svg>
+
         <h6 class="unselected-txt" :class="{'selected-txt': isAdvanced}">Advanced</h6>
       </div>
     </div>
@@ -75,7 +90,7 @@ export default {
 <style scoped>
 .difficulty-icon {
   transition: fill 0.2s ease-out;
-  fill: #C4C4C4;
+  fill: #c4c4c4;
 }
 
 .selected-difficulty-icon {

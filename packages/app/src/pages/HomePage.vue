@@ -1,12 +1,13 @@
 <template>
-  <q-page>
+  <q-page class="column q-pb-lg">
     <div class="config-header">
     </div>
     <span class="config-header-label">Hello there!</span>
     <div class="config-customize-practice row justify-center">
-      <customize-practice-card :icon="'mdi-pencil'" :btnHref="'/config'" /> 
+      <customize-practice-card /> 
     </div>
     <concept-picker />
+
     <div class="row justify-center">
       <router-link style="q-mt-lg" to="/practice">
         <action-button label="Play"/>
