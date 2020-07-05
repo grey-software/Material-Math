@@ -45,4 +45,8 @@ export default {
 .icon-challenge-header {
   font-size: 24px;
 }
+
+a {
+  text-decoration: none;
+}
 </style>

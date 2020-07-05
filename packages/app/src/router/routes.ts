@@ -5,8 +5,13 @@ const routes: RouteConfig[] = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
+<<<<<<< HEAD
       { path: 'practice', component: () => import('pages/PracticePage.vue') },
       { path: '', component: () => import('pages/HomePage.vue') },
+=======
+      { path: '', component: () => import('pages/Index.vue') },
+      { path: 'config', component: () => import('pages/ConfigurePracticeSession.vue') },
+>>>>>>> master
     ]
   }
 ];

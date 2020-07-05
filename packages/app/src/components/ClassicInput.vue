@@ -1,6 +1,11 @@
 <template>
+<<<<<<< HEAD
   <div class="classic-input-container">
     <div>
+=======
+  <div>
+    <div class="q-mx-sm">
+>>>>>>> master
       <q-input
         v-model="answer"
         class="answer-input"
@@ -19,7 +24,11 @@
     <div class="input-container">
       <div class="row justify-center">
         <div
+<<<<<<< HEAD
           class="input-button-container headline col-3"
+=======
+          class="q-pa-xs headline col-3"
+>>>>>>> master
           v-for="symbol in [7, 8, 9]"
           v-bind:key="symbol"
         >
@@ -32,7 +41,11 @@
           </q-btn>
         </div>
 
+<<<<<<< HEAD
         <div class="input-button-container headline col-3">
+=======
+        <div class="q-pa-xs headline col-3">
+>>>>>>> master
           <q-btn
             @click="backspace"
             depressed
@@ -51,7 +64,11 @@
         <div
           v-bind:key="symbol"
           v-for="symbol in [4, 5, 6, '-']"
+<<<<<<< HEAD
           class="input-button-container headline col-3"
+=======
+          class="q-pa-xs headline col-3"
+>>>>>>> master
         >
           <q-btn
             v-on:click="inputSymbol(symbol)"
@@ -67,7 +84,11 @@
         <div
           v-bind:key="symbol"
           v-for="symbol in [1, 2, 3, '.']"
+<<<<<<< HEAD
           class="input-button-container headline col-3"
+=======
+          class="q-pa-xs headline col-3"
+>>>>>>> master
         >
           <q-btn
             v-on:click="inputSymbol(symbol)"
@@ -79,7 +100,11 @@
         </div>
       </div>
       <div class="row justify-center">
+<<<<<<< HEAD
         <div class="input-button-container headline col-6">
+=======
+        <div class="q-pa-xs headline col-6">
+>>>>>>> master
           <q-btn
             v-on:click="inputSymbol(0)"
             depressed
@@ -91,7 +116,11 @@
         <div
           v-bind:key="symbol"
           v-for="symbol in ['(', ')']"
+<<<<<<< HEAD
           class="input-button-container headline col-3"
+=======
+          class="q-pa-xs headline col-3"
+>>>>>>> master
         >
           <q-btn
             v-on:click="inputSymbol(symbol)"
@@ -102,15 +131,22 @@
           </q-btn>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="row justify-around">
         <div class="input-button-container headline col-6">
           <q-btn
             v-on:click="skipQuestion"
+=======
+      <div class="row justify-around q-pa-xs">
+          <q-btn
+            @click="checkAnswer"
+>>>>>>> master
             class="action-button"
             depressed
             large
             color="green"
             dark
+<<<<<<< HEAD
             icon
           >
             <q-icon
@@ -129,6 +165,8 @@
             color="green"
             dark
             icon
+=======
+>>>>>>> master
           >
             <q-icon
               name="check"
@@ -136,7 +174,10 @@
             ></q-icon>
             Check
           </q-btn>
+<<<<<<< HEAD
         </div>
+=======
+>>>>>>> master
       </div>
     </div>
   </div>
@@ -190,7 +231,11 @@ export default Vue.extend({
 });
 </script>
 
+<<<<<<< HEAD
 <style scoped>
+=======
+<style>
+>>>>>>> master
 .classic-input-container {
   padding: 16px;
   display: flex;
@@ -204,6 +249,7 @@ export default Vue.extend({
 .input-container {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   margin-bottom: 35%;
 }
 
@@ -226,5 +272,25 @@ export default Vue.extend({
 
 .input-button-container {
   padding: 4px 4px;
+=======
+}
+
+.q-btn {
+  max-height: 72px;
+  width: 100%;
+  min-width: 72px;
+  max-width: 96px;
+  font-size: 2em;
+}
+
+.btn-zero {
+  max-width: 100%;
+}
+
+.action-button {
+  max-width: 100%;
+  min-width: 148px;
+  height: 64px;
+>>>>>>> master
 }
 </style>

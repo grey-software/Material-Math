@@ -1,15 +1,9 @@
 <template>
   <div class="container">
-    <!-- <challenge-streak /> -->
     <challenge-header />
-    <div>
-
-      <classic-question
-        id="question"
-        v-if="question"
-        :question="question"
-      />
-      <classic-input id="input" />
+    <div class="challenge-container flex column justify-between align-center">
+      <classic-question id="question" :question="question" />
+      <classic-input />
     </div>
   </div>
 </template>
@@ -75,17 +69,21 @@ export default Vue.extend({
 
 <style scoped>
 .container {
-  max-width: 600px;
+  width: 420px;
   max-height: 85%;
 }
 
+.challenge-container {
+  padding: 12px;
+}
+
 #question {
-  margin: -42px 16px 16px 16px;
-  max-height: 20vh;
+ margin-bottom: 96px;
+ max-height: 72px;
 }
 
 #input {
-  flex: 2;
+  flex: auto;
 }
 
 @media (max-width: 599px) {
