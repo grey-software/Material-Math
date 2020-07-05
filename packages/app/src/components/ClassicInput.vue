@@ -101,7 +101,24 @@
           </q-btn>
         </div>
       </div>
-      <div class="row justify-around q-pa-xs">
+      <div class="row justify-around q-mr-sm">
+          <div class="input-button-container q-pa-xs headline col-6">
+          <q-btn
+            v-on:click="skipQuestion"
+            class="action-button"
+            depressed
+            large
+            color="green"
+            dark
+          >
+              <q-icon
+              name="mdi-arrow-right"
+              class="q-mr-sm"
+            ></q-icon>
+            Skip
+          </q-btn>
+        </div>
+        <div class="input-button-container q-pa-xs headline col-6">
           <q-btn
             @click="checkAnswer"
             class="action-button"
@@ -116,6 +133,7 @@
             ></q-icon>
             Check
           </q-btn>
+        </div>
       </div>
     </div>
   </div>
@@ -146,7 +164,8 @@ export default Vue.extend({
     },
     ...mapActions({
       checkAnswer: PracticeActions.CHECK_ANSWER,
-      setAnswer: PracticeActions.SET_ANSWER
+      setAnswer: PracticeActions.SET_ANSWER,
+      skipQuestion: PracticeActions.SKIP_QUESTION
     })
   },
   computed: {
