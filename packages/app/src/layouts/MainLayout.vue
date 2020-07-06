@@ -1,12 +1,5 @@
 <template>
-<<<<<<< HEAD
-  <q-layout
-    view="lhr lpr lfr"
-    class="bg-grey-1"
-  >
-=======
   <q-layout view="hHh lpR fFf" class="bg-grey-1">
->>>>>>> master
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -14,12 +7,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-export default {
-  name: 'MainLayout',
-}
-</script>
-=======
 import MaterialMathIcon from "../components/MaterialMathIcon";
 
 export default {
@@ -29,4 +16,3 @@ export default {
   }
 };
 </script>
->>>>>>> master

@@ -1,17 +1,18 @@
 <template>
-  <q-page class="column q-pb-lg">
-    <div class="config-header">
-    </div>
-    <span class="config-header-label">Hello there!</span>
-    <div class="config-customize-practice row justify-center">
-      <customize-practice-card /> 
-    </div>
-    <concept-picker />
-
-    <div class="row justify-center">
-      <router-link style="q-mt-lg" to="/practice">
-        <action-button label="Play"/>
-      </router-link>
+  <q-page class="mobile-container">
+    <div class="config-header" />
+    <div class="column full-viewport-height q-pb-lg">
+      <span class="config-header-label">Hello there!</span>
+      <div class="config-customize-practice row justify-center">
+        <customize-practice-card /> 
+      </div>
+      <concept-picker />
+      <q-space/>
+      <div class="row justify-center">
+        <router-link style="q-mt-lg" to="/practice">
+          <action-button label="Play"/>
+        </router-link>
+      </div>
     </div>
   </q-page>
 </template>
@@ -59,5 +60,24 @@ export default {
 .config-customize-practice {
   margin-top: 42px;
   z-index: 1;
+}
+
+
+.mobile-container {
+  width: 420px;
+  max-height: 85%;
+}
+
+
+
+
+@media (max-width: 599px) {
+  .mobile-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 </style>

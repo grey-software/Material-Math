@@ -44,6 +44,7 @@ export default {
 
 .icon-challenge-header {
   font-size: 24px;
+  color: white;
 }
 
 a {

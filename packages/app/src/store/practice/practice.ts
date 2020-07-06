@@ -35,17 +35,13 @@ export enum PracticeActions {
   SET_PRACTICE_MODE = 'setPracticeMode',
   SET_PRACTICE_QUESTION_COUNT = 'setPracticeQuestionCount',
   SET_PRACTICE_TIME = 'setPracticeTime',
-<<<<<<< HEAD
   SET_PRACTICE_TIMER_ID = 'setPracticeTimeId',
   FINISH_PRACTICE_SESSION = 'finishPracticeSession',
   PRACTICE_TIME_TICK = 'practiceTimeTick',
   SKIP_QUESTION = 'skipQuestion',
-  SET_DIFFICULTY = 'setDifficulty'
-=======
   SET_DIFFICULTY = 'setDifficulty',
   SELECT_ALL_CONCEPTS = 'selectAllConcepts',
   RESET_CONCPETS = 'resetConcepts'
->>>>>>> master
 }
 
 enum PracticeMutations {
@@ -251,15 +247,6 @@ const actions: ActionTree<PracticeState, any> = {
   setDifficulty(context, difficulty) {
     context.commit(PracticeMutations.SET_DIFFICULTY, difficulty)
   },
-<<<<<<< HEAD
-  selectAll(context) {
-    for (let operator of Object.values(Operator)) {
-      if( !context.state.operators.includes(operator) )
-        context.commit(PracticeMutations.SET_OPERATOR_ENABLED, operator)
-    }
-  },
-  reset(context) {
-=======
   selectAllConcepts(context) {
     for (let operator of Object.values(Operator)) {
       if (!context.state.operators.includes(operator))
@@ -267,17 +254,12 @@ const actions: ActionTree<PracticeState, any> = {
     }
   },
   resetConcepts(context) {
->>>>>>> master
     for (let operator of Object.values(Operator)) {
       context.commit(PracticeMutations.SET_OPERATOR_DISABLED, operator)
     }
     context.commit(PracticeMutations.SET_OPERATOR_ENABLED, Operator.Addition)
     context.commit(PracticeMutations.SET_OPERATOR_ENABLED, Operator.Subtraction)
-<<<<<<< HEAD
-  }
-=======
   },
->>>>>>> master
 }
 
 export const PracticeModule: Module<PracticeState, RootState> = {

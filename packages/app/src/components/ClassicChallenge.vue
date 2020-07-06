@@ -71,15 +71,12 @@ export default Vue.extend({
 .container {
   width: 420px;
   max-height: 85%;
-}
-
-.challenge-container {
-  padding: 12px;
+  background-color: #114489;
 }
 
 #question {
- margin-bottom: 96px;
- max-height: 72px;
+  margin-bottom: 72px;
+  max-height: 72px;
 }
 
 #input {
@@ -92,6 +89,7 @@ export default Vue.extend({
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #114489;
     justify-content: space-between;
   }
 }

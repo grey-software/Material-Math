@@ -14,4 +14,8 @@ export default {
 a { 
   text-decoration: none;
 }
+
+.full-viewport-height {
+  height: 100vh;
+}
 </style>
