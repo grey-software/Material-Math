@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page class="mobile-container full-width row items-center justify-evenly">
     <classic-challenge
       :operators="operators"
       :difficulty="difficulty"
@@ -43,5 +43,20 @@ export default {
 </script>
 
 <style>
+.mobile-container {
+  width: 420px;
+  max-height: 85%;
+  display: flex;
+  flex-direction: column;
+}
 
+@media (max-width: 599px) {
+  .mobile-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
 </style>

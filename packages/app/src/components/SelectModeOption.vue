@@ -1,5 +1,5 @@
 <template>
-  <div style="height:75vh" class="column justify-center items-center">
+  <div class="column justify-center items-center container">
     <h1>How long would you like to practice for?</h1>
     <q-select
       v-if="isTimedMode"
@@ -86,5 +86,8 @@ h1 {
   /* or 133% */
 
   text-align: center;
+}
+.container {
+  height: 75vh;
 }
 </style>

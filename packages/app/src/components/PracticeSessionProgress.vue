@@ -1,11 +1,11 @@
 <template>
   <div>
     <span class="text-challenge-header row items-center" v-if="practiceMode == 'time'">
-      <q-icon name="mdi-clock" class="icon-challenge-header q-mr-xs" />
+      <q-icon name="mdi-clock" class="icon-challenge-header q-mr-sm" />
       <span id="practice-time-left">{{ getFormattedTime }}</span>
     </span>
     <span class="text-challenge-header row items-center" v-else>
-      <q-icon name="mdi-format-list-checkbox" class="icon-challenge-header q-mr-xs" />
+      <q-icon name="mdi-format-list-checkbox" class="icon-challenge-header q-mr-sm" />
       <span
         id="practice-questions-progress"
       >{{practiceCorrectQuestionCount}} / {{ practiceQuestionCount }}</span>

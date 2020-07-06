@@ -20,7 +20,7 @@
           @click="setQuestionsMode"
           round
           size="40px"
-          color="primary"
+          class="selected-btn"
           icon="help_outline"
         />
         <q-btn v-else class="unselected-btn" @click="setQuestionsMode" round size="40px" icon="help_outline" />
@@ -76,7 +76,7 @@ h1 {
   text-align: center;
 }
 h3 {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

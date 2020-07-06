@@ -4,13 +4,13 @@
     <div class="column full-viewport-height q-pb-lg">
       <span class="config-header-label">Hello there!</span>
       <div class="config-customize-practice row justify-center">
-        <customize-practice-card /> 
+        <customize-practice-card />
       </div>
       <concept-picker />
-      <q-space/>
+      <q-space />
       <div class="row justify-center">
         <router-link style="q-mt-lg" to="/practice">
-          <action-button label="Play"/>
+          <action-button label="Play" />
         </router-link>
       </div>
     </div>
@@ -30,7 +30,7 @@ export default {
     ConceptPicker,
     ModeSelector,
     DifficultyPicker,
-    ActionButton, 
+    ActionButton,
     CustomizePracticeCard
   }
 };
@@ -62,14 +62,12 @@ export default {
   z-index: 1;
 }
 
-
 .mobile-container {
   width: 420px;
   max-height: 85%;
+  display: flex;
+  flex-direction: column;
 }
-
-
-
 
 @media (max-width: 599px) {
   .mobile-container {

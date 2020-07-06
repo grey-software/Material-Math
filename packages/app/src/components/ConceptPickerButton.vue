@@ -66,7 +66,7 @@ export default {
 
 <style scoped>
 h4 {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
