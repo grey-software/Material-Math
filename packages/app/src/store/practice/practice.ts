@@ -272,7 +272,7 @@ export const PracticeModule: Module<PracticeState, RootState> = {
     streak: 0,
     showingFeedback: false,
     practiceMode: PracticeMode.TIME,
-    practiceQuestionCount: 1,
+    practiceQuestionCount: 10,
     practiceTime: 60,
     practiceTimeLeft: 0,
     practiceCorrectQuestionCount: 0,

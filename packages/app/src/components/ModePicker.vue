@@ -1,28 +1,46 @@
 <template>
-  <div style="height:75vh" class="column justify-center items-center">
-    <div class="select-mode-heading">How would you like to practice?</div>
-    <div class="row items-center justify-around" style="margin-top: 20px;width:100%">
-      <div style="max-width:140px;" class="column justify-center items-center">
+  <div
+    style="height:75vh"
+    class="column justify-center items-center"
+  >
+    <div class="pick-mode-heading">How would you like to practice?</div>
+    <div
+      class="row items-center justify-around"
+      style="margin-top: 20px;width:100%"
+    >
+      <div
+        style="max-width:140px;"
+        class="column justify-center items-center"
+      >
         <q-btn
           @click="setTimedMode"
           round
           size="40px"
           icon="alarm"
-          class="select-mode-btn"
-          :class="{'selected-mode-btn': isTimedMode}"
+          class="pick-mode-btn"
+          :class="{'picked-mode-btn': isTimedMode}"
         />
-        <div class="mode-label q-mt-lg" :class="{'selected': isTimedMode}">Timed Practice</div>
+        <div
+          class="mode-label q-mt-lg"
+          :class="{'picked': isTimedMode}"
+        >Timed Practice</div>
       </div>
-      <div style="max-width:140px;" class="column justify-center items-center">
+      <div
+        style="max-width:140px;"
+        class="column justify-center items-center"
+      >
         <q-btn
           @click="setQuestionsMode"
           round
           size="40px"
-          class="select-mode-btn"
-          :class="{'selected-mode-btn': isQuestionsMode}"
+          class="pick-mode-btn"
+          :class="{'picked-mode-btn': isQuestionsMode}"
           icon="help_outline"
         />
-        <div class="mode-label q-mt-lg" :class="{'selected': isQuestionsMode}">Maths Worksheet</div>
+        <div
+          class="mode-label q-mt-lg"
+          :class="{'picked': isQuestionsMode}"
+        >Maths Worksheet</div>
       </div>
     </div>
   </div>
@@ -64,7 +82,7 @@ export default {
 </script>
 
 <style scoped>
-.select-mode-heading {
+.pick-mode-heading {
   font-family: "Montserrat", sans-serif;
   color: #4f4f4f;
   font-size: 18px;
@@ -72,26 +90,26 @@ export default {
   text-align: center;
 }
 .mode-label {
-  font-family: "Montserrat", sans-serif;;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 14px;
   text-align: center;
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 
-.select-mode-btn {
-  background: #E5E5E5;
-  color: #C4C4C4;
+.pick-mode-btn {
+  background: #e5e5e5;
+  color: #c4c4c4;
 }
-.selected-mode-btn {
+.picked-mode-btn {
   background-color: #114489;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.selected {
+.picked {
   color: #114489;
 }
-.select-width {
+.pick-width {
   width: 250px;
 }
 </style>

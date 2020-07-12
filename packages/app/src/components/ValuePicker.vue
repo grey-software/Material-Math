@@ -1,19 +1,21 @@
 <template>
   <div class="column justify-center items-center container">
-    <h1>How long would you like to practice for?</h1>
+    <div class="pick-value-heading">How long would you like to practice for?</div>
     <q-select
       v-if="isTimedMode"
-      filled
+      outlined
       v-model="selectedTime"
       :options="timeOptions"
-      class="select-width"
+      map-options
+      class="q-mt-xl"
     />
     <q-select
       v-else
-      filled
+      outlined
       v-model="selectedQuestionCount"
       :options="questionOptions"
-      class="select-width"
+      map-options
+      class="q-mt-xl"
     />
   </div>
 </template>
@@ -77,16 +79,14 @@ export default {
 </script>
 
 <style>
-h1 {
-  font-family: Varela Round;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 32px;
-  /* or 133% */
-
+.pick-value-heading {
+  font-family: "Montserrat", sans-serif;
+  color: #4f4f4f;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
 }
+
 .container {
   height: 75vh;
 }
