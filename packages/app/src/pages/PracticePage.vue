@@ -1,10 +1,11 @@
 <template>
   <q-page class="mobile-container full-width row items-center justify-evenly">
-    <classic-challenge
-      :operators="operators"
-      :difficulty="difficulty"
-      :challengeTypes="challengeTypes"
-    />
+      <classic-challenge
+        v-show="!showingFeedback"
+        :operators="operators"
+        :difficulty="difficulty"
+        :challengeTypes="challengeTypes"
+      />
   </q-page>
 </template>
 
@@ -32,7 +33,8 @@ export default {
   computed: {
     ...mapGetters({
       operators: PracticeGetters.OPERATORS,
-      difficulty: PracticeGetters.DIFFICULTY
+      difficulty: PracticeGetters.DIFFICULTY,
+      showingFeedback: PracticeGetters.SHOWING_FEEDBACK
     })
   },
   beforeDestroy () {
@@ -58,5 +60,42 @@ export default {
     flex-direction: column;
     justify-content: space-between;
   }
+}
+
+.fading-out {
+    -webkit-animation: fadeout .1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeout .1s; /* Firefox < 16 */
+        -ms-animation: fadeout .1s; /* Internet Explorer */
+         -o-animation: fadeout .1s; /* Opera < 12.1 */
+            animation: fadeout .1s;
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
 }
 </style>
