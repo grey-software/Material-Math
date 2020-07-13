@@ -19,17 +19,13 @@
 
 <script lang="ts">
 import ConceptPicker from "../components/ConceptPicker.vue";
-import ModeSelector from "../components/ModeSelector.vue";
 import CustomizePracticeCard from "../components/CustomizePracticeCard.vue";
 import ActionButton from "../components/ActionButton.vue";
-import DifficultyPicker from "../components/DifficultyPicker.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 
 export default {
   components: {
     ConceptPicker,
-    ModeSelector,
-    DifficultyPicker,
     ActionButton,
     CustomizePracticeCard
   }

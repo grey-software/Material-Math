@@ -70,7 +70,6 @@ export default Vue.extend({
 <style scoped>
 .container {
   width: 420px;
-  max-height: 85%;
   background-color: #114489;
 }
 

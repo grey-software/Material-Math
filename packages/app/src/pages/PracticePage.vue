@@ -1,7 +1,10 @@
 <template>
-  <q-page class="mobile-container full-width row items-center justify-evenly">
+  <q-page class="mobile-container full-width row justify-evenly items-center">
     <transition name="fade">
-      <div v-if="showingFeedback" class="mobile-container full-width animation-container" />
+      <div v-show="showingFeedback" class="feedback-container">
+        <div v-if="practiceLastQuestionCorrect" class="feedback-container correct-feedback"></div>
+        <div v-else class="feedback-container incorrect-feedback"></div>
+      </div>
     </transition>
     <classic-challenge
       :operators="operators"
@@ -15,13 +18,14 @@
 import ClassicChallenge from "../components/ClassicChallenge.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 import { Difficulty, ChallengeType } from "../engine/models/math_question";
-import { mapGetters } from "vuex";
 import { PracticeGetters, PracticeActions } from "../store/practice/practice";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 
 export default {
   name: "practice",
-  components: { ClassicChallenge },
+  components: {
+    ClassicChallenge
+  },
   data() {
     return {
       challengeTypes: [ChallengeType.Expression]
@@ -36,7 +40,9 @@ export default {
     ...mapGetters({
       operators: PracticeGetters.OPERATORS,
       difficulty: PracticeGetters.DIFFICULTY,
-      showingFeedback: PracticeGetters.SHOWING_FEEDBACK
+      showingFeedback: PracticeGetters.SHOWING_FEEDBACK,
+      practiceLastQuestionCorrect:
+        PracticeGetters.PRACTICE_LAST_QUESTION_CORRECT
     })
   },
   beforeDestroy() {
@@ -47,6 +53,15 @@ export default {
 </script>
 
 <style>
+.feedback-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+
 .mobile-container {
   width: 420px;
   max-height: 85%;
@@ -64,10 +79,14 @@ export default {
   }
 }
 
-.animation-container {
-  /* position: absolute; */
+.incorrect-feedback {
   opacity: 0.72;
   background: #e74c3c;
+}
+
+.correct-feedback {
+  opacity: 0.72;
+  background: #2ecc71;
 }
 
 .fade-enter-active,

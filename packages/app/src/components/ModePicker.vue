@@ -1,30 +1,46 @@
 <template>
-  <div style="height:75vh" class="column justify-center items-center">
-    <h1>Choose your mode</h1>
-    <div class="row items-center justify-around" style="margin-top: 20px;width:100%">
-      <div style="max-width:140px;" class="column justify-center items-center">
+  <div
+    style="height:75vh"
+    class="column justify-center items-center"
+  >
+    <div class="pick-mode-heading">How would you like to practice?</div>
+    <div
+      class="row items-center justify-around"
+      style="margin-top: 20px;width:100%"
+    >
+      <div
+        style="max-width:140px;"
+        class="column justify-center items-center"
+      >
         <q-btn
-          class="selected-btn"
-          v-if="isTimedMode"
           @click="setTimedMode"
           round
           size="40px"
           icon="alarm"
+          class="pick-mode-btn"
+          :class="{'picked-mode-btn': isTimedMode}"
         />
-        <q-btn v-else class="unselected-btn" @click="setTimedMode" round size="40px" icon="alarm" />
-        <h3 class="text-center" :class="{'unselected-h3': ! isTimedMode}">Timed Practice</h3>
+        <div
+          class="mode-label q-mt-lg"
+          :class="{'picked': isTimedMode}"
+        >Timed Practice</div>
       </div>
-      <div style="max-width:140px;" class="column justify-center items-center">
+      <div
+        style="max-width:140px;"
+        class="column justify-center items-center"
+      >
         <q-btn
-          v-if="isQuestionsMode"
           @click="setQuestionsMode"
           round
           size="40px"
-          class="selected-btn"
+          class="pick-mode-btn"
+          :class="{'picked-mode-btn': isQuestionsMode}"
           icon="help_outline"
         />
-        <q-btn v-else class="unselected-btn" @click="setQuestionsMode" round size="40px" icon="help_outline" />
-        <h3 class="text-center" :class="{'unselected-h3': ! isQuestionsMode}">Maths Worksheet</h3>
+        <div
+          class="mode-label q-mt-lg"
+          :class="{'picked': isQuestionsMode}"
+        >Maths Worksheet</div>
       </div>
     </div>
   </div>
@@ -66,36 +82,34 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-family: Varela Round;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 32px;
-  /* identical to box height, or 133% */
+.pick-mode-heading {
+  font-family: "Montserrat", sans-serif;
+  color: #4f4f4f;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
 }
-h3 {
-  font-family: "Montserrat", sans-serif;;
-  font-style: normal;
+.mode-label {
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 14px;
-  line-height: 18px;
-  /* or 129% */
   text-align: center;
+  color: #c4c4c4;
 }
-.selected-btn {
+
+.pick-mode-btn {
+  background: #e5e5e5;
+  color: #c4c4c4;
+}
+.picked-mode-btn {
   background-color: #114489;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-.unselected-btn {
-  background: #E5E5E5;
-  color: #C4C4C4;
+
+.picked {
+  color: #114489;
 }
-.unselected-h3 {
-  color: #C4C4C4;
-}
-.select-width {
+.pick-width {
   width: 250px;
 }
 </style>

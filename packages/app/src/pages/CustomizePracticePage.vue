@@ -10,15 +10,27 @@
         color="primary"
         animated
       >
-        <q-step title="Mode Selector" :name="1" :done="step > 1">
-          <mode-selector />
+        <q-step
+          title="Mode Picker"
+          :name="1"
+          :done="step > 1"
+        >
+          <mode-picker />
         </q-step>
 
-        <q-step :name="2" title="Time and Question Chooser" caption="Optional" :done="step > 2">
-          <select-mode-option />
+        <q-step
+          :name="2"
+          title="Value Picker"
+          caption="Optional"
+          :done="step > 2"
+        >
+          <value-picker />
         </q-step>
 
-        <q-step :name="3" title="Difficulty Picker">
+        <q-step
+          :name="3"
+          title="Difficulty Picker"
+        >
           <difficulty-picker />
         </q-step>
 
@@ -32,8 +44,16 @@
               color="primary"
               label="Next"
             />
-            <router-link v-else to="/">
-              <q-btn class="full-width" rounded color="primary" label="Done" />
+            <router-link
+              v-else
+              to="/"
+            >
+              <q-btn
+                class="full-width"
+                rounded
+                color="primary"
+                label="Done"
+              />
             </router-link>
           </q-stepper-navigation>
         </template>
@@ -43,19 +63,19 @@
 </template>
 
 <script>
-import ModeSelector from "../components/ModeSelector.vue";
-import SelectModeOption from "../components/SelectModeOption.vue";
+import ModePicker from "../components/ModePicker.vue";
+import ValuePicker from "../components/ValuePicker.vue";
 import DifficultyPicker from "../components/DifficultyPicker.vue";
 
 export default {
-  data() {
+  data () {
     return {
       step: 1
     };
   },
   components: {
-    ModeSelector,
-    SelectModeOption,
+    ModePicker,
+    ValuePicker,
     DifficultyPicker
   }
 };
