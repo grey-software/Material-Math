@@ -1,10 +1,10 @@
 <template>
-  <div class="column justify-around wrap">
-    <div style="margin:40px;" class="justify-between row nowrap">
+  <div>
+    <div class="justify-between row nowrap q-mt-xl q-mb-lg q-mx-lg">
       <q-btn flat color="primary" @click="selectAllConcepts" label="Select All" />
       <q-btn flat color="primary" @click="resetConcepts" label="Reset" />
     </div>
-    <div class="justify-around row wrap">
+    <div class="justify-around row wrap q-mx-xl">
       <span v-for="concept in concepts" :key="concept.operator">
         <concept-picker-button :operator="concept.operator" :icon="concept.icon" />
       </span>

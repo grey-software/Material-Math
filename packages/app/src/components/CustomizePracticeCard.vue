@@ -6,7 +6,7 @@
         id="btn-customize-practice"
         size="20px"
         round
-        text-color="black"
+        text-color="#C4C4C4"
         icon="mdi-pencil"
       />
     </router-link>
@@ -186,6 +186,7 @@ export default {
 }
 #btn-customize-practice {
   z-index: 4;
+  color: gray !important;
 }
 
 .practice-customization {
