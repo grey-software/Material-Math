@@ -107,7 +107,8 @@ const getters: GetterTree<PracticeState, any> = {
   practiceTime: (state) => state.practiceTime,
   practiceTimeLeft: (state) => state.practiceTimeLeft,
   practiceCorrectQuestionCount: (state) => state.practiceCorrectQuestionCount,
-  showingFeedback: (state) => state.showingFeedback
+  showingFeedback: (state) => state.showingFeedback,
+  practiceSessionActive: (state) => state.practiceSessionActive
 }
 
 const mutations: MutationTree<PracticeState> = {
@@ -221,13 +222,13 @@ const actions: ActionTree<PracticeState, any> = {
     if(context.state.practiceCorrectQuestionCount == context.state.practiceQuestionCount && context.state.practiceMode == PracticeMode.QUESTIONS){
       context.commit(PracticeMutations.RESET_PRACTICE_SESSION)
     }
-    setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 1200)
+    setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 3000)
   },
   onIncorrect(context) {
     context.commit(PracticeMutations.SET_STREAK, 0)
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
-    setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 350)
+    setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 3000)
   },
   setPracticeMode(context, mode: PracticeMode) {
     context.commit(PracticeMutations.SET_PRACTICE_MODE, mode)

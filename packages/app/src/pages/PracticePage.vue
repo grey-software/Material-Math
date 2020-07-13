@@ -1,11 +1,13 @@
 <template>
   <q-page class="mobile-container full-width row items-center justify-evenly">
-      <classic-challenge
-        v-show="!showingFeedback"
-        :operators="operators"
-        :difficulty="difficulty"
-        :challengeTypes="challengeTypes"
-      />
+    <transition name="fade">
+      <div v-if="showingFeedback" class="mobile-container full-width animation-container" />
+    </transition>
+    <classic-challenge
+      :operators="operators"
+      :difficulty="difficulty"
+      :challengeTypes="challengeTypes"
+    />
   </q-page>
 </template>
 
@@ -14,8 +16,8 @@ import ClassicChallenge from "../components/ClassicChallenge.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 import { Difficulty, ChallengeType } from "../engine/models/math_question";
 import { mapGetters } from "vuex";
-import { PracticeGetters, PracticeActions } from '../store/practice/practice';
-import { mapState, mapActions } from 'vuex';
+import { PracticeGetters, PracticeActions } from "../store/practice/practice";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "practice",
@@ -37,10 +39,10 @@ export default {
       showingFeedback: PracticeGetters.SHOWING_FEEDBACK
     })
   },
-  beforeDestroy () {
-    const app: any = this
+  beforeDestroy() {
+    const app: any = this;
     app.finishPracticeSession();
-  },
+  }
 };
 </script>
 
@@ -62,40 +64,17 @@ export default {
   }
 }
 
-.fading-out {
-    -webkit-animation: fadeout .1s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeout .1s; /* Firefox < 16 */
-        -ms-animation: fadeout .1s; /* Internet Explorer */
-         -o-animation: fadeout .1s; /* Opera < 12.1 */
-            animation: fadeout .1s;
+.animation-container {
+  /* position: absolute; */
+  opacity: 0.72;
+  background: #e74c3c;
 }
 
-@keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-out;
 }
-
-/* Firefox < 16 */
-@-moz-keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

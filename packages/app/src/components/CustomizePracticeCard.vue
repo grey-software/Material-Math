@@ -6,7 +6,6 @@
         id="btn-customize-practice"
         size="20px"
         round
-        text-color="black"
         icon="mdi-pencil"
       />
     </router-link>
