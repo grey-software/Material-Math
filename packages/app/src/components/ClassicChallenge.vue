@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <challenge-header />
-    <div class="challenge-container flex column justify-between align-center">
+    <div class="challenge-container full-height flex column justify-between align-center">
       <classic-question id="question" :question="question" />
       <classic-input />
     </div>
@@ -55,8 +55,14 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters({
-      question: PracticeGetters.QUESTION_LATEX
+      question: PracticeGetters.QUESTION_LATEX,
+      practiceSessionActive: PracticeGetters.PRACTICE_SESSION_ACTIVE
     })
+  },
+  watch: {
+    practiceSessionActive(newValue) {
+      if (newValue == false) this.$router.push("/");
+    }
   }
 });
 </script>
@@ -64,16 +70,12 @@ export default Vue.extend({
 <style scoped>
 .container {
   width: 420px;
-  max-height: 85%;
-}
-
-.challenge-container {
-  padding: 12px;
+  background-color: #114489;
 }
 
 #question {
- margin-bottom: 96px;
- max-height: 72px;
+  margin-bottom: 72px;
+  max-height: 72px;
 }
 
 #input {
@@ -86,6 +88,7 @@ export default Vue.extend({
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #114489;
     justify-content: space-between;
   }
 }

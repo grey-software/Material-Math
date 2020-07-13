@@ -18,6 +18,7 @@
 import { Operator } from "../engine/math_questions/expression/models";
 import { mapMutations, mapGetters } from "vuex";
 import { PracticeGetters } from "../store/practice/practice";
+import { forEach } from "typescript-collections/dist/lib/arrays";
 
 export default {
   props: {
@@ -65,7 +66,7 @@ export default {
 
 <style scoped>
 h4 {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;

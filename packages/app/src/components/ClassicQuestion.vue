@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="question-container">
     <span v-katex:display="question" />
   </div>
 </template>
@@ -25,5 +25,10 @@ export default {
   font-size: 3em;
   justify-self: center;
   margin-top: 100px;
+}
+
+.katex-html {
+  color: white;
+  margin-top: -42px;
 }
 </style>

@@ -9,3 +9,13 @@ export default {
   name: 'App'
 }
 </script>
+
+<style>
+a { 
+  text-decoration: none;
+}
+
+.full-viewport-height {
+  height: 100vh;
+}
+</style>
