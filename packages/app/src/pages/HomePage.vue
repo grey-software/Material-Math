@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .config-header {
   width: 140%;
   height: 384px;

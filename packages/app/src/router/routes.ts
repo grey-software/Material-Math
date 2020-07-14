@@ -8,7 +8,7 @@ const routes: RouteConfig[] = [
       { path: '', component: () => import('pages/HomePage.vue') },
       { path: 'practice', component: () => import('pages/PracticePage.vue') },
       { path: 'customize', component: () => import('pages/CustomizePracticePage.vue') },
-
+      { path: 'post-practice', component: () => import('pages/PostPracticeSession.vue') },
     ]
   }
 ];
