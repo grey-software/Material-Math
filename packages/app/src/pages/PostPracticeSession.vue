@@ -1,7 +1,7 @@
 <template>
   <q-page class="mobile-container">
     <div class="config-header" />
-    <div class="column full-viewport-height q-pb-lg">
+    <div class="column q-pb-lg">
       <router-link to="/" class="absolute-top-left left-btn">
         <q-btn flat round size="40px" class="btn-style">
           <q-icon name="mdi-file-document-outline" size="50px" class="left-btn-icon" />
@@ -17,11 +17,17 @@
       <div class="full-width config-btn row justify-center">
         <div class="config-btn-border">
           <router-link to="/practice">
-            <q-btn size="25px" class="config-btn-style btn-style" rounded>
+            <q-btn flat size="25px" class="config-btn-style btn-style" rounded>
               Play Again
               <q-icon name="mdi-rotate-left" right />
             </q-btn>
           </router-link>
+        </div>
+      </div>
+      <div class="column q-ma-lg">
+        <div class="headings">Concepts Practiced</div>
+        <div class="row justify-center">
+          <q-chip color="pink" size="16px" v-for="operator in operators" :key="operator"> {{ operator }}</q-chip>
         </div>
       </div>
     </div>
@@ -29,7 +35,14 @@
 </template>
 
 <script lang="ts">
-export default {};
+import { PracticeGetters } from "../store/practice/practice";
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters({ operators: PracticeGetters.OPERATORS })
+  }
+};
 </script>
 
 <style scoped>
@@ -79,7 +92,7 @@ export default {};
 }
 .config-btn-style {
   border-radius: 30px;
-  top: -10px;
+  top: -6px;
 }
 .config-btn-border {
   background: #114489;
@@ -87,6 +100,7 @@ export default {};
   color: #ffffff;
   z-index: 1;
   width: 230px;
+  box-shadow: 0px 0px 5px grey;
 }
 .home-btn {
   top: -35px;
@@ -103,5 +117,12 @@ export default {};
 .left-btn-icon {
   right: -15px;
   bottom: -15px;
+}
+.headings {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
 }
 </style>
