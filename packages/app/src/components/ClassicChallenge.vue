@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <challenge-header />
-    <div class="challenge-container full-height flex column justify-between align-center">
+    <div class="challenge-container flex column justify-between align-center">
       <classic-question id="question" :question="question" />
       <classic-input />
     </div>
