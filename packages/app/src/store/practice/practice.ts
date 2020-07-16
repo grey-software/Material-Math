@@ -4,7 +4,6 @@ import { ChallengeModel, ChallengeType, Difficulty, PracticeMode } from '../../e
 import { generateExpressionChallenge } from '../../engine/math_questions/expression'
 import { Operator } from '../../engine/math_questions/expression/models'
 import { evaluate } from 'mathjs'
-import state from '../module-example/state'
 
 export interface PracticeOptions {
   difficulty: Difficulty;
