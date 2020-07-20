@@ -22,7 +22,9 @@ export enum PracticeGetters {
   PRACTICE_TIME = 'practiceTime',
   PRACTICE_TIME_LEFT = 'practiceTimeLeft',
   PRACTICE_CORRECT_QUESTION_COUNT = 'practiceCorrectQuestionCount',
-  PRACTICE_SESSION_ACTIVE = 'practiceSessionActive'
+  PRACTICE_SESSION_ACTIVE = 'practiceSessionActive',
+  SHOWING_FEEDBACK = 'showingFeedback',
+  PRACTICE_LAST_QUESTION_CORRECT = 'practiceLastQuestionCorrect'
 }
 
 export enum PracticeActions {
@@ -60,7 +62,8 @@ enum PracticeMutations {
   SET_PRACTICE_SESSION_ACTIVE = 'setPracticeSessionActive',
   SET_DIFFICULTY = 'setDifficulty',
   SET_OPERATOR_ENABLED = 'setOperatorEnabled',
-  SET_OPERATOR_DISABLED = 'setOperatorDisabled'
+  SET_OPERATOR_DISABLED = 'setOperatorDisabled',
+  SET_PRACTICE_LAST_QUESTION_CORRECT = 'setPracticeLastQuestionCorrect'
 }
 
 export interface PracticeState {
@@ -92,6 +95,8 @@ export interface PracticeState {
   practiceTimerId: number;
 
   practiceSessionActive: boolean;
+
+  practiceLastQuestionCorrect: boolean;
 }
 
 const getters: GetterTree<PracticeState, any> = {
@@ -105,7 +110,9 @@ const getters: GetterTree<PracticeState, any> = {
   practiceTime: (state) => state.practiceTime,
   practiceTimeLeft: (state) => state.practiceTimeLeft,
   practiceCorrectQuestionCount: (state) => state.practiceCorrectQuestionCount,
+  showingFeedback: (state) => state.showingFeedback,
   practiceSessionActive: (state) => state.practiceSessionActive,
+  practiceLastQuestionCorrect: (state) => state.practiceLastQuestionCorrect
 }
 
 const mutations: MutationTree<PracticeState> = {
@@ -125,7 +132,7 @@ const mutations: MutationTree<PracticeState> = {
     state.practiceTimeLeft = state.practiceTime
   },
   setShowingFeedback(state: PracticeState, isShowingFeedback: boolean) {
-    state.showingFeedback = isShowingFeedback
+    state.showingFeedback = isShowingFeedback;
   },
   setOperatorEnabled(state: PracticeState, operator: Operator) {
     state.operators.push(operator)
@@ -163,6 +170,9 @@ const mutations: MutationTree<PracticeState> = {
   },
   setDifficulty(state: PracticeState, difficulty: Difficulty) {
     state.difficulty = difficulty;
+  },
+  setPracticeLastQuestionCorrect(state: PracticeState, practiceLastQuestionCorrect: boolean) {
+    state.practiceLastQuestionCorrect = practiceLastQuestionCorrect;
   }
 }
 
@@ -214,18 +224,20 @@ const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.SET_PRACTICE_CORRECT_QUESTION_COUNT, context.state.practiceCorrectQuestionCount + 1)
     context.commit(PracticeMutations.SET_STREAK, context.state.streak + 1)
     context.commit(PracticeMutations.SET_ANSWER, '')
-    context.dispatch(PracticeActions.NEW_QUESTION)
+    context.commit(PracticeMutations.SET_PRACTICE_LAST_QUESTION_CORRECT, true)
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
+    context.dispatch(PracticeActions.NEW_QUESTION)
     if(context.state.practiceCorrectQuestionCount == context.state.practiceQuestionCount && context.state.practiceMode == PracticeMode.QUESTIONS){
       context.commit(PracticeMutations.RESET_PRACTICE_SESSION)
     }
-    setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 350)
+    setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 600)
   },
   onIncorrect(context) {
     context.commit(PracticeMutations.SET_STREAK, 0)
     context.commit(PracticeMutations.SET_ANSWER, '')
+    context.commit(PracticeMutations.SET_PRACTICE_LAST_QUESTION_CORRECT, false)
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
-    setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 350)
+    setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 600)
   },
   setPracticeMode(context, mode: PracticeMode) {
     context.commit(PracticeMutations.SET_PRACTICE_MODE, mode)
@@ -277,7 +289,8 @@ export const PracticeModule: Module<PracticeState, RootState> = {
     practiceTimeLeft: 0,
     practiceCorrectQuestionCount: 0,
     practiceTimerId: 0,
-    practiceSessionActive: false
+    practiceSessionActive: false,
+    practiceLastQuestionCorrect: false
   },
   getters,
   actions,
