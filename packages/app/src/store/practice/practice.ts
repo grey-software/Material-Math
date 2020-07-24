@@ -5,6 +5,7 @@ import { generateExpressionChallenge } from '../../engine/math_questions/express
 import { Operator } from '../../engine/math_questions/expression/models'
 import { evaluate } from 'mathjs'
 import state from '../module-example/state'
+import {PracticeGetters, getters} from "../"
 
 export interface PracticeOptions {
   difficulty: Difficulty;
@@ -94,10 +95,9 @@ export interface PracticeState {
   with the clearInterval() method to cancel the timer
   */
   practiceTimerId: number;
-
   practiceSessionActive: boolean;
-
   practiceLastQuestionCorrect: boolean;
+  practiceAttemptedQuestions: Array<Object>;
 }
 
 const getters: GetterTree<PracticeState, any> = {
@@ -113,7 +113,8 @@ const getters: GetterTree<PracticeState, any> = {
   practiceCorrectQuestionCount: (state) => state.practiceCorrectQuestionCount,
   showingFeedback: (state) => state.showingFeedback,
   practiceSessionActive: (state) => state.practiceSessionActive,
-  practiceLastQuestionCorrect: (state) => state.practiceLastQuestionCorrect
+  practiceLastQuestionCorrect: (state) => state.practiceLastQuestionCorrect,
+  practiceAttemptedQuestions: (state) => state.practiceAttemptedQuestions
 }
 
 const mutations: MutationTree<PracticeState> = {
@@ -174,6 +175,9 @@ const mutations: MutationTree<PracticeState> = {
   },
   setPracticeLastQuestionCorrect(state: PracticeState, practiceLastQuestionCorrect: boolean) {
     state.practiceLastQuestionCorrect = practiceLastQuestionCorrect;
+  },
+  addPracticeAttemptedQuestion(state: PracticeState, practiceQuestion: ChallengeModel) {
+    return
   }
 }
 
@@ -291,7 +295,8 @@ export const PracticeModule: Module<PracticeState, RootState> = {
     practiceCorrectQuestionCount: 0,
     practiceTimerId: 0,
     practiceSessionActive: false,
-    practiceLastQuestionCorrect: false
+    practiceLastQuestionCorrect: false,
+    practiceAttemptedQuestions: []
   },
   getters,
   actions,
