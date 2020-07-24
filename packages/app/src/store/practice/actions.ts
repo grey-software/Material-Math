@@ -1,31 +1,10 @@
-import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
-import {PracticeState} from "./state"
-import { ChallengeModel, ChallengeType, Difficulty, PracticeMode } from '../../engine/models/math_question'
+import { ActionTree } from 'vuex'
+import {PracticeState } from "./state"
+import { Difficulty, PracticeMode } from '../../engine/models/math_question'
 import { Operator } from '../../engine/math_questions/expression/models'
-import {PracticeGetters, getters} from "./getters"
-import {PracticeMutations, mutations} from "./mutations"
+import { PracticeMutations, PracticeActions } from "./practice"
 import { generateExpressionChallenge } from '../../engine/math_questions/expression'
 import { evaluate } from 'mathjs'
-
-
-export enum PracticeActions {
-  INIT = 'init',
-  NEW_QUESTION = 'newQuestion',
-  SET_ANSWER = 'setAnswer',
-  CHECK_ANSWER = 'checkAnswer',
-  ON_CORRECT = 'onCorrect',
-  ON_INCORRECT = 'onIncorrect',
-  SET_PRACTICE_MODE = 'setPracticeMode',
-  SET_PRACTICE_QUESTION_COUNT = 'setPracticeQuestionCount',
-  SET_PRACTICE_TIME = 'setPracticeTime',
-  SET_PRACTICE_TIMER_ID = 'setPracticeTimeId',
-  FINISH_PRACTICE_SESSION = 'finishPracticeSession',
-  PRACTICE_TIME_TICK = 'practiceTimeTick',
-  SKIP_QUESTION = 'skipQuestion',
-  SET_DIFFICULTY = 'setDifficulty',
-  SELECT_ALL_CONCEPTS = 'selectAllConcepts',
-  RESET_CONCPETS = 'resetConcepts'
-}
 
 export const actions: ActionTree<PracticeState, any> = {
   init(context, options: PracticeActions) {
@@ -72,12 +51,14 @@ export const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.SET_STREAK, context.state.streak + 1)
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.SET_PRACTICE_LAST_QUESTION_CORRECT, true)
-    var payload = {
-      question: PracticeGetters.QUESTION_LATEX,
-      answer: PracticeGetters.ANSWER,
-      correctness: "right"
+    const questionReport = {
+      question: context.state.question.infix,
+      answer: context.state.answer,
+      correctAnswer: evaluate(context.state.question.infix),
+      correct: true,
+      attempts: 1
     }
-    context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, payload)
+    context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
     context.dispatch(PracticeActions.NEW_QUESTION)
     if(context.state.practiceCorrectQuestionCount == context.state.practiceQuestionCount && context.state.practiceMode == PracticeMode.QUESTIONS){
@@ -91,6 +72,14 @@ export const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.SET_PRACTICE_LAST_QUESTION_CORRECT, false)
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
     setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 600)
+    const questionReport = {
+      question: context.state.question.infix,
+      answer: context.state.answer,
+      correctAnswer: evaluate(context.state.question.infix),
+      correct: false,
+      attempts: 1
+    }
+    context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
   },
   setPracticeMode(context, mode: PracticeMode) {
     context.commit(PracticeMutations.SET_PRACTICE_MODE, mode)
@@ -107,6 +96,15 @@ export const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.RESET_PRACTICE_SESSION)
   },
   skipQuestion(context) {
+    const questionReport = {
+        question: context.state.question.infix,
+        answer: "-",
+        correctAnswer: evaluate(context.state.question.infix),
+        correct: false,
+        attempts: 0,
+        skipped: true
+      }
+    context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
     context.dispatch(PracticeActions.NEW_QUESTION)
   },
   setDifficulty(context, difficulty) {

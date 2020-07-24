@@ -27,8 +27,20 @@
       <div class="column q-ma-lg">
         <div class="headings">Concepts Practiced</div>
         <div class="row justify-center">
-          <q-chip color="pink" size="16px" v-for="operator in operators" :key="operator"> {{ operator }}</q-chip>
+          <q-chip
+            color="pink"
+            size="16px"
+            v-for="operator in operators"
+            :key="operator"
+          >{{ operator }}</q-chip>
         </div>
+      </div>
+      <div class="column content-center">
+        <span style="width:80%" v-for="question in practiceAttemptedQuestions.questions" :key="question.question">
+          <AnswerDescription
+            :question="question"
+          />
+        </span>
       </div>
     </div>
   </q-page>
@@ -36,19 +48,26 @@
 
 <script lang="ts">
 import { PracticeGetters } from "../store/practice/practice";
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
+import AnswerDescription from "../components/AnswerDescription.vue";
 
 export default {
   computed: {
-    ...mapGetters({ operators: PracticeGetters.OPERATORS })
-  }
+    ...mapGetters({
+      operators: PracticeGetters.OPERATORS,
+      practiceAttemptedQuestions: PracticeGetters.PRACTICE_ATTEMPTED_QUESTIONS,
+    }),
+  },
+  components: {
+    AnswerDescription,
+  },
 };
 </script>
 
 <style scoped>
 .mobile-container {
   width: 420px;
-  max-height: 85%;
+  min-height: 85%;
   display: flex;
   flex-direction: column;
 }
@@ -56,7 +75,7 @@ export default {
 @media (max-width: 599px) {
   .mobile-container {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

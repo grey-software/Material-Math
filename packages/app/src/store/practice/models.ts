@@ -1,4 +1,4 @@
-import { ChallengeModel, ChallengeType, Difficulty, PracticeMode } from '../../engine/models/math_question'
+import { ChallengeType, Difficulty } from '../../engine/models/math_question'
 import { Operator } from '../../engine/math_questions/expression/models'
 
 export interface PracticeOptions {
@@ -9,14 +9,14 @@ export interface PracticeOptions {
 
 export interface QuestionReport {
     question: string, 
-    answer: string, 
-    answerCorrect: boolean,
+    answer: string,
+    correctAnswer: string,
+    correct: boolean,
     attempts: number,
-    skips: number
+    skipped: boolean
 }
 
 export interface PracticeReport {
-    date: Date
-    length: number,
+    date: Date,
     questions: QuestionReport[]
 }

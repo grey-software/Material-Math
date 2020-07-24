@@ -15,13 +15,14 @@ import ChallengeStreak from "./ChallengeStreak.vue";
 import ChallengeHeader from "./ChallengeHeader.vue";
 import {
   PracticeActions,
-  PracticeGetters,
-  PracticeOptions
+  PracticeGetters
 } from "../store/practice/practice";
+import { PracticeOptions } from "../store/practice/models"
 import { Operator } from "../engine/math_questions/expression/models";
 import { ChallengeType } from "../engine/models/math_question";
 import { mapActions, mapGetters } from "vuex";
 import Vue from "vue";
+// import { import } from "mathjs";
 
 export default Vue.extend({
   components: {
