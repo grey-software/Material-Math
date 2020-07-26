@@ -1,19 +1,20 @@
 {
-  "name": "material-math",
-  "version": "0.0.1",
-  "description": "Practice math in a fun, beautiful, material interface. ",
-  "main": "index.js",
-  "scripts": {
-    "dev": "npm run dev --prefix packages/app"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/grey-software/Material-Math.git"
-  },
-  "author": "Grey Softare",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/grey-software/Material-Math/issues"
-  },
-  "homepage": "https://github.com/grey-software/Material-Math#readme"
+    "name": "material-math",
+    "version": "0.0.1",
+    "description": "Practice math in a fun, beautiful, material interface.",
+    "main": "index.js",
+    "scripts": {
+        "setup": "npm i --prefix packages/app;npm i --prefix packages/docs;",
+        "dev": "npm run dev --prefix packages/app"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/grey-software/Material-Math.git"
+    },
+    "author": "Grey Softare",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/grey-software/Material-Math/issues"
+    },
+    "homepage": "https://github.com/grey-software/Material-Math#readme"
 }
