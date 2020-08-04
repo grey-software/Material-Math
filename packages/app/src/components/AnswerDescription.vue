@@ -1,6 +1,6 @@
 <template>
-  <div class="container q-mb-md">
-    <div class="col question-container">
+  <div class="row container q-mb-md">
+    <div class="col-5 question-container">
       <div class="question-text">{{ question.question }}</div>
       <div class="answer-text">
         Given Answer: {{ question.answer }}
@@ -9,9 +9,14 @@
       </div>
     </div>
     <div class="col correctness-display">
-      <!-- <img v-if="skipped" src="../public/img/loading.svg" class="img-container" />
-      <img v-if="correct" src="../public/img/tick.svg" class="img-container" />
-      <img v-if="!correct" src="../public/img/close.svg" class="img-container" /> -->
+      <div class="column items-end content-around">
+        <img v-if="question.skipped" src="../assets/img/loading.svg" class="img-container" />
+        <div v-else>
+          <img v-if="question.correct" src="../assets/img/tick.svg" class="img-container" />
+          <img v-if="!question.correct" src="../assets/img/close.svg" class="img-container" />
+        </div>
+        <div class="answer-text">Took {{ question.time }} seconds to answer</div>
+      </div>
     </div>
   </div>
 </template>
@@ -24,7 +29,7 @@ export default {
     question: {
       type: QuestionReport,
       required: true,
-    }
+    },
   },
 };
 </script>
@@ -62,7 +67,21 @@ export default {
   width: 50px;
 }
 .question-container {
-  width: 80%;
   margin-left: 20px;
+}
+.correctness-display {
+  margin-top: 15px;
+  margin-right: 20px;
+}
+@media screen and (max-width: 350px) {
+  .correctness-display {
+    margin: 15px;
+    margin-right: 10px;
+  }
+  .img-container {
+    height: 40px;
+    width: 40px;
+    margin-right: 35px;
+  }
 }
 </style>
