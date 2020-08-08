@@ -74,5 +74,8 @@ export const mutations: MutationTree<PracticeState> = {
     if (!added){
       state.practiceAttemptedQuestions.questions.push(payload)
     }
+  },
+  setpracticeStartQuestionTime(state: PracticeState, date: Date) {
+    state.practiceStartQuestionTime = date;
   }
 }

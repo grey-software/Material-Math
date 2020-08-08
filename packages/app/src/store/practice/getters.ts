@@ -15,5 +15,6 @@ export const getters: GetterTree<PracticeState, any> = {
   showingFeedback: (state) => state.showingFeedback,
   practiceSessionActive: (state) => state.practiceSessionActive,
   practiceLastQuestionCorrect: (state) => state.practiceLastQuestionCorrect,
-  practiceAttemptedQuestions: (state) => state.practiceAttemptedQuestions
+  practiceAttemptedQuestions: (state) => state.practiceAttemptedQuestions,
+  practiceStartQuestionTime: (state) => state.practiceStartQuestionTime
 }

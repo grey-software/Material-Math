@@ -13,7 +13,8 @@ export interface QuestionReport {
     correctAnswer: string,
     correct: boolean,
     attempts: number,
-    skipped: boolean
+    skipped: boolean,
+    duration: Number
 }
 
 export interface PracticeReport {

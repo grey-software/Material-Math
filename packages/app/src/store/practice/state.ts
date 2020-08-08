@@ -32,4 +32,5 @@ export interface PracticeState {
   practiceSessionActive: boolean;
   practiceLastQuestionCorrect: boolean;
   practiceAttemptedQuestions: PracticeReport;
+  practiceStartQuestionTime: Date;
 }

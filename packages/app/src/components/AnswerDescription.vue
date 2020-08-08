@@ -15,7 +15,7 @@
           <img v-if="question.correct" src="../assets/img/tick.svg" class="img-container" />
           <img v-if="!question.correct" src="../assets/img/close.svg" class="img-container" />
         </div>
-        <div class="answer-text">Took {{ question.time }} seconds to answer</div>
+        <div class="answer-text">Took {{ question.duration }} seconds to answer</div>
       </div>
     </div>
   </div>
@@ -24,13 +24,14 @@
 <script>
 import { QuestionReport } from "../store/practice/models";
 import { boolean } from "mathjs";
+
 export default {
   props: {
     question: {
       type: QuestionReport,
       required: true,
     },
-  },
+  }
 };
 </script>
 
@@ -39,7 +40,7 @@ export default {
   width: 100%;
   height: 98px;
   border-radius: 10px;
-  box-shadow: -2px 0px 2px 2px #767676;
+  box-shadow: -9px 0 #FDC97C, 0 2px 3px 2px #767676;
   background: #ffffff;
 }
 .question-text {

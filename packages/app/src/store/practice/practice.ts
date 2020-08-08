@@ -21,7 +21,8 @@ export enum PracticeGetters {
   PRACTICE_SESSION_ACTIVE = 'practiceSessionActive',
   SHOWING_FEEDBACK = 'showingFeedback',
   PRACTICE_LAST_QUESTION_CORRECT = 'practiceLastQuestionCorrect',
-  PRACTICE_ATTEMPTED_QUESTIONS = 'practiceAttemptedQuestions'
+  PRACTICE_ATTEMPTED_QUESTIONS = 'practiceAttemptedQuestions',
+  PRACTICE_START_QUESTION_TIME = 'practiceStartQuestionTime'
 }
 
 export enum PracticeActions {
@@ -61,7 +62,8 @@ export enum PracticeMutations {
   SET_OPERATOR_ENABLED = 'setOperatorEnabled',
   SET_OPERATOR_DISABLED = 'setOperatorDisabled',
   SET_PRACTICE_LAST_QUESTION_CORRECT = 'setPracticeLastQuestionCorrect',
-  ADD_PRACTICE_ATTEMPTED_QUESTION = "addPracticeAttemptedQuestion"
+  ADD_PRACTICE_ATTEMPTED_QUESTION = "addPracticeAttemptedQuestion",
+  SET_PRACTICE_START_QUESTION_TIME = "setpracticeStartQuestionTime"
 }
 
 export const PracticeModule: Module<PracticeState, RootState> = {
@@ -81,7 +83,8 @@ export const PracticeModule: Module<PracticeState, RootState> = {
     practiceTimerId: 0,
     practiceSessionActive: false,
     practiceLastQuestionCorrect: false,
-    practiceAttemptedQuestions: {date: new Date(), questions: []}
+    practiceAttemptedQuestions: {date: new Date(), questions: []},
+    practiceStartQuestionTime: new Date()
   },
   getters,
   actions,

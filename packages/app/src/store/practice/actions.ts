@@ -2,7 +2,7 @@ import { ActionTree } from 'vuex'
 import {PracticeState } from "./state"
 import { Difficulty, PracticeMode } from '../../engine/models/math_question'
 import { Operator } from '../../engine/math_questions/expression/models'
-import { PracticeMutations, PracticeActions } from "./practice"
+import { PracticeMutations, PracticeActions, PracticeGetters } from "./practice"
 import { generateExpressionChallenge } from '../../engine/math_questions/expression'
 import { evaluate } from 'mathjs'
 
@@ -28,6 +28,11 @@ export const actions: ActionTree<PracticeState, any> = {
       PracticeMutations.SET_QUESTION,
       newQuestion(context.state.difficulty, context.state.operators)
     )
+    context.commit(
+      PracticeMutations.SET_PRACTICE_START_QUESTION_TIME,
+      new Date()
+    )
+    console.log(context.state.practiceStartQuestionTime)
   },
   setAnswer(context, answer: string) {
     context.commit(PracticeMutations.SET_ANSWER, answer)
@@ -51,12 +56,15 @@ export const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.SET_STREAK, context.state.streak + 1)
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.SET_PRACTICE_LAST_QUESTION_CORRECT, true)
+    const endTime = new Date()
+    const duration = Math.round((endTime.getTime() - context.state.practiceStartQuestionTime.getTime()) / 1000)
     const questionReport = {
       question: context.state.question.infix,
       answer: context.state.answer,
       correctAnswer: evaluate(context.state.question.infix),
       correct: true,
-      attempts: 1
+      attempts: 1,
+      duration: duration
     }
     context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
@@ -70,16 +78,20 @@ export const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.SET_STREAK, 0)
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.SET_PRACTICE_LAST_QUESTION_CORRECT, false)
-    context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
-    setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 600)
+    const endTime = new Date()
+    const duration = Math.round((endTime.getTime() - context.state.practiceStartQuestionTime.getTime()) / 1000)
     const questionReport = {
       question: context.state.question.infix,
       answer: context.state.answer,
       correctAnswer: evaluate(context.state.question.infix),
       correct: false,
-      attempts: 1
+      attempts: 1,
+      duration: duration
     }
     context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
+    context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false)
+    context.dispatch(PracticeActions.NEW_QUESTION)
+    setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 600)
   },
   setPracticeMode(context, mode: PracticeMode) {
     context.commit(PracticeMutations.SET_PRACTICE_MODE, mode)
@@ -96,13 +108,17 @@ export const actions: ActionTree<PracticeState, any> = {
     context.commit(PracticeMutations.RESET_PRACTICE_SESSION)
   },
   skipQuestion(context) {
+    const endTime = new Date()
+    const duration = Math.round((endTime.getTime() - context.state.practiceStartQuestionTime.getTime()) / 1000)
+    console.log(context.state.practiceStartQuestionTime)
     const questionReport = {
         question: context.state.question.infix,
         answer: "-",
         correctAnswer: evaluate(context.state.question.infix),
         correct: false,
         attempts: 0,
-        skipped: true
+        skipped: true,
+        duration: duration
       }
     context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
     context.dispatch(PracticeActions.NEW_QUESTION)
