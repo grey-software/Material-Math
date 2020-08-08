@@ -14,7 +14,9 @@ export interface QuestionReport {
     correct: boolean,
     attempts: number,
     skipped: boolean,
-    duration: Number
+    duration: Number,
+    operators: Operator[],
+    challengeType: ChallengeType
 }
 
 export interface PracticeReport {

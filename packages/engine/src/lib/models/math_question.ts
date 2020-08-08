@@ -18,6 +18,7 @@ export interface ChallengeModel {
   difficulty: Difficulty;
   infix: string;
   latex: string;
+  operators: Operator[];
 }
 
 export interface ChallengeParams {

@@ -23,7 +23,6 @@
 
 <script>
 import { QuestionReport } from "../store/practice/models";
-import { boolean } from "mathjs";
 
 export default {
   props: {
@@ -31,7 +30,14 @@ export default {
       type: QuestionReport,
       required: true,
     },
-  }
+  },
+  // computed: {
+  //   questionType() {
+  //     if (this.question.challengeType === Expression) {
+  //       return this.question.operators.join(', ')
+  //     } else return this.question.challengeType
+  //   }
+  // },
 };
 </script>
 

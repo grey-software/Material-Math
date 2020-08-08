@@ -92,6 +92,7 @@ export const generateExpressionChallenge: GenerateChallenge = (
     difficulty,
     infix: expressionInfix(tokens),
     latex: exprLatex.substring(1, exprLatex.length - 1),
-    type: ChallengeType.Expression
+    type: ChallengeType.Expression,
+    operators: params.operators,
   }
 }

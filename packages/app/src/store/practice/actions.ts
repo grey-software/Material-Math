@@ -63,7 +63,9 @@ export const actions: ActionTree<PracticeState, any> = {
       correctAnswer: evaluate(context.state.question.infix),
       correct: true,
       attempts: 1,
-      duration: duration
+      duration: duration,
+      operators: context.state.operators,
+      challengeType: context.state.challengeTypes
     }
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
@@ -86,7 +88,9 @@ export const actions: ActionTree<PracticeState, any> = {
       correctAnswer: evaluate(context.state.question.infix),
       correct: false,
       attempts: 1,
-      duration: duration
+      duration: duration,
+      operators: context.state.operators,
+      challengeType: context.state.challengeTypes
     }
     context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
@@ -120,7 +124,9 @@ export const actions: ActionTree<PracticeState, any> = {
         correct: false,
         attempts: 0,
         skipped: true,
-        duration: duration
+        duration: duration,
+        operators: context.state.operators,
+        challengeType: context.state.challengeTypes
       }
     context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
     context.dispatch(PracticeActions.NEW_QUESTION)
