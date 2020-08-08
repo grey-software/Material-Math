@@ -77,5 +77,8 @@ export const mutations: MutationTree<PracticeState> = {
   },
   setpracticeStartQuestionTime(state: PracticeState, date: Date) {
     state.practiceStartQuestionTime = date;
+  },
+  resetPracticeAttemptedQuestion(state: PracticeState) {
+    state.practiceAttemptedQuestions.questions = []
   }
 }

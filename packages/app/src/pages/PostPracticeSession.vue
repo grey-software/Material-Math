@@ -60,7 +60,7 @@ export default {
   },
   components: {
     AnswerDescription,
-  },
+  }
 };
 </script>
 

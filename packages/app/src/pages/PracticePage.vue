@@ -18,13 +18,17 @@
 import ClassicChallenge from "../components/ClassicChallenge.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 import { Difficulty, ChallengeType } from "../engine/models/math_question";
-import { PracticeGetters, PracticeActions } from "../store/practice/practice";
-import { mapState, mapActions, mapGetters } from "vuex";
+import { PracticeGetters, PracticeActions, PracticeMutations } from "../store/practice/practice";
+import { mapState, mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "practice",
   components: {
     ClassicChallenge
+  },
+  mounted() {
+    const app: any = this;
+    app.resetPracticeAttemptedQuestion();
   },
   data() {
     return {
@@ -34,6 +38,9 @@ export default {
   methods: {
     ...mapActions({
       finishPracticeSession: PracticeActions.FINISH_PRACTICE_SESSION
+    }),
+    ...mapMutations({
+      resetPracticeAttemptedQuestion: PracticeMutations.RESET_PRACTICE_ATTEMPTED_QUESTION
     })
   },
   computed: {

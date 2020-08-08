@@ -54,7 +54,6 @@ export const actions: ActionTree<PracticeState, any> = {
   onCorrect(context) {
     context.commit(PracticeMutations.SET_PRACTICE_CORRECT_QUESTION_COUNT, context.state.practiceCorrectQuestionCount + 1)
     context.commit(PracticeMutations.SET_STREAK, context.state.streak + 1)
-    context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.SET_PRACTICE_LAST_QUESTION_CORRECT, true)
     const endTime = new Date()
     const duration = Math.round((endTime.getTime() - context.state.practiceStartQuestionTime.getTime()) / 1000)
@@ -66,6 +65,7 @@ export const actions: ActionTree<PracticeState, any> = {
       attempts: 1,
       duration: duration
     }
+    context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
     context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
     context.dispatch(PracticeActions.NEW_QUESTION)
@@ -76,10 +76,10 @@ export const actions: ActionTree<PracticeState, any> = {
   },
   onIncorrect(context) {
     context.commit(PracticeMutations.SET_STREAK, 0)
-    context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.SET_PRACTICE_LAST_QUESTION_CORRECT, false)
     const endTime = new Date()
     const duration = Math.round((endTime.getTime() - context.state.practiceStartQuestionTime.getTime()) / 1000)
+    console.log(context.state.answer);
     const questionReport = {
       question: context.state.question.infix,
       answer: context.state.answer,
@@ -88,10 +88,12 @@ export const actions: ActionTree<PracticeState, any> = {
       attempts: 1,
       duration: duration
     }
+    context.commit(PracticeMutations.SET_ANSWER, '')
     context.commit(PracticeMutations.ADD_PRACTICE_ATTEMPTED_QUESTION, questionReport)
-    context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false)
-    context.dispatch(PracticeActions.NEW_QUESTION)
+    context.commit(PracticeMutations.SET_PRACTICE_LAST_QUESTION_CORRECT, false)
+    context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, true)
     setTimeout(() => context.commit(PracticeMutations.SET_SHOWING_FEEDBACK, false), 600)
+    context.dispatch(PracticeActions.NEW_QUESTION)
   },
   setPracticeMode(context, mode: PracticeMode) {
     context.commit(PracticeMutations.SET_PRACTICE_MODE, mode)

@@ -63,7 +63,8 @@ export enum PracticeMutations {
   SET_OPERATOR_DISABLED = 'setOperatorDisabled',
   SET_PRACTICE_LAST_QUESTION_CORRECT = 'setPracticeLastQuestionCorrect',
   ADD_PRACTICE_ATTEMPTED_QUESTION = "addPracticeAttemptedQuestion",
-  SET_PRACTICE_START_QUESTION_TIME = "setpracticeStartQuestionTime"
+  SET_PRACTICE_START_QUESTION_TIME = "setpracticeStartQuestionTime",
+  RESET_PRACTICE_ATTEMPTED_QUESTION = "resetPracticeAttemptedQuestion"
 }
 
 export const PracticeModule: Module<PracticeState, RootState> = {
