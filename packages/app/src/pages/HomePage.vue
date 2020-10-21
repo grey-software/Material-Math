@@ -19,7 +19,7 @@
           style="q-mt-lg"
           to="/practice"
         >
-          <action-button label="Play" />
+          <action-button label="Play" icon="mdi-play-circle-outline" />
         </router-link>
       </div>
     </div>
