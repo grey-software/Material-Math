@@ -1,11 +1,14 @@
 <template>
-  <q-btn unelevated rounded>{{label}}</q-btn>
+  <q-btn unelevated rounded>
+    <q-icon :name=icon class="q-mr-sm"></q-icon>{{label}}
+  </q-btn>
 </template>
 
 <script lang="ts">
 export default {
     props: {
-        label: String
+        label: String,
+        icon: String,
     },
 };
 </script>
@@ -17,6 +20,7 @@ export default {
   height: 56px;
   color: white;
   font-size: 20px;
-line-height: 32px;
+  line-height: 32px;
+  align-content: space-evenly;
 }
 </style>
