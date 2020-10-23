@@ -40,29 +40,32 @@
               to="/"
             >
             <q-btn
-                class=""
+                class="q-px-xl q-py-xs"
                 rounded
                 color="red"
                 label="Close"
+                size="12px"
             />
             </router-link>
             <q-btn
               v-if="step < 3"
-              class=""
+              class="q-px-xl q-py-xs"
               rounded
               @click="$refs.stepper.next()"
               color="primary"
               label="Next"
+              size="12px"
             />
             <router-link
               v-else
               to="/"
             >
             <q-btn
-                class=""
+                class="q-px-xl q-py-xs"
                 rounded
                 color="primary"
                 label="Done"
+                size="12px"
             />
             </router-link>
           </q-stepper-navigation>
