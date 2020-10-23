@@ -43,7 +43,7 @@
                 class="q-px-xl q-py-xs"
                 rounded
                 color="red"
-                label="Close"
+                label="Exit"
                 size="12px"
             />
             </router-link>
