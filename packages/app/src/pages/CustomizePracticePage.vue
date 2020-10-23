@@ -35,10 +35,20 @@
         </q-step>
 
         <template v-slot:navigation>
-          <q-stepper-navigation class="justify-center">
+          <q-stepper-navigation class="flex justify-center q-gutter-sm">            
+            <router-link
+              to="/"
+            >
+            <q-btn
+                class=""
+                rounded
+                color="red"
+                label="Stop"
+            />
+            </router-link>
             <q-btn
               v-if="step < 3"
-              class="full-width"
+              class=""
               rounded
               @click="$refs.stepper.next()"
               color="primary"
@@ -48,12 +58,12 @@
               v-else
               to="/"
             >
-              <q-btn
-                class="full-width"
+            <q-btn
+                class=""
                 rounded
                 color="primary"
                 label="Done"
-              />
+            />
             </router-link>
           </q-stepper-navigation>
         </template>
