@@ -43,7 +43,7 @@
                 class=""
                 rounded
                 color="red"
-                label="Stop"
+                label="Close"
             />
             </router-link>
             <q-btn
