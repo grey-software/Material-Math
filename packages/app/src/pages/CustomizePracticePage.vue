@@ -35,25 +35,38 @@
         </q-step>
 
         <template v-slot:navigation>
-          <q-stepper-navigation class="justify-center">
+          <q-stepper-navigation class="flex justify-center q-gutter-sm">            
+            <router-link
+              to="/"
+            >
+            <q-btn
+                class="q-px-xl q-py-xs"
+                rounded
+                color="red"
+                label="Exit"
+                size="12px"
+            />
+            </router-link>
             <q-btn
               v-if="step < 3"
-              class="full-width"
+              class="q-px-xl q-py-xs"
               rounded
               @click="$refs.stepper.next()"
               color="primary"
               label="Next"
+              size="12px"
             />
             <router-link
               v-else
               to="/"
             >
-              <q-btn
-                class="full-width"
+            <q-btn
+                class="q-px-xl q-py-xs"
                 rounded
                 color="primary"
                 label="Done"
-              />
+                size="12px"
+            />
             </router-link>
           </q-stepper-navigation>
         </template>
