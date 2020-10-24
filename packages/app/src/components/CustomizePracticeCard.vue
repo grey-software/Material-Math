@@ -7,8 +7,13 @@
         size="20px"
         round
         text-color="#C4C4C4"
-        icon="mdi-pencil"
-      />
+        icon="settings"
+        tooltip="some text"
+      >
+      <q-tooltip anchor="center right" self="center left" :offset="[10, 10]" content-class="bg-primary" content-style="font-size: 16px">
+        Customize Practice Session
+      </q-tooltip>
+      </q-btn>
     </router-link>
     <!-- Header -->
     <div class="practice-customization-container column full-width">
