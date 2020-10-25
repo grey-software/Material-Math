@@ -6,9 +6,13 @@
         id="btn-customize-practice"
         size="20px"
         round
-        text-color="#C4C4C4"
-        icon="mdi-pencil"
-      />
+        text-color="white"
+        icon="settings"
+        >
+      <q-tooltip anchor="bottom middle" self="top middle" :offset="[10, 10]" content-class="bg-primary" content-style="font-size: 16px">
+        Customize Session
+      </q-tooltip>
+      </q-btn>
     </router-link>
     <!-- Header -->
     <div class="practice-customization-container column full-width">
@@ -186,7 +190,7 @@ export default {
 }
 #btn-customize-practice {
   z-index: 4;
-  color: gray !important;
+  color: #114489 !important;
 }
 
 .practice-customization {
