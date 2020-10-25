@@ -2,16 +2,15 @@
   <div class="container">
     <router-link id="customize-practice" to="/customize">
       <q-btn
-        color="white"
+        color="primary"
         id="btn-customize-practice"
         size="20px"
         round
-        text-color="#C4C4C4"
+        text-color="white"
         icon="settings"
-        tooltip="some text"
-      >
-      <q-tooltip anchor="center right" self="center left" :offset="[10, 10]" content-class="bg-primary" content-style="font-size: 16px">
-        Customize Practice Session
+        >
+      <q-tooltip anchor="bottom middle" self="top middle" :offset="[10, 10]" content-class="bg-primary" content-style="font-size: 16px">
+        Customize Session
       </q-tooltip>
       </q-btn>
     </router-link>
@@ -191,7 +190,7 @@ export default {
 }
 #btn-customize-practice {
   z-index: 4;
-  color: gray !important;
+  color: white !important;
 }
 
 .practice-customization {
