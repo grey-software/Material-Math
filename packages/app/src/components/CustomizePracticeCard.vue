@@ -2,7 +2,7 @@
   <div class="container">
     <router-link id="customize-practice" to="/customize">
       <q-btn
-        color="primary"
+        color="white"
         id="btn-customize-practice"
         size="20px"
         round
@@ -190,7 +190,7 @@ export default {
 }
 #btn-customize-practice {
   z-index: 4;
-  color: white !important;
+  color: #114489 !important;
 }
 
 .practice-customization {
