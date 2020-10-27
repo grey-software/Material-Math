@@ -8,7 +8,7 @@ const routes: RouteConfig[] = [
       { path: '', component: () => import('pages/HomePage.vue') },
       { path: 'practice', component: () => import('pages/PracticePage.vue') },
       { path: 'customize', component: () => import('pages/CustomizePracticePage.vue') },
-
+      { path: 'donate', component: () => import('pages/Donate.vue') },
     ]
   }
 ];
