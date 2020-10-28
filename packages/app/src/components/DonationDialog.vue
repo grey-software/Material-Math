@@ -3,7 +3,7 @@
     <q-dialog v-model="inDonation">
       <q-card class="donation-card">
         <q-card-section>
-          <h6>Thank you for donating! 💕</h6>
+          <h6 class="q-my-sm">Thank you for donating! 💕</h6>
           <span>Your donations help keep our work alive.</span>
           <span><br>All proceeds go to Grey Software.</span>
         </q-card-section>
