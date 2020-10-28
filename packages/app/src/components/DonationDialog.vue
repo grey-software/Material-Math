@@ -10,6 +10,7 @@
         <q-card-section>
           <div class="column items-center">
             <q-btn
+              rounded
               class="q-pa-xs q-ma-sm"
               icon="img:../statics/icons/paypal-28x28.png"
               label="Donate via Paypal"
@@ -18,6 +19,7 @@
               target="_blank"
             />
             <q-btn
+              rounded
               class="q-pa-xs q-ma-sm"
               icon="img:../statics/icons/opencollective-28x28.png"
               label="Support via OpenCollective"
@@ -26,6 +28,7 @@
               target="_blank"
             />
             <q-btn
+              rounded
               class="q-pa-xs q-ma-sm"
               icon="img:../statics/icons/github-28x28.png"
               label="Sponsor on GitHub"
@@ -37,7 +40,12 @@
         </q-card-section>
       </q-card>
     </q-dialog>
-    <q-btn label="Donate" icon="favorite" @click="open"/>
+    <q-btn
+      rounded
+      icon="mdi-charity"
+      label="Donate"
+      @click="open"
+    />
   </div>
 </template>
 
