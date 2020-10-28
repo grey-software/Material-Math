@@ -2,12 +2,9 @@
   <q-page class="mobile-container">
     <div class="config-header" />
     <div class="column full-viewport-height q-pb-lg">
-      <div class="row config-header-label">
-        <span class="q-mr-lg">Hello there!</span>
-        <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VEAGAZP7DHJNE&source=url"><button class="paypal-button" ><img
-            class="paypal-icon"
-            src="https://assets.codepen.io/853141/paypal.png"
-          />Donate</button></a>
+      <div class="column items-center config-header-label">
+        <span>Hello there!</span>
+        <donation-dialog/>
       </div>
       <div class="config-customize-practice row justify-center">
         <customize-practice-card />
@@ -30,6 +27,7 @@
 import ConceptPicker from "../components/ConceptPicker.vue";
 import CustomizePracticeCard from "../components/CustomizePracticeCard.vue";
 import ActionButton from "../components/ActionButton.vue";
+import DonationDialog from "../components/DonationDialog.vue"
 import { Operator } from "../engine/math_questions/expression/models";
 
 export default {
@@ -37,6 +35,13 @@ export default {
     ConceptPicker,
     ActionButton,
     CustomizePracticeCard,
+    DonationDialog,
+  },
+  methods: {
+    openDonationDialog () {
+      console.log(DonationDialog)
+      DonationDialog.methods.open()
+    },
   },
 };
 </script>
@@ -55,7 +60,6 @@ export default {
 .config-header-label {
   color: white;
   font-size: 32px;
-  left: 36px;
   font-family: "Montserrat", sans-serif;
   top: 24px;
   z-index: 1;
