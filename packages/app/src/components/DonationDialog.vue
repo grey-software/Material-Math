@@ -42,15 +42,20 @@
 </template>
 
 <script lang="ts">
+interface Dialog {
+  inDonation: boolean
+  open(): void
+}
+
 export default {
   name: 'donation-dialog',
   data () {
     return {
       inDonation: false,
-    }
+    } as Dialog
   },
   methods: {
-    open () {
+    open (this: Dialog) {
       this.inDonation = true
     },
   },
