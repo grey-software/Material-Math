@@ -37,12 +37,6 @@ export default {
     CustomizePracticeCard,
     DonationDialog,
   },
-  methods: {
-    openDonationDialog () {
-      console.log(DonationDialog)
-      DonationDialog.methods.open()
-    },
-  },
 };
 </script>
 
