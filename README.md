@@ -17,13 +17,13 @@ Material Math brings unlimited mental math practice in a fun, beautiful interfac
 This script installs the necessary dependencies for the app and docs packages.
 
 ```sh
-npm run setup
+yarn setup
 ```
 
 ## Running Material Math
 
 ```sh 
-npm run dev
+yarn dev
 ```
 
 ### The spiritual successor to Boltz
