@@ -86,6 +86,7 @@ export default Vue.extend({
   .container {
     width: 100%;
     min-height: 100vh;
+min-height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
     background-color: #114489;

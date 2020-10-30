@@ -77,7 +77,8 @@ export default {
 @media (max-width: 599px) {
   .mobile-container {
     width: 100%;
-    height: min-100vh;
+    min-height: 100vh;
+min-height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
