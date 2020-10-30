@@ -21,8 +21,8 @@
       <div class="practice-customization-columns row justify-evenly">
         <!-- Mode Descriptor -->
         <div class="practice-customization column justify-center items-center">
-          <q-icon v-if="isTimed" size="72px" class="icon-display-color q-mb-sm" name="alarm" large />
-          <q-icon v-else size="72px" class="icon-display-color q-mb-sm" name="help_outline" large />
+          <q-icon v-if="isTimed" size="72px" class="icon q-mb-sm" name="alarm" large />
+          <q-icon v-else size="72px" class="icon q-mb-sm" name="help_outline" large />
           <div class="practice-customization-label" v-if="isTimed">Timed Practice</div>
           <div class="practice-customization-label" v-else>Math Worksheet</div>
         </div>
@@ -30,11 +30,11 @@
         <div class="practice-customization column justify-center items-center">
           <div
             v-if="isTimed"
-            class="practice-customization-value icon-display-color q-mb-sm"
+            class="practice-customization-value icon q-mb-sm"
           >{{timeInMins}}</div>
           <div
             v-else
-            class="practice-customization-value icon-display-color q-mb-sm"
+            class="practice-customization-value icon q-mb-sm"
           >{{practiceQuestionCount}}</div>
           <div v-if="isTimed" class="practice-customization-label">Minutes</div>
           <div v-else class="practice-customization-label">Questions</div>
@@ -146,12 +146,12 @@ export default {
   border-radius: 32px;
   z-index: 2;
 }
-.icon-display-color {
+
+.icon {
   color: #114489;
-}
-.icon-display-fill-color {
   fill: #114489;
 }
+
 #customize-practice {
   position: relative;
   z-index: 3;
