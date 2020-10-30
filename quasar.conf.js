@@ -83,6 +83,30 @@ module.exports = configure(function (/* ctx */) {
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
       extendWebpack (cfg) {
+        /*
+         * deletes 'svg' from old url-loader regex rule
+         * old: /\.(png|jpe?g|gif|svg|webp|avif)(\?.*)?$/
+         * new: /\.(png|jpe?g|gif|webp|avif)(\?.*)?$/
+         */
+        cfg.module.rules = cfg.module.rules.map(rule => {
+          const regstr = rule.test.toString()
+          if (regstr.includes('svg')) {
+            const newReg = new RegExp(regstr
+              .replace('svg', '') // delete all svg mentions
+              .replace('||', '|') // delete extra '|' operators
+              .replace('(|', '(')
+              .replace('|)', ')')
+              .slice(1, -1) // remove surrounding '/' signs
+            )
+            return { ...rule, test: newReg }
+          } else {
+            return rule
+          }
+        })
+        cfg.module.rules.push({
+          test: /\.svg$/,
+          use: ['vue-loader', 'vue-svg-loader']
+        })
       },
     },
 
