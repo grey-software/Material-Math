@@ -41,53 +41,15 @@
         </div>
         <div class="practice-customization column justify-center">
           <div v-if="isBasic" class="flex column">
-            <svg
-              width="56"
-              height="77"
-              viewBox="0 0 56 32"
-              class="icon-display-fill-color"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect x="12" y="12" width="32" height="8" />
-              <rect x="12" y="12" width="32" height="8" />
-              <rect width="8" height="32" />
-              <rect x="48" width="8" height="32" />
-            </svg>
-
+            <BasicDiffIcon/>
             <div class="practice-customization-label">Basic</div>
           </div>
           <div v-if="isNormal" class="flex column">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="75"
-              height="77"
-              class="icon-display-fill-color"
-              viewBox="0 0 75 31"
-            >
-              <rect x="19.9082" y="10.4523" width="35.0853" height="9.95261" />
-              <rect x="9.38232" y="0.5" width="7.01706" height="29.8578" />
-              <rect x="0.926758" y="5.47617" width="7.01706" height="19.9052" />
-              <rect x="58.502" y="0.5" width="7.01706" height="29.8578" />
-              <rect x="67.5884" y="5.47617" width="7.01706" height="19.9052" />
-            </svg>
+            <NormalDiffIcon/>
             <div class="practice-customization-label">Normal</div>
           </div>
           <div v-if="isAdvanced" class="flex column">
-            <svg
-              width="91"
-              height="77"
-              class="icon-display-fill-color"
-              viewBox="0 0 91 31"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect x="27.2646" y="10.5" width="35" height="10" />
-              <rect x="17.4448" y="0.5" width="7" height="30" />
-              <path d="M83.2646 10.5H90.2817V20.4526H83.2646V10.5Z" />
-              <rect x="0.264648" y="10.5" width="7" height="10" />
-              <rect x="9.26465" y="5.5" width="7" height="20" />
-              <rect x="65.2646" y="0.5" width="7" height="30" />
-              <rect x="74.2646" y="5.5" width="7" height="20" />
-            </svg>
+            <AdvancedDiffIcon/>
             <div class="practice-customization-label">Advanced</div>
           </div>
         </div>
@@ -101,11 +63,20 @@ import { PracticeGetters, PracticeActions } from "../store/practice/practice";
 import { mapGetters, mapActions } from "vuex";
 import { PracticeMode, Difficulty } from "../engine/models/math_question";
 
+import BasicDiffIcon from "../assets/difficulty_icons/basic.svg"
+import NormalDiffIcon from "../assets/difficulty_icons/normal.svg"
+import AdvancedDiffIcon from "../assets/difficulty_icons/advanced.svg"
+
 export default {
   props: {
     icon: {
       default: null
     }
+  },
+  components: {
+    BasicDiffIcon,
+    NormalDiffIcon,
+    AdvancedDiffIcon,
   },
   computed: {
     ...mapGetters({

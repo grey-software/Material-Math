@@ -1,0 +1,15 @@
+<svg
+  width="91"
+  height="77"
+  class="icon-display-fill-color"
+  viewBox="0 0 91 31"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect x="27.2646" y="10.5" width="35" height="10" />
+  <rect x="17.4448" y="0.5" width="7" height="30" />
+  <path d="M83.2646 10.5H90.2817V20.4526H83.2646V10.5Z" />
+  <rect x="0.264648" y="10.5" width="7" height="10" />
+  <rect x="9.26465" y="5.5" width="7" height="20" />
+  <rect x="65.2646" y="0.5" width="7" height="30" />
+  <rect x="74.2646" y="5.5" width="7" height="20" />
+</svg>
