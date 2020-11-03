@@ -10,7 +10,7 @@
           />Donate</button></a>
       </div>
       <div class="config-customize-practice row justify-center">
-        <customize-practice-card />
+        <practice-card/>
       </div>
       <concept-picker />
       <q-space />
@@ -28,15 +28,15 @@
 
 <script lang="ts">
 import ConceptPicker from "../components/ConceptPicker.vue";
-import CustomizePracticeCard from "../components/CustomizePracticeCard.vue";
 import ActionButton from "../components/ActionButton.vue";
 import { Operator } from "../engine/math_questions/expression/models";
+import PracticeCard from "../components/PracticeCard.vue"
 
 export default {
   components: {
     ConceptPicker,
     ActionButton,
-    CustomizePracticeCard,
+    PracticeCard,
   },
 };
 </script>
@@ -63,7 +63,7 @@ export default {
 }
 
 .config-customize-practice {
-  margin-top: 42px;
+  padding-top: 50px;
   z-index: 1;
 }
 
@@ -83,6 +83,7 @@ export default {
     justify-content: space-between;
   }
 }
+
 .paypal-icon {
   height: 28px;
   margin-right: 8px;
