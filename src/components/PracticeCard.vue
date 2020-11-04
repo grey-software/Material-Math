@@ -42,15 +42,15 @@
     </div>
     <div class="col-auto">
       <template v-if="isBasic">
-        <BasicDiffIcon style="display:block"/>
+        <BasicIcon style="display:block"/>
         <div class="label">Basic</div>
       </template>
       <template v-if="isNormal">
-        <NormalDiffIcon style="display:block"/>
+        <NormalIcon style="display:block"/>
         <div class="label">Normal</div>
       </template>
       <template v-if="isAdvanced">
-        <AdvancedDiffIcon style="display:block"/>
+        <AdvancedIcon style="display:block"/>
         <div class="label">Advanced</div>
       </template>
     </div>
@@ -63,9 +63,9 @@ import { PracticeGetters, PracticeActions } from "../store/practice/practice";
 import { mapGetters, mapActions } from "vuex";
 import { PracticeMode, Difficulty } from "../engine/models/math_question";
 
-import BasicDiffIcon from "../assets/difficulty_icons/basic.svg"
-import NormalDiffIcon from "../assets/difficulty_icons/normal.svg"
-import AdvancedDiffIcon from "../assets/difficulty_icons/advanced.svg"
+import BasicIcon from "../assets/difficulty_icons/basic.svg"
+import NormalIcon from "../assets/difficulty_icons/normal.svg"
+import AdvancedIcon from "../assets/difficulty_icons/advanced.svg"
 
 export default {
   props: {
@@ -74,9 +74,9 @@ export default {
     }
   },
   components: {
-    BasicDiffIcon,
-    NormalDiffIcon,
-    AdvancedDiffIcon,
+    BasicIcon,
+    NormalIcon,
+    AdvancedIcon,
   },
   computed: {
     ...mapGetters({
