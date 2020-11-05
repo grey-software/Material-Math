@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-dialog v-model="inDonation">
-      <q-card class="donation-card">
+      <q-card id="this-card">
         <q-card-section>
           <h6 class="q-my-sm">Thank you for donating! 💕</h6>
           <span>This app was developed by Grey Software, a not-for-profit organization that empowers students to build open-source software for their communities and societies.</span>
@@ -71,33 +71,12 @@ export default {
 </script>
 
 <style>
+#this-card {
+  width: 100%;
+  max-width: 350px;
+}
+
 .donation-icon {
   margin-right: 8px;
-}
-
-.donation-button {
-  border-radius: 24px;
-  height: 48px;
-  border: 1px solid #003084;
-  outline: none;
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  color: #003084;
-  font-size: 20px;
-  background-color: white;
-  transition: all 0.3s ease-out;
-}
-
-.donation-button:hover {
-  cursor: pointer;
-  border: 1px solid #1ba0de;
-}
-
-.donation-button:active {
-  cursor: pointer;
-  border: 1px solid #1ba0de;
-  color: white;
-  background-color: #003084;
 }
 </style>
