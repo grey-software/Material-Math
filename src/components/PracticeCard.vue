@@ -1,5 +1,5 @@
 <template>
-<q-card id="this-card" class="q-pa-md">
+<q-card id="this-card">
   <q-btn
     id="customize-btn"
     color="white"
@@ -18,43 +18,47 @@
       Customize Session
     </q-tooltip>
   </q-btn>
-  <div class="header">Your Practice Session</div>
-  <div class="row justify-around no-wrap" id="content">
-    <div class="col-auto">
-      <template v-if="isTimed">
-        <q-icon size="72px" class="icon" name="alarm" large />
-        <div class="label">Timed Practice</div>
-      </template>
-      <template v-else>
-        <q-icon size="72px" class="icon" name="help_outline" large/>
-        <div class="label">Math Worksheet</div>
-      </template>
+  <q-card-section class="q-pb-none">
+    <div class="header">Your Practice Session</div>
+  </q-card-section>
+  <q-card-section>
+    <div class="row justify-around no-wrap" id="content">
+      <div class="col-auto">
+        <template v-if="isTimed">
+          <q-icon size="72px" class="icon" name="alarm" large />
+          <div class="label">Timed Practice</div>
+        </template>
+        <template v-else>
+          <q-icon size="72px" class="icon" name="help_outline" large/>
+          <div class="label">Math Worksheet</div>
+        </template>
+      </div>
+      <div class="col-auto">
+        <template v-if="isTimed">
+          <div class="icon">{{timeInMins}}</div>
+          <div class="label">Minutes</div>
+        </template>
+        <template v-else>
+          <div class="icon">{{practiceQuestionCount}}</div>
+          <div class="label">Questions</div>
+        </template>
+      </div>
+      <div class="col-auto">
+        <template v-if="isBasic">
+          <BasicIcon style="display:block"/>
+          <div class="label">Basic</div>
+        </template>
+        <template v-if="isNormal">
+          <NormalIcon style="display:block"/>
+          <div class="label">Normal</div>
+        </template>
+        <template v-if="isAdvanced">
+          <AdvancedIcon style="display:block"/>
+          <div class="label">Advanced</div>
+        </template>
+      </div>
     </div>
-    <div class="col-auto">
-      <template v-if="isTimed">
-        <div class="icon">{{timeInMins}}</div>
-        <div class="label">Minutes</div>
-      </template>
-      <template v-else>
-        <div class="icon">{{practiceQuestionCount}}</div>
-        <div class="label">Questions</div>
-      </template>
-    </div>
-    <div class="col-auto">
-      <template v-if="isBasic">
-        <BasicIcon style="display:block"/>
-        <div class="label">Basic</div>
-      </template>
-      <template v-if="isNormal">
-        <NormalIcon style="display:block"/>
-        <div class="label">Normal</div>
-      </template>
-      <template v-if="isAdvanced">
-        <AdvancedIcon style="display:block"/>
-        <div class="label">Advanced</div>
-      </template>
-    </div>
-  </div>
+  </q-card-section>
 </q-card>
 </template>
 
@@ -111,19 +115,19 @@ export default {
 
 <style scoped>
 #this-card {
-  width: 84%;
-  max-width: 420px;
+  width: 85%;
+  max-width: 320px;
   height: auto;
   border-radius: 32px;
   line-height: 1;
+  align-content: flex-start;
 }
 
 #customize-btn {
-  position: relative;
+  position: absolute;
+  left: 90%;
+  top: -20%;
   z-index: 4;
-  float: right;
-  top: -40px;
-  right: -40px;
   color: #114489 !important;
 }
 
@@ -151,7 +155,6 @@ export default {
   width: 72px;
   height: 72px;
   font-size: 72px;
-  line-height: 1;
   color: #114489;
   fill: #114489;
 }
