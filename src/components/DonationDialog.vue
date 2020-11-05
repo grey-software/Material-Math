@@ -12,7 +12,7 @@
             <q-btn
               rounded
               class="q-pa-xs q-ma-sm"
-              icon="img:../statics/icons/paypal-28x28.png"
+              icon="img:/icons/paypal-28x28.png"
               label="Donate via Paypal"
               type="a"
               href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VEAGAZP7DHJNE&source=url"
@@ -21,7 +21,7 @@
             <q-btn
               rounded
               class="q-pa-xs q-ma-sm"
-              icon="img:../statics/icons/opencollective-28x28.png"
+              icon="img:/icons/opencollective-28x28.png"
               label="Support via OpenCollective"
               type="a"
               href="https://opencollective.com/grey-software"
@@ -30,7 +30,7 @@
             <q-btn
               rounded
               class="q-pa-xs q-ma-sm"
-              icon="img:../statics/icons/github-28x28.png"
+              icon="img:/icons/github-28x28.png"
               label="Sponsor on GitHub"
               type="a"
               href="https://github.com/sponsors/grey-software"
