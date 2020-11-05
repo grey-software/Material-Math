@@ -10,7 +10,7 @@
           />Donate</button></a>
       </div>
       <div style="margin:30px"/>
-      <practice-card class="self-center"/>
+      <customize-practice-card class="self-center"/>
       <concept-picker />
       <q-space />
       <div class="row justify-center">
@@ -29,13 +29,13 @@
 import ConceptPicker from "../components/ConceptPicker.vue";
 import ActionButton from "../components/ActionButton.vue";
 import { Operator } from "../engine/math_questions/expression/models";
-import PracticeCard from "../components/PracticeCard.vue"
+import CustomizePracticeCard from "../components/CustomizePracticeCard.vue"
 
 export default {
   components: {
     ConceptPicker,
     ActionButton,
-    PracticeCard,
+    CustomizePracticeCard,
   },
 };
 </script>
