@@ -67,9 +67,9 @@ import { PracticeGetters, PracticeActions } from "../store/practice/practice";
 import { mapGetters, mapActions } from "vuex";
 import { PracticeMode, Difficulty } from "../engine/models/math_question";
 
-import BasicIcon from "../assets/difficulty_icons/basic.svg"
-import NormalIcon from "../assets/difficulty_icons/normal.svg"
-import AdvancedIcon from "../assets/difficulty_icons/advanced.svg"
+import BasicIcon from "../assets/difficulty-icons/basic.svg"
+import NormalIcon from "../assets/difficulty-icons/normal.svg"
+import AdvancedIcon from "../assets/difficulty-icons/advanced.svg"
 
 export default {
   props: {
