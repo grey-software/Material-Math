@@ -9,9 +9,8 @@
             src="https://assets.codepen.io/853141/paypal.png"
           />Donate</button></a>
       </div>
-      <div class="config-customize-practice row justify-center">
-        <practice-card/>
-      </div>
+      <div style="margin:30px"/>
+      <practice-card class="self-center"/>
       <concept-picker />
       <q-space />
       <div class="row justify-center">
@@ -60,11 +59,6 @@ export default {
   top: 24px;
   z-index: 1;
   position: relative;
-}
-
-.config-customize-practice {
-  padding-top: 50px;
-  z-index: 1;
 }
 
 .mobile-container {
