@@ -7,8 +7,9 @@
           <span>This app was developed by Grey Software, a not-for-profit organization that empowers students to build open-source software for their communities and societies.</span>
           <span><br>You can support us as we envision and build the software ecosystem of the future by sponsoring us below.</span>
         </q-card-section>
+        <q-separator/>
         <q-card-section>
-          <div class="column items-center">
+          <q-card-actions vertical>
             <q-btn
               rounded
               class="q-pa-xs q-ma-sm"
@@ -36,7 +37,7 @@
               href="https://github.com/sponsors/grey-software"
               target="_blank"
             />
-          </div>
+          </q-card-actions>
         </q-card-section>
       </q-card>
     </q-dialog>
