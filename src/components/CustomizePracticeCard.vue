@@ -72,11 +72,6 @@ import NormalIcon from "../assets/difficulty-icons/normal.svg"
 import AdvancedIcon from "../assets/difficulty-icons/advanced.svg"
 
 export default {
-  props: {
-    icon: {
-      default: null
-    }
-  },
   components: {
     BasicIcon,
     NormalIcon,
