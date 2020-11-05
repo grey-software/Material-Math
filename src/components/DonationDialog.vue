@@ -4,8 +4,8 @@
       <q-card class="donation-card">
         <q-card-section>
           <h6 class="q-my-sm">Thank you for donating! 💕</h6>
-          <span>Your donations help keep our work alive.</span>
-          <span><br>All proceeds go to Grey Software.</span>
+          <span>This app was developed by Grey Software, a not-for-profit organization that empowers students to build open-source software for their communities and societies.</span>
+          <span><br>You can support us as we envision and build the software ecosystem of the future by sponsoring us below.</span>
         </q-card-section>
         <q-card-section>
           <div class="column items-center">
