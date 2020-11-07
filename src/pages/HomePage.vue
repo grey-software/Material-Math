@@ -1,23 +1,17 @@
 <template>
   <q-page class="mobile-container">
-    <div class="config-header" />
+    <div class="home-bubble" />
     <div class="column full-viewport-height q-pb-lg">
-      <div class="row config-header-label">
-        <span class="q-mr-lg">Hello there!</span>
-        <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VEAGAZP7DHJNE&source=url"><button class="paypal-button" ><img
-            class="paypal-icon"
-            src="https://assets.codepen.io/853141/paypal.png"
-          />Donate</button></a>
+      <div class="home-header row items-center justify-between">
+        <span class="config-header-label">Hello there!</span>
+        <donation-dialog />
       </div>
       <div style="margin:30px"/>
       <customize-practice-card class="self-center"/>
       <concept-picker />
       <q-space />
       <div class="row justify-center">
-        <router-link
-          style="q-mt-lg"
-          to="/practice"
-        >
+        <router-link style="q-mt-lg" to="/practice">
           <action-button label="Play" icon="mdi-play-circle-outline" />
         </router-link>
       </div>
@@ -28,6 +22,7 @@
 <script lang="ts">
 import ConceptPicker from "../components/ConceptPicker.vue";
 import ActionButton from "../components/ActionButton.vue";
+import DonationDialog from "../components/DonationDialog.vue";
 import { Operator } from "../engine/math_questions/expression/models";
 import CustomizePracticeCard from "../components/CustomizePracticeCard.vue"
 
@@ -36,12 +31,13 @@ export default {
     ConceptPicker,
     ActionButton,
     CustomizePracticeCard,
+    DonationDialog,
   },
 };
 </script>
 
 <style>
-.config-header {
+.home-bubble {
   width: 140%;
   height: 384px;
   background: linear-gradient(0deg, #2f80ed, #2f80ed), #2f80ed;
@@ -51,14 +47,20 @@ export default {
   margin-left: -20%;
 }
 
-.config-header-label {
+.home-header {
+  padding: 6% 8% 0 8%;
   color: white;
+}
+
+.config-header-label {
   font-size: 32px;
-  left: 36px;
   font-family: "Montserrat", sans-serif;
-  top: 24px;
   z-index: 1;
-  position: relative;
+}
+
+.config-customize-practice {
+  margin-top: 32px;
+  z-index: 1;
 }
 
 .mobile-container {
