@@ -116,6 +116,7 @@ export default {
   border-radius: 32px;
   line-height: 1;
   align-content: flex-start;
+  padding: 12px;
 }
 
 #customize-btn {

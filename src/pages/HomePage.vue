@@ -6,7 +6,6 @@
         <span class="config-header-label">Hello there!</span>
         <donation-dialog />
       </div>
-      <div style="margin:30px"/>
       <customize-practice-card class="self-center"/>
       <concept-picker />
       <q-space />
@@ -48,18 +47,14 @@ export default {
 }
 
 .home-header {
-  padding: 6% 8% 0 8%;
+  padding: 6% 10% 0 10%;
   color: white;
+  margin-bottom: 36px;
 }
 
 .config-header-label {
   font-size: 32px;
   font-family: "Montserrat", sans-serif;
-  z-index: 1;
-}
-
-.config-customize-practice {
-  margin-top: 32px;
   z-index: 1;
 }
 
@@ -78,36 +73,5 @@ export default {
     flex-direction: column;
     justify-content: space-between;
   }
-}
-
-.paypal-icon {
-  height: 28px;
-  margin-right: 8px;
-}
-
-.paypal-button {
-  border-radius: 24px;
-  height: 48px;
-  border: 1px solid #003084;
-  outline: none;
-  display: flex;
-  align-items: center;
-  padding: 2px 20px;
-  color: #003084;
-  font-size: 20px;
-  background-color: white;
-  transition: all 0.3s ease-out;
-}
-
-.paypal-button:hover {
-  cursor: pointer;
-  border: 1px solid #1ba0de;
-}
-
-.paypal-button:active {
-  cursor: pointer;
-  border: 1px solid #1ba0de;
-  color: white;
-  background-color: #003084;
 }
 </style>
