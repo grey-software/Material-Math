@@ -6,9 +6,7 @@
         <span class="config-header-label">Hello there!</span>
         <donation-dialog />
       </div>
-      <div class="config-customize-practice row justify-center">
-        <customize-practice-card />
-      </div>
+      <customize-practice-card class="self-center"/>
       <concept-picker />
       <q-space />
       <div class="row justify-center">
@@ -22,10 +20,10 @@
 
 <script lang="ts">
 import ConceptPicker from "../components/ConceptPicker.vue";
-import CustomizePracticeCard from "../components/CustomizePracticeCard.vue";
 import ActionButton from "../components/ActionButton.vue";
 import DonationDialog from "../components/DonationDialog.vue";
 import { Operator } from "../engine/math_questions/expression/models";
+import CustomizePracticeCard from "../components/CustomizePracticeCard.vue"
 
 export default {
   components: {
@@ -49,18 +47,14 @@ export default {
 }
 
 .home-header {
-  padding: 6% 8% 0 8%;
+  padding: 6% 10% 0 10%;
   color: white;
+  margin-bottom: 36px;
 }
 
 .config-header-label {
   font-size: 32px;
   font-family: "Montserrat", sans-serif;
-  z-index: 1;
-}
-
-.config-customize-practice {
-  margin-top: 32px;
   z-index: 1;
 }
 
