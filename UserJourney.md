@@ -1,3 +1,15 @@
+# Personas 
+
+**As a math enthusiast, I want to be able to practice mental math in a fun interface.**
+
+**As a student who isn't allowed to use a calculator in tests and exams, I'd like to improve my mental math to spend less time on computation.**
+
+I am busy with other school work and I would like to be reminded in a systematic manner to practice daily/at an interval of my choosing. 
+
+**As a parent of a young learner, I would like to equip my child with mental math ability in an encouraging, fun environment.**
+
+**As a competitive person, I'd like to be able to compete in the arena of mental math.**
+
 # User Journey
 
 I enter the app, and I’m presented with a beautiful splash screen. On the home page, I can select the concepts I want to practice, the time I’d like to practice for, and the difficulty I want to set for each concept. 
@@ -31,3 +43,11 @@ After the game ends, I see a screen that compares my current score with the high
 If I’m online, I see my score’s rank in the leaderboards, and I can restart with one click. 
 
 There’s a button to send my config to my friend and challenge them to beat my high score.
+
+# Questions to Address
+
+## How do we ensure this remains fun and engaging?
+
+- Add streaks during the practice session 
+- Add XP popups like Boltz
+- Add fun Lottie animations when there are correct answers
