@@ -1,8 +1,8 @@
-<p align="center">
+<div align="center">
   <a href="https://www.material-math.grey.software" target="_blank">
     <img alt="Material Math Icon" width="100" src="https://github.com/grey-software/Material-Math/raw/master/logo.png">
   </a>
-</p>
+</div>
 
 # Material Math
 
