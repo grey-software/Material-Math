@@ -11,6 +11,10 @@
 
 Material Math brings unlimited mental math practice in a fun, beautiful interface to the web!
 
+## Status
+
+This project is currently on standby.
+
 
 ## Development setup
 
