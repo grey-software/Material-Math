@@ -1,6 +1,6 @@
 {
   "name": "material-math",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "Practice Math problems in a fun, beautiful, material experience!",
   "productName": "Material Math",
   "cordovaId": "software.grey.materialmath",
